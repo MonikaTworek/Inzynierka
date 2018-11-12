@@ -1,0 +1,173 @@
+% \documentclass{report}
+\documentclass{pwr}
+\usepackage[utf8]{inputenc}
+% \usepackage[a4paper, total={6in, 9in}]{geometry}
+\usepackage{graphicx}
+
+\usepackage[numbib,notlof,notlot,nottoc]{tocbibind}
+
+\hyphenation{non-tran-sfer-a-bi-li-ty}
+
+\usepackage{enumitem}
+\usepackage{url}
+\usepackage{array}
+\usepackage{dashbox}
+\usepackage{hyperref}
+
+\usepackage{float}
+
+% Font and styles
+\usepackage{tgbonum}
+
+
+% definitions
+\usepackage{ntheorem}
+% \usepackage{amsthm}
+\theoremstyle{break}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{proof}{Proof}
+\newtheorem*{corollary}{Corollary}
+\newtheorem{assumption}{Assumption}[section]
+\newtheorem*{example}{Example}
+\newtheorem*{remark}{Remark}
+\newtheorem*{requirement}{Requirement}
+
+% Cryptocode latex package 
+\usepackage[
+	lambda,
+	operators,
+	advantage,
+	sets,
+	adversary,
+	landau,
+	probability,
+	notions,	
+	logic,
+	ff,
+	mm,
+	primitives,
+	events,
+	complexity,
+	asymptotics,
+	keys]{cryptocode}
+\usepackage{dashbox}
+
+% Own definitions
+\newcommand{\Group}{\ensuremath{\mathbb{G}}}
+\newcommand{\setup}{\ensuremath{\mathcal{G}}}
+\newcommand{\gen}{\pcalgostyle{Gen}}
+\newcommand{\Setup}{\pcalgostyle{Setup}}
+\newcommand{\commit}{\mathcal{C}}
+\newcommand{\com}{\pcalgostyle{com}}
+
+
+\renewcommand{\kgen}{\pcalgostyle{KeyGen}}
+\renewcommand{\sig}{\pcalgostyle{Sign}}
+\renewcommand{\verify}{\pcalgostyle{Verify}}
+
+\renewcommand{\hash}{\ensuremath{\mathcal{H}}}
+\renewcommand{\pcfalse}{\ensuremath{\mathbf{False}}}
+\renewcommand{\pctrue}{\ensuremath{\mathbf{True}}}
+
+
+\title{Pairing-based Credential System (PbCS) \\ from theory to practice}
+\author{Adam Bobowski}
+\date{May 2018 or never}
+
+\frontmatter
+\begin{document}
+\sloppy
+
+\begin{titlingpage}
+	\vspace*{\fill}
+	\begin{center}
+		\begin{picture}(300,510)
+			\put(11,520){\makebox(0,0)[l]{\large \textsc{Faculty of Fundamental Problems of Technology}}}
+			\put(11,500){\makebox(0,0)[l]{\large \textsc{Wrocław University of Science and Technology}}} % Tytuł pracy
+			\put(70,320){\scshape\huge Efficient Algebraic Structures}
+			\put(70,295){\scshape\huge for Cryptographic Applications}
+			\put(70,265){\scshape\large Case study}
+			\put(70,250){\scshape\large Pairing-based Credential System (CreS)}
+			\put(70,235){\scshape\large from theory to practice}
+% 			\put(80,280){\Huge \textsc{pisania pracy}}
+% 			\put(80,240){\Huge \textsc{dyplomowej}} % Autor pracy
+			\put(90,200){\makebox(0,0)[l]{\large \textsc{Adam Bobowski}}}
+% 			\put(90,180){\makebox(0,0)[l]{\large \textsc{Nr indeksu: 123456}}}
+			
+			\put(200,100){\makebox(0,0)[l]{\large \textbf{Master's Thesis}}}
+			\put(200,80){\makebox(0,0)[l]{Advisor:}} % dane promotora
+			\put(200,65){\makebox(0,0)[l]{ Prof. D.Phil. hab. Mirosław Kutyłowski}}
+			\put(200,40){\makebox(0,0)[l]{Assistant Advisor:}} % dane promotora
+			\put(200,25){\makebox(0,0)[l]{ M.Eng. Marcin Słowik}}
+			
+			\put(115,-70){\includegraphics[width=0.15\textwidth]{pwr/pwr2}}
+			\put(106,-80){\makebox(0,0)[bl]{\large \textsc{Wrocław 2018}}}
+		\end{picture}
+	\end{center}	
+	\vspace*{\fill}
+\end{titlingpage}
+
+\pagestyle{tableOfContentStyle}
+
+\cleardoublepage
+
+
+% ---------- Abstract ----------
+\input{chapters/0-abstract.tex}
+\cleardoublepage
+
+
+% ---------- Spis ---------- 
+\pagenumbering{Roman}
+\pagestyle{tableOfContentStyle}
+\tableofcontents
+\cleardoublepage
+
+% ---------- Main ---------- 
+\pagestyle{pwr}
+\mainmatter
+
+
+\fancypagestyle{plain}{}
+
+\pagestyle{tableOfContentStyle}
+\part{Theory}
+\cleardoublepage
+
+\pagestyle{pwr}
+\input{chapters/1-introduction.tex}
+\cleardoublepage
+\input{chapters/2-preliminaries.tex}
+\cleardoublepage
+\input{chapters/3-model.tex}
+
+
+\pagestyle{tableOfContentStyle}
+\part{Practice}
+\cleardoublepage
+
+\pagestyle{pwr}
+\input{chapters/4-technical.tex}
+\cleardoublepage
+\input{chapters/5-implementation.tex}
+\cleardoublepage
+\input{chapters/6-summary.tex}
+\cleardoublepage
+
+% \appendix
+% \input{chapters/elliptic.tex}
+
+
+
+\pagestyle{tableOfContentStyle}
+\fancypagestyle{plain}{}
+\bibliographystyle{unsrt}
+\bibliography{bibliography}
+% \thispagestyle{chapterBeginStyle}
+% \addcontentsline{toc}{chapter}{Bibliography}
+
+\cleardoublepage
+
+\end{document}
+

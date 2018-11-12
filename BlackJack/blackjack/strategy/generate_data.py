@@ -1,0 +1,1 @@
+#Wywołanie tego maina spowoduje utworzenie plików z danymi do analizy

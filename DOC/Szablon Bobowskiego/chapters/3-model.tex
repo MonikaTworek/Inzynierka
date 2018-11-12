@@ -1,0 +1,402 @@
+\chapter{Credential System Protocols}
+\thispagestyle{chapterBeginStyle}
+
+\section{Solution}
+Or design of Credential System aims to be possibly computationally efficient. We focus on the construction based on elliptic cures with bilinear pairings instead of the earlier work of Camenisch and Lysyanskaya \cite{anoncreds-rsa} which was based on the RSA assumption that is rather computationally expensive.
+
+We use Anonymous Credential from Bilinear Maps by Camenisch and Lysyanskaya \cite{anon-creds-cl04} as the backbone for out design. We also decided to opt for the more efficient verification protocol introduced by Słowik and Wszoła \cite{slowik-efficient-cl-lrsw} due to its computational cost reduction on client side of protocol. In last section we present construction by Bobowski and Słowik \cite{complexity-reduction-bobowski}, that efficiently reduces computational cost of verification even further by reducing number of required pairing operations.
+
+We will omit the proofs of security of those protocols and refer to the original papers. We will focus and extend the analysis that is focused on possible practical applications for the credential system design. 
+
+\begin{remark}[Credential System]
+Credential system, as stated by Camenisch and Lysyanskaya \cite{signature-scheme-with-efficient-protocols}, is sufficient to exhibit a commitment scheme, a signature scheme, and efficient protocols for:
+\begin{itemize}
+    \item proving equality of two committed values,
+    \item signing a committed value (without revealing this value to the signer), and
+    \item proving the knowledge of a signature on a committed value.
+\end{itemize}
+\end{remark}
+
+
+\section{Background Security Assumptions}
+For the model of credential system we assume that:
+\begin{itemize}
+    \item the security of transport layer for the exchanged messages, and
+    \item existence of some PKI, in the most general form, for the certificate verification.
+    \item \textit{(optional) in case of pseudonymous system, we assume that the protocols of establishing a pseudonym (understood as set of attributes with domain private key) exists. }
+\end{itemize}
+We do not consider here which protocols and schemes achieve those requirements, we operate on higher level of abstraction.
+
+
+% \section{Commitment Schemes}
+
+% \begin{definition}[Exponent Commitment Scheme]
+% Let $G \in \Group$. The commitmer commits himself to an $s \in \ZZ_q$ by computing
+% $$ C = [s]G $$
+% Such commitment can later be opened by revealing $s$. $C$ reveals no information about $s$, and the commiter cannot open a commitment to $s$ as $s' \neq s$. It is hiding and binding under discrete logarithm assumption.
+% \end{definition}
+
+% \begin{definition}[Pedersen Commitment Scheme \cite{pedersen-commitment}]
+% Let $H, G \in \Group$ such that nobody knows $\log_G(H)$ or $\log_H(G)$. The committer commits himself to an $s \in \ZZ_q$ by choosing $t \in \ZZ_q$ at random and computing
+% $$ C = [t]H + [s]G$$
+% Such commitment can later be opened by reveling $s$ and $t$. $C$ reveals no information about $s$, and the committer cannot open a commitment to $s$ as $s' \neq s$ unless he knows $\log_G(H)$ or $\log_H(G)$. For any $s \in \ZZ_q$ and for randomly uniformly chosen $t \in \ZZ_q$, $C$ is uniformly distributed in $\Group$. It is information-theoretically hiding, and is binding under discrete logarithm assumption.
+% \end{definition}
+
+% \begin{definition}[Sum Commitment Scheme]
+% Sum commitment scheme is a natural extension of Pedersen commietment scheme. \newline
+% Let $(G_0, G_1, \dots G_n) \in \Group$ such that nobody knows $\log_{G_i}(G_j)$ for any $i, j \in \set{0, \dots n}$. The committer commits himself to $\set{s_i} \in \ZZ_q^n$ by choosing $t \in \ZZ_q$ at random and computing
+% $$ \textstyle C = [t]G_0 + \sum_{i=1}^n [s_i]G_i $$
+% Such commitment can later be opened by reveling $\set{s_i}$ and $t$. $C$ reveals no information about $\set{s_i}$, and the committer cannot open a commitment to $\set{s_i}$ as $\set{s'_i} \neq \set{s_i}$ unless he knows any $\log_{G_i}(G_j)$. For any $\set{s_i} \in \ZZ_q^n$ and for randomly uniformly chosen $t \in \ZZ_q$, $C$ is uniformly distributed in $\Group$. It is information-theoretically hiding, and is binding under discrete logarithm assumption.
+% \end{definition}
+
+% \begin{remark}[ZKP for Committments]
+% Note that for presented commitments we can easily construct the Zero-knowledge proof of knowledge by employing the Okamoto-Schnorr protocol.
+% \end{remark}
+
+% \begin{remark}[Information-Theoretically Hiding]
+% The key difference between Pedersen and Exponent commitment schemes is in information-theoretically hiding property.
+% It can be intuitively understood as the problem of linking committed values between different protocol executions. In Pederson such linking is infeasable because there are $q$ possible commitments $C$ for the same $s$ and each with the same probability, where exponent commitment is always the same.
+% \end{remark}
+
+\section{Signature Scheme}
+We now present construction of CL-LRSW randomizable signatures (figure \ref{fig:cl-lrsw}) presented by Camenisch and Lysyanskaya \cite{anon-creds-cl04}. The signatures are based on LRSW Assumption \cite{pseudonym-systems}. We consider the asymmetric pairing and for notation clarity all variables are implicitly from $\Group_1$, unless other wise stated in the variable index. 
+
+
+\begin{figure}[htp]
+\centering
+
+\begin{pcvstack}
+
+\begin{pchstack}
+\procedure[linenumbering, width=7cm]{$\Setup(\secpar)$:}{%
+  \text{$(q, \Group_1, \Group_2, \Group_T, e) \gets \setup(\secparam)$}  \\
+  \pcreturn (q, \Group_1, \Group_2, \Group_T, e)
+}
+
+\pchspace
+
+\procedure[linenumbering, width=7cm]{$\kgen(l)$:}{%
+  (x, y, z_1, \dots, z_l) \sample \ZZ_q^{l+2} \\
+  X^{(2)} := [x]G_2 \\
+  Y^{(2)} := [y]G_2 \\
+  Z^{(2)}_i := [z_i]G_2 \quad i \in \set{1, \dots l}\\
+  Z_i := [z_i]G_1 \quad i \in \set{1, \dots l}\\
+  \sk := (x, y, z_1, \dots, z_l) \\
+  \pk := (X^{(2)}, Y^{(2)}, Z^{(2)}_1, \dots Z^{(2)}_l, Z_1, \dots Z_l) \\
+  \pcreturn (\sk, \pk)
+}
+\end{pchstack}
+
+\pcvspace
+
+\begin{pchstack}
+\procedure[linenumbering, width=7cm]{$\sig_\sk((m_0, \dots m_l) \in \ZZ_q^{l+1})$:}{%
+  \sk = (x, y, z_1, \dots z_l) \\
+  A_0 \sample \Group_1 \\
+  B_0 := [y]A_0 \\
+  \pcfor i \in \set{1, \dots l} \pcdo \\
+  \pcind A_i := [z_i]A_0 \\
+  \pcind B_i := [z_i]B_0 \\
+  C := [x]A_0 + \textstyle \sum_{i=0}^l [xym_i]A_i \\
+  \sigma := (A_0, \dots A_l, B_0, \dots B_l, C) \\
+  \pcreturn \sigma
+}
+
+\pchspace
+
+\procedure[linenumbering, width=7cm]{$\sig_\sk(M \in \Group)$:}{%
+  \sk = (x, y, z_1, \dots z_l) \\
+  \alpha \sample \ZZ_q \\
+  A_0 := [\alpha]G_1 \\
+  B_0 := [y]A_0 \\
+  \pcfor i \in \set{1, \dots l} \pcdo \\
+  \pcind A_i := [z_i]A_0 \\
+  \pcind B_i := [z_i]B_0 \\
+  C := [x]A_0 + [\alpha xy]M \\
+  \sigma := (A_0, \dots A_l, B_0, \dots B_l, C) \\
+  \pcreturn \sigma
+}
+\end{pchstack}
+
+\pcvspace
+
+\procedure[linenumbering, width=9cm]{$\verify(\sigma, (m_0, \dots, m_l) \in \ZZ_q^{l+1})$:}{%
+  \pk = (X^{(2)}, Y^{(2)}, Z^{(2)}_1, \dots Z^{(2)}_l, Z_1, \dots Z_l) \\
+  \sigma = (A_0, \dots A_l, B_0, \dots B_l, C) \\
+  \pcif e(A_0, Y^{(2)}) \neq e(B_0, G_2) \pcthen \\
+  \pcind \pcreturn \pcfalse \\
+  \pcfor i \in \set{1, \dots l} \pcdo \\
+  \pcind \pcif e(A_0, Z^{(2)}_i) \neq e(A_i, G_2) \pcthen \\
+  \pcind \pcind \pcreturn \pcfalse \\
+  \pcind \pcif e(A_i, Y^{(2)}) \neq e(B_i, G_2) \pcthen \\
+  \pcind \pcind \pcreturn \pcfalse \\
+  \pcreturn e(C, G_2) \stackrel{?}{=} e(A_0, X^{(2)}) \textstyle \prod_{i=0}^l e([m_i]B_i, X^{(2)})
+}
+
+\end{pcvstack}
+
+\caption{CL-LRSW signature algorithms}
+\label{fig:cl-lrsw}
+\end{figure}
+
+Presented scheme has many useful (for credential system) properties. This scheme allows to:
+\begin{itemize}
+  \item sign $l+1$ messages into one batch,
+  \item obtain signature on hidden values $(\sig_\sk(M \in \Group))$,
+  \item re-randomize the signature for each presentation,
+  \item proof validity of signature without revealing hidden values in the interactive protocol, and
+  \item create signature such that even computationally unbound issuer cannot learn the values (thanks to Pedersen commitment scheme).
+\end{itemize}
+
+
+\begin{remark}[Flexibility of Commitment Composition]
+Let us denote $Z_0 = G$, then the commitment $M$ can be represented as
+$$ M = \textstyle \sum_{i=0}^l [m_i]Z_i $$
+Let us consider multiple scenarios of calculating this sum between the user and issuer.
+\begin{itemize}
+    \item \textbf{Open}
+    
+    User sends $m = \set{m_i}$ messages in plain-text to the issuer, then issuer can calculate the sum on its side $ M = \sum_{i=0}^l [m_i]Z_i $.
+    \item \textbf{Exponent}
+    
+    User sends $M_i = \set{[m_i]Z_i}$. Issuer: $M = \sum_{i=0}^l M_i$.
+    \item \textbf{Pedersen}
+    
+    User sends $M_i = \set{[r_i]G + [m_i]Z_i}$ for $i \in \set{1, \dots l}$, where $r_i \sample \ZZ_q$. Issuer combines $M = \sum_{i=0}^l M_i$ (Note that if we define $m_0 = \sum_{i=1}^l r_i$ then the scheme closely resembles the Vector commitment, but user still has to remember all $r_i$).
+    \item \textbf{Vector}
+    
+    User calculates $ M = \sum_{i=0}^l [m_i]Z_i $ (Note, that if information-theoretically hiding is desired, at least one of $\set{m_i}$ messages has to be a random value). Issuer does nothing.
+\end{itemize}
+\end{remark}
+% We are not bound to calculate the sum in only one of presented ways, we can combine those based on the needs and requirements. For example, when buying a beer the date of birth can be send in Pedersen commitment and other attributes (e.g. domain keys) will be sent in sum. This issuer's required commitments can be described as set $\set{\text{pedersen}, \text{sum}}$. 
+
+% \begin{remark}[Information-Theoretically Hiding Commitment]
+% In the theory part of this document we do not consider every case of possible usage, but rather describe what should be done to achieve certain properties. That is, if one wants to obtain theoretically-hiding property of commitment in the Pedersen Vector commitment, one has to add the randomizing message (e.g. $m_0 \sample \ZZ_q$).
+% \end{remark}
+
+
+\begin{corollary}[Generalized Commitment Composition]
+Let $\set{Z_i}_{i=0}^l$ denote public key of the issuer, where $Z_0 = G$.
+Let $\set{m_i}$ be the set of $l + 1$ messages, $v, p, e, o$ are sets of indices $(v \cup p \cup e \cup o = \set{0, \dots l})$ that are to be committed in vector, pedersen, exponent and open commitment. The combined calculations of message commitment can be calculates as follows.
+
+\begin{figure}[H]
+\centering
+\procedure{}{%
+  \textbf{User} \< \< \textbf{Issuer}\\
+  \textstyle V = \sum_{i \in v} [m_i]Z_i\< \< \\
+  P = \set{[r_i]G + [m_i]Z_i}_{i \in p} \quad r_i \sample \ZZ_q \< \< \\
+  E = \set{[m_i]Z_i}_{i \in e} \< \< \\
+  O = \set{m_i}_{i \in o} \< \< \\
+  \< \sendmessageright*[3.5cm]{v, V, p, P, e, E, o, O} \< \\
+  \< \< \textstyle M = V + \sum P + \sum E + \sum_{i \in o} [O_i]Z_i \\
+}
+\caption{Generalized Commitment Composition}
+\label{proto:generalized-commitment-composition}
+\end{figure}
+\end{corollary}
+
+\begin{remark}[Issuer-Dependent ZKP on Commitments]
+Division of $M$ into separate commitments and plain-text messages allows to construct the issuer-dependent zero-knowledge proofs of knowledge on chosen attributes, e.g. perform range proof for numerical values (Range proofs \cite{bulletproofs}). Here we only acknowledge the possibility and leave the design of such extensions for future work.
+\end{remark}
+
+Though the division of commitment $M$ into $(V, P, E, O)$ has its benefits, in following sections we will assume that only Pedersen Vector commitment is used for all values (represented as $M$). We hope that such a shortcut will result in more compact description of theory of the system, and previously presented constructions will give proper intuition of how to possibly employ other commitment schemes.
+
+% \section{Attributes List Convention}
+% Because the attributes list differs from issuer to issuer there emerges the need to somehow organize the structure of set $\set{m_i}$. In this, theoretical part, we will only give the overview (an intuition). The more structured and practical approach to attributes organization will be found in practical part of the document.
+
+% \begin{assumption}[Knowledge of Attributes List]
+% We assume that the user has the list of required attributes and its description, that is, knows which attributes are awaited and in what commitment schemes.
+% \end{assumption}
+% Now we will briefly enumerate through some of the possible requirements of $\set{m_i}$.
+
+% \begin{requirement}[Sum Commitment]
+% If the sum commitment is used, it is required that the $m_0 \sample \ZZ_q$. It serves the role of the randomizer that is required to achieve information-theoretically hiding commitment.
+% \end{requirement}
+
+% \begin{requirement}[Pedersen Commitment]
+% If the Pedersen commitment is used, it is required that each $m_j \sample \ZZ_q$. It serves the role of the randomizer that is required to achieve information-theoretically hiding commitment.
+% \end{requirement}
+
+% \begin{requirement}[Non-transferable credential]
+% If the credential is to be non-transferable, then there exists some private value $m_x$ that is the identity of the user i.e. passing it to the other user compromises the security of owners data. 
+% \end{requirement}
+
+% % m_0
+% % m_1 - sk
+% % strings -> hash
+% % standarization
+
+
+% \section{Access Certificates}
+% % todo
+
+\section{Obtaining a Signature on a Committed Value}
+Suppose that $M = [m_0]G + \sum_{i=1}^l [m_i]Z_i$ is a Pedersen vector commitment to set of messages $(m_0, \dots m_l)$ whose signature the user wishes to obtain (remember that if the information-theoretically hiding property is desired then one of messages has to be sampled at random). Then, the user gives a zero-knowledge proof of knowledge of the opening of the commitment:
+$$ \textstyle \textit{ZKP } \set{(\mu_0, \dots \mu_l): M = [\mu_0]G + \sum_{i=1}^l [\mu_i]Z_i} $$
+After this step there is a possible extension of the protocol of further checks (range check etc.), depending on needs and requirements. At last, the issuer computes the signature $\sigma = (\set{A_i}, \set{B_i}, C)$ and sends credential to the user.
+
+The protocol is depicted on figure \ref{proto:cred-issue}.
+
+\begin{figure}[p]
+\centering
+\procedure{$\pcalgostyle{Issue}(m)$}{%
+  \textbf{User} \< \< \textbf{Issuer}\\
+  \pk_I = \Big( X^{(2)}, Y^{(2)}, \set{Z^{(2)}_i}, \set{Z_i} \Big) \< \< \pk_I = \Big( X^{(2)}, Y^{(2)}, \set{Z^{(2)}_i}, \set{Z_i} \Big) \\
+  m = (m_0, \dots m_l) \< \< \sk_I = (x, y, z_1, \dots z_l) \pclb
+  \pcintertext[dotted]{Attributes commitment}
+  M = [m_0]G + \textstyle \sum_{i = 1}^l [m_i]Z_i \< \< \\
+  \< \sendmessageright*[3cm]{M} \< \pclb
+  \pcintertext[dotted]{ZKP of commitment opening} 
+  k_i \sample \ZZ_q \quad \forall i \in \set{0, \dots l} \< \< \\
+  T = [k_0]G + \textstyle \sum_{i = 1}^l [k_i]Z_i \< \< \\
+  \< \sendmessageright*[3cm]{T} \< \\
+  \< \< c \sample \ZZ_q \\
+  \< \sendmessageleft*[3cm]{c} \< \\
+  s_i = k_i - cm_i \quad \forall i \in \set{0, \dots l} \< \< \\
+  \< \sendmessageright*[3cm]{s_0, \dots, s_l} \< \\
+  \< \< T \stackrel{?}{=} \textstyle [c]M + [s_0]G + \sum_{i = 1}^l [s_i]Z_i \pclb
+  \pcintertext[dotted]{CL-LRSW signature creation}
+  \< \< \sigma = \sig_{sk_I}(M) \\
+  \< \sendmessageleft*[3cm]{\sigma} \< \\
+  \text{Store }(\sigma, (m_0, \dots m_l)) \< \< 
+}
+\caption{Credential Issuance Protocol}
+\label{proto:cred-issue}
+\end{figure}
+
+% \begin{figure}[p]
+% \centering
+% \procedure{$\pcalgostyle{Issue}(m)$}{%
+%   \textbf{User} \< \< \textbf{Issuer}\\
+%   \pk_I = (X, Y, Z_1, \dots Z_l) \< \< \pk_I = (X, Y, Z_1, \dots Z_l) \\
+%   m = (m_1, \dots m_l) \< \< \sk_I = (x, y, z_1, \dots z_l) \\
+%   P - \text{set of public attributes indices} \< \< \\
+%   H = \set{0, \dots l} \setminus  P \< \< \\
+%   m_0 \sample \ZZ_q \< \<  \pclb
+%   \pcintertext[dotted]{Public and hidden attributes}
+%   m_P = (m_i : i \in P) \< \< \\
+%   M_H = [m_0]G + \textstyle \sum_{i \in H \setminus \set{0}} [m_i]Z_i \< \< \\
+%   \< \sendmessageright*[2.5cm]{P, m_p, M_H} \< \pclb
+%   \pcintertext[dotted]{ZKP on hidden attributes} 
+%   k_i \sample \ZZ_q \quad \forall i \in H \< \< \\
+%   T = [k_0]G + \textstyle \sum_{i \in H \setminus \set{0}} [k_i]Z_i \< \< \\
+%   \< \sendmessageright*[2.5cm]{T} \< \\
+%   \< \< c \sample \ZZ_q \\
+%   \< \sendmessageleft*[2.5cm]{c} \< \\
+%   s_i = k_i - cm_i \quad \forall i \in H\< \< \\
+%   \< \sendmessageright*[2.5cm]{\set{s_i}_{i \in H}} \< \\
+%   \< \< [c]M_H + [s_0]G +\textstyle \sum_{i \in H \setminus \set{0}} [s_i]Z_i \stackrel{?}{=} T \pclb
+%   \pcintertext[dotted]{LRSW signature creation}
+%   \< \< M = M_H + \textstyle \sum_{i \in P} [m_i]Z_i \\
+%   \< \< \sigma = \sig_{sk_I}(M) \\
+%   \< \sendmessageleft*[2.5cm]{\sigma} \< \\
+%   \text{Store }(\sigma, (m_0, \dots m_l)) \< \< 
+% }
+% \caption{Credential Issuance Protocol}
+% \label{proto:cred-issue}
+% \end{figure}
+
+\section{Proving Knowledge of Signature}
+
+The user computes a blinded version of the signature $\sigma$ and presents it to the verifier. Then, proves the knowledge of the signed message.
+$$ \textstyle \textit{ZKP } \set{(\rho, (\mu_0, \dots \mu_l) ): \verify_\pk (\rho, (\mu_0, \dots \mu_l) ) = \text{True} }$$
+Due to its efficiency and versatility we use the verification procedure designed by Słowik \& Wszoła   \cite{slowik-efficient-cl-lrsw} with employed Change-Base step construction, that can be used for future specialized value checks. The protocol is depicted on figure \ref{proto:cred-verify}, the steps of Change-Base are in in boxes.
+
+We briefly state the corollary of Change-Base for our construction.
+\begin{corollary}[Change-Base Step]
+Assume that we have a set of indexed exponents $L$ and set of bases $\bigcup_{i \in L} \set{Q_i}$.
+We can easily and very efficiently extend the verification protocol to check if the commitment $D = \sum_{i \in L} [m_i]Q_i$ was calculated properly using messages from signed credential.
+
+User publishes the commitment $D$, and $t = [k_r]D + \sum_{i \in L} [-k_i] Q_i$.
+
+Verifier checks the equality $t \stackrel{?}{=} [s_r]D + \sum_{i \in L} [-s_i] Q_i$ using the same $\set{s_i}$ from response phase.
+
+\end{corollary}
+The desired property of this step is that user can present some values in hidden form and proof that they are calculated properly (i.e. that user in fact knows those values). This committed form is meant to be later used for the specialized value checks (e.g. range proofs \cite{bulletproofs}), but this topic is not covered in this version of document and is left for future work. 
+
+
+
+\begin{figure}[p]
+\centering
+\procedure{$\pcalgostyle{\verify}((\sigma, m))$}{%
+  \textbf{User} \< \< \textbf{Verifier}\\
+  \pk_I = \Big( X^{(2)}, Y^{(2)}, \set{Z^{(2)}_i}, \set{Z_i} \Big) \< \< \pk_I = \Big( X^{(2)}, Y^{(2)}, \set{Z^{(2)}_i}, \set{Z_i} \Big) \\
+  \dbox{$\textstyle Q_L = \bigcup_{i \in L} \set{Q_i}$}\< \< \dbox{$\textstyle  Q_L = \bigcup_{i \in L} \set{Q_i} $} \\
+  \sigma = (A_0, \dots A_l, B_0, \dots B_l, C) \< \< \\
+  m = (m_0, \dots m_l) \< \< \pclb
+  \pcintertext[dotted]{Signature blinding} 
+  r, r' \sample \ZZ_q^2 \< \< \\
+  \widetilde A_i = [r']A_i \quad \forall i \in \set{0, \dots l} \< \< \\
+  \widetilde B_i = [r']B_i \quad \forall i \in \set{0, \dots l} \< \< \\
+  \widetilde C = [rr']C \< \< \\
+  \sigma' = (\widetilde A_0, \dots \widetilde A_l, \widetilde B_0, \dots \widetilde B_l, \widetilde C) \< \< \\
+  \dbox{$\textstyle D = \sum_{i \in L} [m_i]Q_i$} \< \< \\
+  \< \sendmessageright*[3cm]{\sigma' \dbox{$, D$}} \< \pclb
+  \pcintertext[dotted]{ZKP of signed messages and randomizer $r$}
+  k_r, k_0, \dots k_l \sample \ZZ_q^{l+2} \< \< \\
+  T = [k_r]\widetilde A_0 + \textstyle \sum _{i = 0} ^ l [k_i]\widetilde B_i \< \< \\
+  \dbox{$\textstyle t = [k_r]D + \sum_{i \in L} [-k_i] Q_i$} \< \< \\
+  \< \sendmessageright*[3cm]{T \dbox{$, t$}} \< \\
+  \< \< c \sample \ZZ_q \\
+  \< \sendmessageleft*[3cm]{c} \< \\
+  s_r = k_r - cr \< \< \\
+  s_i = k_i - crm_i \quad \forall i \in \set{0, \dots l}\< \< \\
+  \< \sendmessageright*[3cm]{s_r, s_0, \dots s_l} \<  \\
+  \< \< \dbox{$\textstyle t \stackrel{?}{=} [s_r]D + \sum_{i \in L} [-s_i] Q_i$} \\
+  \< \< e([c] \widetilde C, G_2) \stackrel{?}{=} e(T - [s_r] \widetilde A_0 - \textstyle \sum_{i = 0}^l [s_i] \widetilde B_i, X^{(2)}) \\
+  \< \< e(\widetilde A_0, Z^{(2)}_i) \stackrel{?}{=} e(\widetilde A_i, G_2) \quad \forall i \in \set{1, \dots l} \\
+  \< \< e(\widetilde A_i, Y^{(2)}) \stackrel{?}{=} e(\widetilde B_i, G_2) \quad \forall i \in \set{0, \dots l}
+}
+\caption{Credential Verification Protocol. Optional Change-Base marked in boxes.}
+\label{proto:cred-verify}
+\end{figure}
+
+\section{Practical Requirements for Attributes}
+
+Some desired properties of the credential system can be obtained by the clever selection of attributes, and did not have to be mentioned explicitly in the protocols. We will now present few of them.
+
+\begin{requirement}[Non-Transferability]
+If we assume that each user has secret private key, which can be understood as its identity. The issuer can require this private key as the part of Pedersen Vector Commitment, so the value will stay hidden, but still be required while performing the issuance and verification. In this approach we assume that if the user transfers the credential to other user, he also had to transfer the secret key which is his identity. So the transfer of credential is possible only if user compromises his identity which can be assumed to be not in the interest of any user.
+\end{requirement}
+
+\begin{requirement}[Perfect Hiding Vector Commitment]
+To ensure perfect hiding property of the Pedersen vector commitment one of the messages (e.g $m_0 \sample \ZZ_q$) has to be sampled at random in each protocol execution. 
+\end{requirement}
+
+\begin{requirement}[Pseudonymous Credential System Compatibility]
+There might exist the need to verify the user to its pseudonym, in such case the issuer might require to present the commitment of the domain private key in the form of $[x]G_{\textit{dom}}$, that is Pedersen Vector commitment of length 1. 
+\end{requirement}
+
+\begin{requirement}[Range Proofs \& Value Checks ]
+It is not a part of current version of this document, but the system assumes further extensions. Addition of verification whether the attribute is in given range or other value checks is one of many possibilities.
+\end{requirement}
+
+\section{Verification Complexity Reduction}
+
+We now present our efficiency improvement proposed by Bobowski and Słowik in \emph{Reducing Complexity of Pairing Comparisons using Polynomial Evaluation} \cite{complexity-reduction-bobowski}. It reduces the number of expensive pairing operations from $4l + 4$ down to $4$, on the cost of relatively cheaper $4l + 2$ point multiplications and extremely small probability of false-positive evaluation. 
+The idea is based on polynomial evaluation and, as presented in the mentioned work, can be applied to the wider range of comparisons, thought its usefulness strongly depends on the form of evaluations.
+
+
+\begin{corollary}[CL-LRSW ZKP Reduction]
+Standard sequential verification of CL-LRSW signature can be reduced to just 4 pairing operations.
+On the cost of $4l+2$ point multiplications and $\prob{\textsf{false-positive}} = \frac{2l+1}{q}$.
+\begin{pcvstack}[center]
+\procedure[linenumbering]{$\pcalgostyle{StdVerify}$:}{%
+  e([c] \widetilde C, G_2) \stackrel{?}{=} e(T - [s_r] \widetilde A_0 - \textstyle \sum_{i = 0}^l [s_i] \widetilde B_i, X^{(2)}) \\
+  e(\widetilde A_0, Z^{(2)}_i) \stackrel{?}{=} e(\widetilde A_i, G_2) \quad \forall i \in \set{1, \dots l} \\
+  e(\widetilde A_i, Y^{(2)}) \stackrel{?}{=} e(\widetilde B_i, G_2) \quad \forall i \in \set{0, \dots l}
+}
+
+\pcvspace
+
+\procedure[linenumbering]{$\pcalgostyle{PolyVerify}$:}{%
+  x \sample \ZZ_q \\
+  \textstyle \text{lhs} = e([c] \widetilde C + \sum_{i=1}^{l} [x^i]\widetilde A_i + \sum_{i=0}^{l} [x^{l+i+1}] \widetilde B_i, G_2)\\
+  \textstyle \text{rhs} = e(T - [s_r] \widetilde A_0 - \textstyle \sum_{i = 0}^l [s_i] \widetilde B_i, X^{(2)}) \cdot e(\widetilde A_0, \sum_{i=1}^{l} [x^i] Z^{(2)}_i) \cdot e( \sum_{i=0}^{l} [x^{l+i+1}] \widetilde A_i, Y^{(2)})\\
+  \text{lhs}  \stackrel{?}{=} \text{rhs}
+}
+\end{pcvstack}
+
+\end{corollary}
+
+

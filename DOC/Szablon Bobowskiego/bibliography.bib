@@ -1,0 +1,256 @@
+@InProceedings{pedersen-commitment,
+author="Pedersen, Torben Pryds",
+editor="Feigenbaum, Joan",
+title="Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing",
+booktitle="Advances in Cryptology --- CRYPTO '91",
+year="1992",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="129--140",
+abstract="It is shown how to distribute a secret to n persons such that each person can verify that he has received correct information about the secret without talking with other persons. Any k of these persons can later find the secret (1 ≤ k ≤ n), whereas fewer than k persons get no (Shannon) information about the secret. The information rate of the scheme is 1/2 and the distribution as well as the verification requires approximately 2k modular multiplications pr. bit of the secret. It is also shown how a number of persons can choose a secret ``in the well'' and distribute it verifiably among themselves.",
+isbn="978-3-540-46766-3"
+}
+
+@InProceedings{okamoto,
+author="Okamoto, Tatsuaki",
+editor="Brickell, Ernest F.",
+title="Provably Secure and Practical Identification Schemes and Corresponding Signature Schemes",
+booktitle="Advances in Cryptology --- CRYPTO' 92",
+year="1993",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="31--53",
+abstract="This paper presents a three-move interactive identification scheme and proves it to be as secure as the discrete logarithm problem. This provably secure scheme is almost as efficient as the Schnorr identification scheme, while the Schnorr scheme is not provably secure. This paper also presents another practical identification scheme which is proven to be as secure as the factoring problem and is almost as efficient as the Guillou-Quisquater identification scheme: the Guillou-Quisquater scheme is not provably secure. We also propose practical digital signature schemes based on these identification schemes. The signature schemes are almost as efficient as the Schnorr and Guillou-Quisquater signature schemes, while the security assumptions of our signature schemes are weaker than those of the Schnorr and Guillou-Quisquater. signature schemes. This paper also gives a theoretically generalized result: a three-move identification scheme can be constructed which is as secure as the random-self-reducible problem. Moreover, this paper proposes a variant which is proven to be as secure as the difficulty of solving both the discrete logarithm problem and the specific factoring problem simultaneously. Some other variants such as an identity-based variant and an elliptic curve variant are also proposed.",
+isbn="978-3-540-48071-6"
+}
+
+
+@inproceedings{slowik-efficient-cl-lrsw,
+ author = {Slowik, Marcin and Wszola, Marta},
+ title = {An Efficient Verification of CL-LRSW Signatures and a Pseudonym Certificate System},
+ booktitle = {Proceedings of the 4th ACM International Workshop on ASIA Public-Key Cryptography},
+ series = {APKC '17},
+ year = {2017},
+ isbn = {978-1-4503-4973-4},
+ location = {Abu Dhabi, United Arab Emirates},
+ pages = {13--23},
+ numpages = {11},
+ url = {http://doi.acm.org/10.1145/3055504.3055506},
+ doi = {10.1145/3055504.3055506},
+ acmid = {3055506},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {anonymous credentials, domain signatures, pairing-based cryptography, pseudonymous signatures, restricted identification, sigma protocols, zero-knowledge},
+} 
+
+@InProceedings{anon-creds-cl04,
+author="Camenisch, Jan
+and Lysyanskaya, Anna",
+editor="Franklin, Matt",
+title="Signature Schemes and Anonymous Credentials from Bilinear Maps",
+booktitle="Advances in Cryptology -- CRYPTO 2004",
+year="2004",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="56--72",
+abstract="We propose a new and efficient signature scheme that is provably secure in the plain model. The security of our scheme is based on a discrete-logarithm-based assumption put forth by Lysyanskaya, Rivest, Sahai, and Wolf (LRSW) who also showed that it holds for generic groups and is independent of the decisional Diffie-Hellman assumption. We prove security of our scheme under the LRSW assumption for groups with bilinear maps. We then show how our scheme can be used to construct efficient anonymous credential systems as well as group signature and identity escrow schemes. To this end, we provide efficient protocols that allow one to prove in zero-knowledge the knowledge of a signature on a committed (or encrypted) message and to obtain a signature on a committed message.",
+isbn="978-3-540-28628-8"
+}
+
+
+@InProceedings{pseudonym-systems,
+author="Lysyanskaya, Anna
+and Rivest, Ronald L.
+and Sahai, Amit
+and Wolf, Stefan",
+editor="Heys, Howard
+and Adams, Carlisle",
+title="Pseudonym Systems",
+booktitle="Selected Areas in Cryptography",
+year="2000",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="184--199",
+abstract="Pseudonym systems allow users to interact with multiple organizations anonymously, using pseudonyms. The pseudonyms cannot be linked, but are formed in such a way that a user can prove to one organization a statement about his relationship with another. Such a statement is called a credential. Previous work in this area did not protect the system against dishonest users who collectively use their pseudonyms and credentials, i.e., share an identity. Previous practical schemes also relied very heavily on the involvement of a trusted center. In the present paper we give a formal definition of pseudonym systems where users are motivated not to share their identity, and in which the trusted center's involvement is minimal. We give theoretical constructions for such systems based on any one-way function. We also suggest an efficient and easy-to-implement practical scheme.",
+isbn="978-3-540-46513-3"
+}
+
+
+@InProceedings{signature-scheme-with-efficient-protocols,
+author="Camenisch, Jan
+and Lysyanskaya, Anna",
+editor="Cimato, Stelvio
+and Persiano, Giuseppe
+and Galdi, Clemente",
+title="A Signature Scheme with Efficient Protocols",
+booktitle="Security in Communication Networks",
+year="2003",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="268--289",
+abstract="Digital signature schemes are a fundamental cryptographic primitive, of use both in its own right, and as a building block i n cryptographic protocol design. In this paper, we propose a practical and provably secure signature scheme and show protocols (1) for issuing a signature on a committed value (so the signer has no information about the signed value), and (2) for proving knowledge of a signature on a committed value. This signature scheme and corresponding protocols are a building block for the design of anonymity-enhancing cryptographic systems, such as electronic cash, group signatures, and anonymous credential systems. The security of our signature scheme and protocols relies on the Strong RSA assumption. These results are a generalization of the anonymous credential system of Camenisch and Lysyanskaya.",
+isbn="978-3-540-36413-9"
+}
+
+@misc{anoncreds-rsa,
+    author = {Jan Camenisch and Anna Lysyanskaya},
+    title = {An Efficient System for Non-transferable Anonymous Credentials with Optional Anonymity Revocation},
+    howpublished = {Cryptology ePrint Archive, Report 2001/019},
+    year = {2001},
+    note = {\url{https://eprint.iacr.org/2001/019}},
+}
+
+@Article{Schnorr1991,
+author="Schnorr, C. P.",
+title="Efficient signature generation by smart cards",
+journal="Journal of Cryptology",
+year="1991",
+month="Jan",
+day="01",
+volume="4",
+number="3",
+pages="161--174",
+abstract="We present a new public-key signature scheme and a corresponding authentication scheme that are based on discrete logarithms in a subgroup of units in ℤ                  p                 where p is a sufficiently large prime, e.g., p ≥ 2512. A key idea is to use for the base of the discrete logarithm an integer $\alpha$ in ℤ                  p                 such that the order of $\alpha$ is a sufficiently large prime q, e.g., q ≥ 2140. In this way we improve the ElGamal signature scheme in the speed of the procedures for the generation and the verification of signatures and also in the bit length of signatures. We present an efficient algorithm that preprocesses the exponentiation of a random residue modulo p.",
+issn="1432-1378",
+doi="10.1007/BF00196725",
+url="https://doi.org/10.1007/BF00196725"
+}
+
+
+@InProceedings{cs-notation-zkp,
+author="Camenisch, Jan
+and Stadler, Markus",
+editor="Kaliski, Burton S.",
+title="Efficient group signature schemes for large groups",
+booktitle="Advances in Cryptology --- CRYPTO '97",
+year="1997",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="410--424",
+abstract="A group signature scheme allows members of a group to sign messages on the group's behalf such that the resulting signature does not reveal their identity. Only a designated group manager is able to identify the group member who issued a given signature. Previously proposed realizations of group signature schemes have the undesirable property that the length of the public key is linear in the size of the group. In this paper we propose the first group signature scheme whose public key and signatures have length independent of the number of group members and which can therefore also be used for large groups. Furthermore, the scheme allows the group manager to add new members to the group without modifying the public key. The realization is based on methods for proving the knowledge of signatures.",
+isbn="978-3-540-69528-8"
+}
+
+
+
+@misc{bulletproofs,
+    author = {Benedikt Bünz and Jonathan Bootle and Dan Boneh and Andrew Poelstra and Pieter Wuille and Greg Maxwell},
+    title = {Bulletproofs: Short Proofs for Confidential Transactions and More},
+    howpublished = {Cryptology ePrint Archive, Report 2017/1066},
+    year = {2017}
+}
+
+
+@misc{rfc-tls,
+    abstract = {{This document specifies Version 1.2 of the Transport Layer Security
+   (TLS) protocol.  The TLS protocol provides communications security
+   over the Internet.  The protocol allows client/server applications to
+   communicate in a way that is designed to prevent eavesdropping,
+   tampering, or message forgery.}},
+    author = {Dierks, T. and Rescorla, E.},
+    citeulike-article-id = {6536152},
+    citeulike-linkout-0 = {http://tools.ietf.org/html/rfc5246},
+    month = aug,
+    posted-at = {2010-01-13 14:04:41},
+    priority = {2},
+    publisher = {IETF},
+    title = {{RFC 5246 - The Transport Layer Security (TLS) Protocol Version 1.2}},
+    url = {http://tools.ietf.org/html/rfc5246},
+    year = {2008}
+}
+
+
+
+@misc{rfc2119,
+  abstract = {This document specifies an Internet Best Current Practices for the Internet Community, and requests discussion and suggestions for improvements.In many standards track documents several words are used to signify the requirements in the specification.  These words are often capitalized.  This document defines these words as they should be interpreted in IETF documents.  Authors who follow these guidelines should incorporate this phrase near the beginning of their document: The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119.},
+  added-at = {2013-08-03T08:02:40.000+0200},
+  author = {Bradner, S.},
+  biburl = {https://www.bibsonomy.org/bibtex/2d0e56b30189deb3d3b1af10a6a77e30b/choffmeister},
+  interhash = {630f9247a807f0708050f4fb3624c772},
+  intrahash = {d0e56b30189deb3d3b1af10a6a77e30b},
+  keywords = {ietf},
+  publisher = {Internet Engineering Task Force (IETF)},
+  timestamp = {2013-08-03T09:27:09.000+0200},
+  title = {IETF RFC 2119: Key words for use in RFCs to Indicate Requirement Levels},
+  url = {http://www.ietf.org/rfc/rfc2119.txt},
+  year = 1997
+}
+
+@misc{rfc5280,
+	series =	{Request for Comments},
+	number =	5280,
+	howpublished =	{RFC 5280},
+	publisher =	{RFC Editor},
+	doi =		{10.17487/RFC5280},
+	url =		{https://rfc-editor.org/rfc/rfc5280.txt},
+        author =	{Sharon Boeyen and Stefan Santesson and Tim Polk and Russ Housley and Stephen Farrell and Dave Cooper},
+	title =		{{Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile}},
+	pagetotal =	151,
+	year =		2008,
+	month =		may,
+	abstract =	{This memo profiles the X.509 v3 certificate and X.509 v2 certificate revocation list (CRL) for use in the Internet. An overview of this approach and model is provided as an introduction. The X.509 v3 certificate format is described in detail, with additional information regarding the format and semantics of Internet name forms. Standard certificate extensions are described and two Internet-specific extensions are defined. A set of required certificate extensions is specified. The X.509 v2 CRL format is described in detail along with standard and Internet-specific extensions. An algorithm for X.509 certification path validation is described. An ASN.1 module and examples are provided in the appendices. {[}STANDARDS-TRACK{]}},
+}
+
+@misc{kasamatsu-bncurves-02,
+	number =	{draft-kasamatsu-bncurves-02},
+	type =		{Internet-Draft},
+	institution =	{Internet Engineering Task Force},
+	publisher =	{Internet Engineering Task Force},
+	note =		{Work in Progress},
+	url =		{https://datatracker.ietf.org/doc/html/draft-kasamatsu-bncurves-02},
+        author =	{Akihiro Kato and Michael Scott and Tetsutaro Kobayashi and Yuto Kawahara},
+	title =		{{Barreto-Naehrig Curves}},
+	pagetotal =	24,
+	year =		2016,
+	month =		mar,
+	day =		24,
+	abstract =	{Elliptic curves with pairings are useful tools for constructing cryptographic primitives. In this memo, we specify domain parameters of Barreto-Naehrig curves (BN-curves) {[}8{]}. The BN-curve is an elliptic curve suitable for pairings and allows us to achieve high security and efficiency of cryptographic schemes. This memo specifies domain parameters of four 254-bit BN-curves {[}1{]} {[}2{]} {[}5{]} which allow us to obtain efficient implementations.},
+}
+
+
+@misc{nist-hash,
+  author =       "{National Institute of Standards and Technology}",
+  title =        "{FIPS PUB 180-4}: Secure Hash Standard",
+  day =          "04",
+  month =        aug,
+  year =         "2015"
+}
+
+@misc{nist-prng,
+  author =       "{National Institute of Standards and Technology}",
+  title =        "{FIPS PUB 186-4}: Digital Signature Standard (DSS)",
+  month =        jul,
+  year =         "2013"
+}
+
+@misc{nist-keys,
+  author =       "{National Institute of Standards and Technology}",
+  title =        "{SP 800-57 Part 1 Rev. 4}: Recommendation for Key Management, Part 1: General",
+  month =        jan,
+  year =         "2016"
+}
+
+
+@misc{idemix,
+  title = {Identity Mixer},
+  howpublished = {\url{https://www.zurich.ibm.com/identity_mixer/}},
+  note = {Accessed: 2018-06-01}
+}
+
+
+@misc{ISO-CVC,
+type = {Standard},
+key = {ISO/IEC 7816-8:2016},
+month = nov,
+year = {2016},
+title = {{Identification cards -- Integrated circuit cards -- Part 8: Commands and mechanisms for security operations}},
+author = {International Organization for Standardization}
+}
+
+@misc{complexity-reduction-bobowski,
+    author = {Adam Bobowski and Marcin Słowik},
+    title = {Reducing Complexity of Pairing Comparisons using Polynomial Evaluation},
+    howpublished = {Cryptology ePrint Archive, Report 2018/523},
+    year = {2018},
+    note = {\url{https://eprint.iacr.org/2018/523}},
+}

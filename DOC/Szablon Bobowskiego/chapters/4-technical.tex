@@ -1,0 +1,1003 @@
+\chapter{Technical Documentation}
+\thispagestyle{chapterBeginStyle}
+
+
+
+\section{Introduction}
+This document provides a set of specifications for implementing credential system based on bilinear pairings. The construction is based on the cryptosystem proposed by Camenisch and Lysyanskaya \cite{anon-creds-cl04}, and the work of Słowik and Wszoła \cite{slowik-efficient-cl-lrsw}. The specification tries to remain agnostic to the specific inner-working of elliptic curves for the calculations, and lists requirements for specific properties to ensure security of the system.
+
+The primary goal of the Credential System (CreS) is to provide the functionality of anonymous credentials, that is verifiable signatures under hidden values. The system consists of three parties: Users, Issuers and Verifiers. Three main procedures are: Setup, Credential Issuance and Credential Verification. The Credential is a signature under a set of attributes (messages) that has two basic properties:
+\begin{enumerate}
+    \item The signature issuance can be done without the issuer learning the values of attributes (Signature under commitment).
+    \item The verification of signature reveals no information about the signed attributes.
+\end{enumerate}
+
+This document describes a credential system and how the components of the system work together. Logical architecture has public-key infrastructure where each credential issuing entity (with published public key) would be verifiable by a chain of certificates. Users, requesting credential issuance, could be anonymous or identifiable, depending on implementation choices.
+
+
+\subsection*{Requirements Terminology}
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119 \cite{rfc2119}.
+
+
+
+\subsection*{Obtaining a Credential}
+In order to obtain a valid credential, a user must perform the following steps:
+\begin{enumerate}
+    \item \textbf{Obtain the issuer's public parameters.}
+    
+    Public parameters contain public key, attributes list and other meta-data required to successfully obtain credential.
+    
+    \item \textbf{Hide attributes into appropriate commitments.}
+    
+    Based on attributes list user hides the messages for which he requests the credential.
+    
+    \item \textbf{Proof the possession of hidden values.}
+    
+    The issuing entity has to be sure that the user in fact is in the possession of hidden values. Also some additional properties of the attributes can be verified in this step.
+    
+    \item \textbf{Store the credential.}
+    
+    If the procedure was performed correctly and all the requirements were met, the issuer creates a valid signature, while remaining agnostic to the signed value.
+\end{enumerate}
+
+
+\subsection*{Verifying a Credential}
+In order to verify the credential, a user must perform the following steps:
+\begin{enumerate}
+    \item \textbf{Blind the credential and present it.}
+    
+    Randomizing the signature makes it infeasable to link the presentations of the same credential, ergo protecting the privacy of the user.
+    
+    \item \textbf{Proof the possession of signed values.}
+    
+    Users performs the interactive protocol proving the possession of attribute under which the credential was created. This is done without the necessity to show the attributes to the verifying entity.
+\end{enumerate}
+
+
+
+
+\section{Goals of Credential System}
+The goals of the Credential System, are as follows:
+\begin{enumerate}
+    \item \textbf{Cryptographic Security}
+    
+    Credential System should create unforgeable signatures and assure privacy of users data.
+    
+    \item \textbf{Interoperability}
+    
+    The workings of the system should allow to operate multiple independently developed entities. That is, entities should be able to successfully exchange messages and perform protocols, without knowledge of one another's code.
+    
+    \item \textbf{Extensibility}
+    
+    Credential System should be a specialized box that uses well-known primitives, and allows possibly seamless addition of protocol extensions to fulfill needs of the specific use case.
+    
+    \item \textbf{Efficiency}
+    
+    Performed cryptographic computations should be possibly efficient and require small storage size. 
+\end{enumerate}
+
+
+
+\section{Assumptions}
+
+\subsection{Security}
+The Credential System assumes existence of the following:
+\begin{enumerate} % TODO - think about examples...
+    \item \textbf{Communication security}
+    
+    Secure communication channel between interacting parties is established that provides privacy and data integrity.
+    \item \textbf{Public Key Infrastructure}
+    
+    Certificate system that has and allows to insert custom data frame.  
+\end{enumerate}
+Communication security assumption can be fulfilled by a TLS Protocol \cite{rfc-tls}, or any other depending on requirements and available technology. PKI assumption can be fulfilled by Internet X.509 Public Key Infrastructure \cite{rfc5280}, or in cases of limited computational power a more lightweight one, such as Card Verifiable Certificate \cite{ISO-CVC} (CVC).
+
+
+\subsection{Cryptographic Methods}
+The Credential System assumes existence of the following cryptographic methods:
+\begin{enumerate}
+    \item \textbf{Random Values Generation}
+    
+    Generation of a sequence of values that cannot be predicted.
+    
+    \item \textbf{Hash Function}
+    
+    Mapping, with infeasibly computable inversion, of data of arbitrary size to a bit string of fixed size.
+\end{enumerate}
+
+We refer to standards for cryptographicaly secure pseudorandom number generators \cite{nist-prng}, and hash functions \cite{nist-hash} as the reference.
+
+
+\section{Notation}
+
+This section summarizes pairing and elliptic curve definitions and notation in this document. We do not present the mathematical background, for this the reader should acquire the knowledge from other sources.
+
+
+\subsection*{General}
+\begin{itemize}[label=$\circ$]
+    \item Let $\ZZ_q$ denote integer group modulo $q$.
+    \item Let $x \sample A$ denote assigning a random element of set $A$ to the variable $x$; by $x_1, \dots x_n \sample A^n$ denote assignment of random $n$ elements. 
+    \item Let $n$ denote number of attributes in the credential and $l = n - 1$ for simplification.
+\end{itemize}
+
+
+\subsection*{Elliptic Curve}
+\begin{itemize}[label=$\circ$]
+    \item Let $\FF_p$ denote finite field of prime characteristic $p$; Let $\FF_{p^r}$ denote its extension field of degree $r$.
+    \item A curve defined by the following equation $E$ is called an elliptic curve
+    $$ E: y^2 = x^3 + Ax + B $$
+    such that $A, B \in \FF_p$ and $4A^3 + 27B^2 \neq 0 \mod p$.
+    \item Let $O_E$ denote the point at infinity over elliptic curve $E$
+    \item Solutions $(x, y)$ for curve $E$, such that $x, y \in \FF_p$, as well as point at infinity, are called $\FF_p$-rational points. 
+    \item Let $\#E(F_p)$ denote the number of points on an elliptic curve $E$ over $\FF_p$.
+    \item Let $k$ denote embedding degree - the minimum integer $k$ such that $q$ is a divisor of $p^k - 1$ and $q^2$ is not a divisor of $q^k - 1$.
+    \item Let $h_1 = \#E(\FF_p) / q$ denote the cofactor $h$ of $E(\FF_p)$ and $h_k = \#E(\FF_{p^k}) / q^2$ the cofactor of $E(\FF_{p^k})$.
+    \item Let $A$ and $B$ be points on curve $E$, and $n$ be an integer from $\ZZ_q$, then $A + B$ denotes point addition; and $[n]A$ denotes scalar point multiplication (the result of adding $A$ to itself $n - 1$ times).
+    \item Let $\Group_1$ be a cyclic subgroup of $E(\FF_p)$ and $\Group_2$ be a cyclic subgroup of $E(\FF_{p^k})$. Points $A \in \Group_2$ we denote as $A^{(2)}$; Elements of $\Group_1$ are not marked with such index because it would obfuscate the notation. 
+\end{itemize}
+
+
+\subsection*{Bilinear Pairing}
+\begin{itemize}[label=$\circ$]
+    \item Let $\Group_1$ be a cyclic subgroup of $E(\FF_p)$ of prime order $q$ where generator is denoted as $G_1$; Let $\Group_2$ be a cyclic subgroup of $E(\FF_{p^k})$ of prime order $q$ where generator is denoted as $G_2$; Let $\Group_T$ be a cyclic subgroup of $(\FF_{p^k})$ of order $p$.
+    \item Let $e$ be an asymmetric bilinear map (pairing) $e: \Group_1 \times \Group_2 \rightarrow \Group_T$ satisfying following:
+    \begin{enumerate}
+        \item Bilinear: for any $P \in \Group_1$, for any $Q \in \Group_2$, for any $a, b$ in $\ZZ_q$ relation holds $e([a]P, [b]Q) = e(P, Q)^{ab}$.
+        \item Non-degenerate: there exist $P$ and $Q$ such, that $e(P, Q) \neq 1$ where $1$ is the identity element of $\Group_T$.
+        \item Efficient: there exists efficient algorithm for computing $e$.
+    \end{enumerate}
+\end{itemize}
+
+
+A comparatively simple way of hashing into $\Group_1$:
+\begin{enumerate}
+    \item Hash into a point on $E$ (by hashing to its x- or y-coordinate and solving the resulting equation for the other coordinate).
+    \item if no solution exists, hash the message concatenated with counter that is increased upon each unsuccessful trial.
+    \item Multiply the point by cofactor $h_1$.
+\end{enumerate}
+This yields a point in $\Group_1$.
+
+
+\section{Logical Architecture}
+The architecture of credential system:
+\begin{enumerate}
+    \item \textbf{Certificate Authority (CA)}
+    
+    CA is the root of trust in the system. Users assume the security and outputs of procedures performed by issuing and verifying entities as trustworthy only if they possess a valid certificate under declared properties. Certificate authority sets up the key parameters of the system, which are:
+    \begin{itemize}[label=$\circ$]
+        \item Technology of Public Key Infrastructure.
+        \item Data access policies.
+        \item Secure hash functions. 
+    \end{itemize}
+    
+    \item \textbf{User}
+    
+    User is the general agent of the CreS, he requests credential issuance and presents the signature for the verification. It is assumed that active users trust the CA, thought they still can refuse to execute the protocols if they want to.
+    
+    \item \textbf{Issuing Entity}
+    
+    Issuing entity creates credentials under attributes that are presented by the user. How and which attributes are required is presented in the form of attributes list to the interacting user and must be certified by the CA. It is possible for the issuer to perform additional verification of attributes sent in commitments (e.g. range proofs). Every issuer is allowed to choose the parameters of the curves, but has to meet the security conditions stated by the certificate authority which verifies the curve choices.
+    
+    \item \textbf{Verifying Entity}
+    
+    Everyone in possession of public keys of the issuer is able to verify the credentials. If additional value checks are desired then verifier can perform additional verification of properties of signed attributes (e.g. range proofs). It is possible for the verifier to be also an issuer, this allows to perform what is called Credential Chaining, that is issuing a new credential with proven values from other issuer. Each action that is an addition to the standard credential verification has to be certified by the CA. 
+\end{enumerate}
+
+
+\section{Algorithms}
+Credential System requires the following general algorithms:
+
+\subsection*{Elliptic Curve Arithmetic and Bilinear Pairings}
+Details of calculations depend on the curve chosen as the domain parameters selected. We assume efficient implementation of:
+\begin{itemize}[label=$\circ$]
+    \item Point Addition in $\Group_1$ and $\Group_2$.
+    \item Point Multiplication in $\Group_1$ and $\Group_2$.
+    \item Bilinear Pairing Computation $\Group_1 \times \Group_2 \rightarrow \Group_T$
+\end{itemize}
+
+\subsection*{Hashing to an Integer Range}
+Only hashing to an integer in range $\set{0, ...q-1}$ is considered, where $q$ is the order of group defined by the elliptic curve chosen.
+
+Let $\textsf{H}$ denote hash function chosen as the domain parameter for system. 
+By $\hash(m)$ we denote hash function calculated the following way:
+$$ \hash(m) = \textsf{H}(m) \mod q $$
+We strongly recommend to choose such hash function and elliptic curve that bit length of \textsf{H} is approximately the same as the bit-length of group order $q$.
+
+\subsection*{Hashing to a Point on Elliptic Curve}
+We only consider hashing to the point of $\Group_1$ of unknown discrete logarithm.
+
+Let $m$ be a message to be hashed, $c = 0$ an integer counter, \textsf{H} a hash function defined by domain and $E$ an elliptic curve. By $\hash_{\Group_1}(m)$ we denote hash calculated the following way:
+\begin{enumerate}
+    \item Let $x = \hash(m || c)$ be $x$ coordinate.
+    
+    \item Solve equation $E$ for $y$ coordinate.
+    
+    \item If no solution exists, $c = c + 1$, and go back to step 1.
+    
+    \item Multiply the point by cofactor $h$.
+\end{enumerate}
+This yields a point in $\Group_1$.
+
+
+
+
+
+\section{System Setup}
+In order to initialize CreS following has to be done:
+\begin{enumerate}
+    \item \textbf{Certificate Authority Setup}
+    
+    Selection of security parameters required inside the system.
+    
+    \item \textbf{Issuing Entity Setup}
+    
+    Selection of operational parameters (attributes list, signing keys, additional attributes verification) in accordance to CA requirements and data access policies.
+    
+    \item \textbf{Verifying Entity Setup}
+    
+    If required, selection of operational parameters in accordance to CA requirements and data access policies.
+\end{enumerate}
+User does not require any additional initialization procedure to operate in the system. He only has to possess the required attributes, and be able to perform cryptographic operations required and exchange messages in format specified.
+
+
+\subsection{Certificate Authority}
+
+Setup of CA is performed on (before) the start of CreS and defines the key operational parameters and rules all the issuers and verifier use and obey. The trust certificate is issued only to parties fulfilling system requirements. The key system-wide properties and policies are: 
+\begin{itemize}[label=$\circ$]
+    \item Public Key Infrastructure
+    \item Data Access Policies
+    \item Elliptic Curve Domain
+    \item Hash Functions
+\end{itemize}
+
+
+\subsection{Issuing Entity} \label{setup:issuer}
+To initialize the system, issuing entity must perform following steps:
+\begin{enumerate}
+    \item \textbf{Curve Domain Selection}
+    
+    Issuing entity declares the curve and hash function it will use while creating the credentials. Parameters must be verifiable by any of the interacting parties and meet the requirements of CA.
+    
+    \item \textbf{Attributes List Declaration}
+    
+    Issuing entity declares list of required attributes and their commitment schemes for credential issuance.
+  
+    \item \textbf{Key Generation}
+    
+    Issuing entity creates necessary private and public keys for future signatures and verification.
+    
+    \item \textbf{Trust Certificate Request}
+    
+    CA has to issue the trust certificate for the issuing entity. It is obtained only if the parameters of the curve meet the requirements, and attributes list requests data that is in line with data access policy for this issuer.
+\end{enumerate}
+
+
+\subsubsection{1. Curve Domain Selection}
+The design of credential system assumes that each issuing entity can employ the curve and hash function of its choosing. The only requirement is the the curve must fulfill requirements of CA.  Though it is recommended to use curves standardized by trusted committees, we do not require it. 
+
+\paragraph{Curve Recommendations}
+We recommend some of the better known and trusted curves that may be used in an implementation of credential system.
+\begin{itemize}[label=$\circ$]
+    \item Barreto-Naehrig Curves - RFC draft \cite{kasamatsu-bncurves-02}.
+\end{itemize}
+
+
+\paragraph{Hash Function Recommendations}
+We recommend to use well trusted hash functions
+\begin{itemize}[label=$\circ$]
+    \item NIST recommended hash functions \cite{nist-hash}. 
+\end{itemize}
+\subsubsection*{Domain Parameters Description}
+For elliptic curve $E(\FF_p)$
+\begin{itemize}[label=$\circ$]
+    \item \textsf{G1-Curve-ID} - reference id of the $\Group_1$.
+    \item $p_b$ - prime specifying base field.
+    \item $A, B$ - coefficients of the equation $y^2 = x^3 + Ax + B$ in $\FF_p$ defining $E$.
+    \item $G_1 = (x, y)$ - base point.
+    \item $q$ - prime order of the group $\Group_1$
+    \item $h$ - cofactor of $\Group_1$ in $E(\FF_p)$
+\end{itemize}
+For curve $E'(\FF_{p^r})$
+\begin{itemize}[label=$\circ$]
+    \item \textsf{G2-Curve-ID} - reference id of the $\Group_2$.
+    \item $p_b$ - prime specifying base field.
+    \item $p_e$ - irreducible polynomial specifying extension field.
+    \item $A', B'$ - coefficients of the equation $y'^2 = x'^3 + A'x' + B'$ in $\FF_{p^r}$ defining $E'$.
+    \item $G_2 = (x', y')$ - base point.
+    \item $q'$ - prime order of the group $\Group_2$
+    \item $h'$ - cofactor of $\Group_2$ in $E'(\FF_{p^r})$
+\end{itemize}
+
+
+\subsubsection{2. Attributes List Declaration}
+Attributes list is a meta-description of the credential issuance process. Required attributes are grouped into commitments with corresponding scheme. 
+
+\subsubsection*{Attributes List}
+\begin{itemize}[label=$\circ$]
+    \item The \textsf{description} should provide comprehensive description of the issued credential
+    
+    \item The \textsf{description} of each attribute should provide comprehensive description attribute required. This should allow users to be able to map their attributes with those that are requested by the issuer.
+    
+    \item The \textsf{scheme} in \textsf{CommitmentGroup} defines which and how the commitments are hidden. 
+    
+    \begin{itemize}
+        \item \textsf{open}
+        
+        User has to send those attributes in plain-text form. Text string data is signed in hashed form into the credential, while numerical data is not modified.
+
+        Only one commitment of type \textsf{open} is allowed in the attributes list, all open attributes must be grouped into one commitment.
+        
+        \item \textsf{binding}
+        
+        User has to send those attributes in hidden form, with no randomizing value. That is two commitments on the same values of attributes will be equal. This scheme should be used when asking about attributes when linking is desired.
+        
+        \item \textsf{hiding}
+        
+        User has to send those attributes in hidden form, with randomizing value. That is two commitments on the same values of attributes will not be equal (for the different random values). This scheme should be used used when linking of properties is not necessary 
+    \end{itemize}
+    
+    \item \textsf{hiding} method of commitment should be the default and only in approved and justified cases should the issuer be allowed to view values of attributes in other scheme.
+    
+    \item The total number of commitments should be as small as possible. That is to reduce the number of messages exchanged, ergo increase throughput.
+    
+    \item Each attribute (apart from \textsf{open}) must be an integer. That is, if the required attribute is e.g. a text-string then by the \textsf{description} user should be able to perform the required conversion.
+
+\end{itemize}
+
+\paragraph{Achieving Non-Transferability}
+
+We suggest the \emph{all-or-nothing} approach to achieve non-transverability property. That is if the credential is meant to be bound with one specific user credential must contain attributes that are crucial to this user. This can be done by requesting a private keys or other attributes that are connected with identity in the issuance process. Hiding those attributes in \textsf{hiding} commitment scheme assure that no one is able to obtain the values itself.
+
+
+\paragraph{Implicit Declarations}
+\begin{itemize}[label=$\circ$]
+    \item \textbf{Order of Attributes}
+    
+    The index of each attribute is derived from the position inside the \textsf{AttributesList}. That is each subsequent attribute has the index equal to the next subsequent number starting from 0.
+    
+    \item \textbf{Indexes of Attributes}
+    
+    If any of the commitment schemes declared in \textsf{AttributesList} is of type \textsf{randomized} then we implicitly add a new attribute $m_0$, all indexes of other attributes are incremented by one.
+    This is does not need to be declared explicitly because it is easily derived from the structure of \textsf{AttributesList} and is important to generate the proper number of keys in Key Generation.
+    
+    \item \textbf{Set of Indices}
+    
+    Following the previous points, for each commitment we denote as $I$ as the set of indices of attributes inside. 
+
+\end{itemize}
+
+
+
+\subsubsection{3. Key Generation}
+The length of keys depends on number of attributes in the credential. Issuer samples $n + 1$ random elements from $\ZZ_q$ where $n$ is the number of attributes in the credential, let $l = n - 1$. Because asymmetric bilinear paring is assumed, there have to be two pairs of public keys for $\set{Z_i}$, one from each group.
+
+\subsubsection*{Keys Generation}
+\begin{enumerate}
+    \item Generate private key
+    
+    $(x, y, z_1, \dots, z_l) \sample \ZZ_q^{l+2}$ where $n$ is the number of attributes in credential.
+    
+    $\sk := (x, y, z_1, \dots, z_l)$
+    
+    \item Compute public key
+    
+    $X^{(2)} := [x]G_2$
+    
+    $Y^{(2)} := [y]G_2$
+    
+    $Z^{(2)}_i := [z_i]G_2; \quad Z_i := [z_i]G_1$ for each $i$ in $\set{1, ... l}$.
+    
+    $\pk := (X^{(2)}, Y^{(2)}, Z^{(2)}_1, \dots Z^{(2)}_l, Z_1, \dots Z_l)$
+    
+\end{enumerate}
+
+\noindent We will later denote $Z_0 = G_1$ for simplification of notation.
+
+
+\subsection*{4. Trust Certificate Request}
+After creation of all parameters the issuing entity has to obtain a certificate from certificate authority (CA). This certificate assures that the issuer does not request attributes he is not have allowed to obtain. If the data access policies are breached, or elliptic curve security is inadequate, it must not receive the certificate. If the certificate is successfully obtained, the issuer receives a global unique identifier.
+
+The design assumes, that users trust CA which attributes and in what form any issuing entity should have access to. If it requests more that it is believed it should, no certificate should be issued. Later, all public parameters are also visible to any interacting party, so if a user does not  trust certain parameters he may resign from following the protocol and terminate the execution.
+
+\subsubsection*{Issuer's Certificate}
+Because certificate system depends on the underlying public key infrastructure. It is assumed that the protocol of certificate issuance is PKI dependent. It is assumed that the \textsf{IssuingAgent} object is part of certificate (e.g. additional certificate fields).
+
+
+
+
+\subsection{Verifying Entity}
+
+There are three possible modes of operation of verifier:
+\begin{enumerate}
+    \item \textbf{Binary Credential Validation}
+    
+    Verifier that is only able to validate if the presented credential is valid or not. Does not require any certificate from CA but cannot request any attributes from the user in any form or commitment. Has no setup procedure.
+    
+    \item \textbf{Additional Commitments}
+    
+    Verifier is able to validate additional properties of signed attributes in credential (e.g. perform range proofs). This mode does require certification from CA for the commitments it requests and checks it performs.
+    
+    \item \textbf{Chained Issuer}
+    
+    The chained issuer is able to issue a new credential based on verification of the other one. In this sense the credentials are chained - from one credential, another is issued with the same attribute values.
+\end{enumerate}
+The setup process for \textit{Additional Commitments} and \textit{Chained Issuer} is very similar as for the issuing entity, in description we will only highlight the differences:
+\begin{enumerate}
+    \item \textbf{Curve Selection}
+    
+    Verifier can request other elliptic curve for the additional commitments as the one used by the issuer of credential. Then it should be remembered which calculations are performed on which curve. It is possible but the curves must meet the security requirements of the CA (e.g. equality of group orders $q$). Setup as Curve Selection in \ref{setup:issuer}.
+    
+    \item \textbf{Commitment List Declaration}
+    
+    Verifier declares list of additional commitments and messages it requires. The set of attributes must be a subset of attributes from the credential being verified. Setup as Attributes List Declaration in \ref{setup:issuer}.
+    
+    \item \textbf{Bases Generation}
+    
+    Calculation of bases for the commitments depend on the mode of verifier. Chained Issuer must generate full set of public and private keys, where the other should propose points with unknown discrete logarithm.
+    
+    \begin{itemize}[label=$\circ$]
+        \item \textbf{Additional Commitments}
+        
+        We recommend points on elliptic curve for the commitment bases to be of unknown discrete logarithm for both user and verifier. This can be achieved by selecting points in a deterministic way verifiable for the CA and users (e.g. $Q_i \gets \hash_{G_1}(\textsf{VerifierID} || i)$).
+        
+        \item \textbf{Chained Issuer}
+        
+        Setup as Keys Generation in \ref{setup:issuer}
+    \end{itemize}
+    
+    \item \textbf{Trust Certificate Request}
+    
+    CA has to issue the trust certificate for the verifying entity. The process is done according to the policies and security requirements of the system. Setup as Trust Certificate Request in \ref{setup:issuer}. If the certificate is successfully obtained the verifier is registered under a new unique global identifier.
+\end{enumerate}
+
+
+\subsection*{ASN.1}
+
+\begin{verbatim}
+-- Point on Elliptic Curve --
+
+ECPoint ::= SEQUENCE {
+    x           SEQUENCE OF INTEGER,
+    y           SEQUENCE OF INTEGER
+}
+
+SystemSetup DEFINITIONS ::= BEGIN
+
+    -- Elliptic Curve Domain Parameters --
+    
+    ECDomain ::= SEQUENCE {
+        description IA5String,
+        hash_fun    IA5String,
+        g1_curve    G1Curve,
+        g2_curve    G2Curve    
+    }
+    
+    G1Curve ::= SEQUENCE {
+        p_b         INTEGER,
+        A           INTEGER,
+        B           INTEGER,
+        G_1         ECPoint,
+        q           INTEGER,
+        h           INTEGER
+    }
+
+    G2Curve ::= SEQUENCE {
+        p_b         INTEGER,
+        p_e         SEQUENCE OF INTEGER,
+        A           SEQUENCE OF INTEGER,
+        B           SEQUENCE OF INTEGER,
+        G_2         ECPoint,
+        q           INTEGER,
+        h           INTEGER
+    }
+    
+    
+    -- Attributes List Declaration --
+
+    AttributesList ::= SEQUENCE {
+        description Description,
+        commitments SEQUENCE OF CommitmentGroup
+    }
+
+    Description ::= IA5String
+
+    CommitmentGroup ::= SEQUENCE {
+        scheme      CommitmentScheme,
+        attributes  SEQUENCE OF Description
+    }
+
+    CommitmentScheme ::= ENUMERATED {
+        open        (0),    -- Plain-Text
+        binding     (1),    -- Pedersen Vector Commitment; r = 0
+        hiding      (2)     -- Pedersen Vector Commitment; r <- Random
+    }
+
+    
+    -- Signature Keys --
+
+    PublicKey ::= SEQUENCE {
+        X2          ECPoint,
+        Y2          ECPoint,
+        Z2          SEQUENCE OF ECPoint,
+        Z           SEQUENCE OF ECPoint
+    }
+
+    SecretKey ::= SEQUENCE {
+        x           INTEGER,
+        y           INTEGER,
+        z           SEQUENCE OF INTEGER
+    }
+
+    
+    -- Issuing Entity Certificate Frame --
+    
+    IssuingAgent ::= SEQUENCE {
+        uid         INTEGER,
+        ec_domain   ECDomain,
+        attributes  AttributesList,
+        public_key  PublicKey
+    }
+    
+    
+    -- Verifying Entity Certificate Frame --
+    
+    VerifyingAgent ::= SEQUENCE {
+        uid         INTEGER,
+        verify_uid  INTEGER,
+        ec_domain   ECDomain,
+        attributes  AttributesList,
+        bases       SEQUENCE OF ECPoint
+    }
+    
+    -- Chained Verifiying Entity Certificate Frame --
+    
+    ChainedAgent ::= SEQUENCE {
+        uid         INTEGER,
+        verify_uid  INTEGER,
+        ec_domain   ECDomain,
+        attributes  AttributesList,
+        public_key  PublicKey
+    }
+    
+END
+\end{verbatim}
+
+
+\clearpage
+\section{Credential Issuance Protocol}
+
+In order to obtain a valid credential, a user must execute an interactive protocol with issuing entity (depicted below, see figure \ref{tech:issue-protocol}).
+
+\begin{figure}[h]
+\centering
+\procedure[]{}{%
+  \textbf{User} \< \< \textbf{Issuer} \pclb
+  \pcintertext[dotted]{I. Attributes Commitment}
+  \textsf{1. Public Parameters Verification} \< \< \\
+  \textsf{2. Attributes Commitment} \< \< \\
+  \< \sendmessageright*[3.5cm]{\texttt{AttributesCommit}} \< \\
+  \< \< \textsf{3. Attributes Commitment Verification} \pclb
+  \pcintertext[dotted]{II. Proof of Knowledge of Hidden Attributes}
+  \textsf{4. Commitment to Hidden Values} \< \< \\
+  \< \sendmessageright*[3.5cm]{\texttt{Commit}} \< \\
+  \< \< \textsf{5. Challenge Generation} \\
+  \< \sendmessageleft*[3.5cm]{\texttt{Challenge}} \\
+  \textsf{6. Response to Challenge} \< \< \\
+  \< \sendmessageright*[3.5cm]{\texttt{Response}} \\
+  \< \< \textsf{7. Verification of Response} \pclb
+  \pcintertext[dotted]{III. (Extension)  Additional Verification} \pclb
+  \pcintertext[dotted]{IV. Credential Issuance}
+  \< \< \textsf{8. Credential Creation} \\
+  \< \sendmessageleft*[3.5cm]{\texttt{Credential}} \< \\
+  \textsf{9. Storage of Credential} \< \<
+}
+
+\caption{Credential issuance protocol, with marked future extension.}
+\label{tech:issue-protocol}
+\end{figure}
+
+
+\subsection*{I. Attributes Commitment}
+
+\subsubsection*{1. Public Parameters Verification}
+User may verify public parameters of the issuing entity, that is
+\begin{itemize}[label=$\circ$]
+    \item Certificate chain in PKI.
+    \item Security of selected elliptic curve
+    \item Attributes required for credential issuance.
+    \item Commitment schemes of the attributes.
+\end{itemize}
+If the user does not trust any of the presented parameters, he should terminate execution.
+
+\subsubsection*{2. Attributes Commitment}
+If the users trusts the issuer, then he prepares the required commitments. Keeping the same order as specified in public properties the user performs following depending on the commitment scheme of the attributes. Important to remember that here the index $i$ in $m_i$ denotes the index of attribute in set of ALL attributes, not in the commitment group, so that every public key is used as the base for the commitment (no key used twice). We recall notation $Z_0 = G_1$.
+
+For each commitment of scheme do:
+\begin{itemize}[label=$\circ$]
+    \item \textsf{open}
+    
+    Every attribute $m_i$ is sent in plain-text form of byte-string.
+    
+    \item \textsf{binding}
+    
+    Commitment is computed as $M_c = \sum_{i \in I} [m_i]Z_i$ and sent.
+    
+    \item \textsf{hiding}
+    
+    Commitment is computed as $M_c = [r]Z_0 + \sum_{i \in I} [m_i]Z_i; \quad r \sample \ZZ_q$ and sent, $r$ is stored for later proofs.
+    
+    If \textsf{randomized} scheme is used the implicit attribute $m_0$ serves the role of the randomizer. In that case the value of $m_0 = \sum r$ from all randomized commitments.
+\end{itemize}
+
+\subsubsection*{3. Attributes Commitment Verification}
+
+Issuer may perform verification of values sent in plain-text (e.g. name, phone number etc.). If any of verification fails the execution should be terminated. It may server the role of an initial check or validation. If all required attributes are of commitment scheme \textsf{open}, then steps 4, 5, 6 and 7 are skipped, and the execution continues from step 8. Credential Creation.
+
+
+
+
+
+\subsection*{II. Proof of Knowledge of Hidden Attributes}
+In this part the user proves the knowledge of attributes that were hidden in the commitments, we denote the set of indices of those attributes by $H$. If such proof is not required the protocol should continue from part IV. The operations are presented on the figure \ref{tech:issue-protocol-zkp}. 
+
+\begin{figure}[h]
+\centering
+\procedure[]{}{%
+  \textbf{User} \< \< \textbf{Issuer} \\
+  k_i \sample \ZZ_q \quad \forall i \in H \< \< \\
+  T = \textstyle \sum_{i \in H} [k_i]Z_i \< \< \\
+  \< \sendmessageright*[3.5cm]{T} \< \\
+  \< \< c \sample \ZZ_q \\
+  \< \sendmessageleft*[3.5cm]{c} \\
+  s_i = k_i - cm_i  \quad \forall i \in H \< \< \\
+  \< \sendmessageright*[3.5cm]{\set{s_i}} \\
+  \< \< T \stackrel{?}{=} \textstyle [c]M_H + \sum_{i \in H} [s_i]Z_i \pclb
+}
+\caption{Proof of Knowledge of Hidden Attributes.}
+\label{tech:issue-protocol-zkp}
+\end{figure}
+
+\subsubsection*{4. Commitment to Hidden Values}
+User generates $\abs{H}$ random values, and calculates commitment $T$.
+
+\subsubsection*{5. Challenge generation}
+Issuer selects one integer $c \sample \ZZ_q$ as the challenge for the users claim about knowledge of attributes.
+
+\subsubsection*{6. Response to the Challenge}
+The response can be properly computed only, if the user actually knows the hidden values.
+
+\subsubsection*{7. Verification of Response}
+The verification checks if the linear equation holds, if it does not, then the user in fact does not know the values he committed to, ergo he might be impersonating some other user by presenting his exchanged values.
+
+
+
+
+
+\subsection*{III. (Extension) Additional Verification}
+\subsubsection*{Range Proofs}
+
+After user proved the knowledge of attributes that were hidden in the commitments, he and an issuing entity can perform specialized value checks. The key idea is to allow the issuer to gain knowledge about only some property of hidden value, e.g. if the attribute is from given range.
+
+
+\subsection*{IV. Credential Issuance}
+
+\subsubsection*{8. Credential Creation}
+
+Let $O$ denote the set of indices of messages sent in \textsf{open} commitments. The issuer does the following:
+\begin{enumerate}
+    \item Hashes into $\ZZ_q$ all attributes sent in \textsf{open} commitments that are \textsf{string}: $M_i = \hash({m_i}) \quad \forall i \in O$
+    
+    \item Computes the final form of commitment to be signed $M = M_H + \sum_{i \in O} [M_i]Z_i$.
+    
+    \item Creates the CL-LRSW signature under the commitment $M$:
+    
+    \begin{enumerate}
+        \item[] Generate random $\alpha \sample \ZZ_q$
+        \item[] $A_0 := [\alpha]G_1 \quad B_0 := [y]A_0$
+        \item[] $A_i := [z_i]A_0 \quad B_i := [z_i]B_0 \quad \forall i \in \set{0, \dots l}$
+        \item[] $C := [x]A_0 + [\alpha xy]M$
+        \item[] $\sigma := (A_0, \dots A_l, B_0, \dots B_l, C)$
+    \end{enumerate}
+\end{enumerate}
+
+\subsection*{9. Storage of Credential}
+
+User stores the credential $\sigma := (A_0, \dots A_l, B_0, \dots B_l, C)$ along with all the values $\set{m_i}$. If the credential required generation of random implicit attribute $m_0$ then this values has to be also saved for future verification.
+
+
+\subsection*{ASN.1}
+\begin{verbatim}
+CredentialIssuance DEFINITIONS ::= BEGIN
+
+    -- I. Attributes Commitment --
+
+    OpenCommitment ::= CHOICE {
+        number      INTEGER,
+        string      IA5String
+    }
+
+    AttributesCommit ::= {
+        open        SEQUENCE OF OpenCommitment,
+        hidden      SEQUENCE OF CurvePoint
+    }
+    
+    
+    -- II. Proof of Knowledge of Hidden Attributes --
+        
+    Commit ::= SEQUENCE {
+        T           ECPoint
+    }
+
+    Challenge ::= SEQUENCE {
+        c           INTEGER
+    }
+
+    Response ::= SEQUENCE {
+        s_i         SEQUENCE OF INTEGER
+    }
+    
+    
+    -- IV. Credential Issuance --
+    
+    Credential := {
+        A           SEQUENCE OF ECPoint,
+        B           SEQUENCE OF ECPoint,
+        C           ECPoint
+    }   
+    
+END
+\end{verbatim}
+
+
+\clearpage
+\section{Credential Verification Protocol}
+
+In order to verify a credential, a user must execute an interactive protocol with verifying entity (depicted below, see figure \ref{tech:verify-protocol}).
+
+\begin{figure}[h]
+\centering
+\procedure[]{}{%
+  \textbf{User} \< \< \textbf{Verifier} \pclb
+  \pcintertext[dotted]{I. Signature Commitment}
+  \textsf{1. Public Parameters Verification} \< \< \\
+  \textsf{2. Signature Commitment} \< \< \\
+  \< \sendmessageright*[3.5cm]{\texttt{AttributesCommit}} \< \\
+  \< \< \textsf{3. Signature Commitment Verification} \pclb
+  \pcintertext[dotted]{II. Proof of Knowledge of Credential Attributes}
+  \textsf{4. Commitment to Signed Values} \< \< \\
+  \< \sendmessageright*[3.5cm]{\texttt{Commit}} \< \\
+  \< \< \textsf{5. Challenge Generation} \\
+  \< \sendmessageleft*[3.5cm]{\texttt{Challenge}} \\
+  \textsf{6. Response to Challenge} \< \< \\
+  \< \sendmessageright*[3.5cm]{\texttt{Response}} \\
+  \< \< \textsf{7. Verification of Response} \pclb
+  \pcintertext[dotted]{III. (Extension) Additional Verification} \pclb
+  \pcintertext[dotted]{IV. (Extension) Credential Chaining} \pclb
+}
+\caption{Credential verification protocol, with marked future extension.}
+\label{tech:verify-protocol}
+\end{figure}
+
+\subsection*{I. Signature Commitment}
+\subsubsection*{1. Public Parameters Verification}
+As stated in the setup section, only the verifier that requests additional commitments and proofs is required to present the certificate. If no public parameters are specified it is assumed that the default verification is executed.
+
+If present user may verify public parameters of the verifying entity, that is
+\begin{itemize}[label=$\circ$]
+    \item Certificate chain in PKI.
+    \item Commitment schemes of the attributes.
+    \item Correctness of declared bases.
+\end{itemize}
+If the user does not trust any of the presented parameters, he should terminate execution.
+
+\subsubsection*{2. Signature Commitment}
+User has to re-randomize the credential and prepare additional commitments if required.
+\begin{enumerate}
+    \item Credential randomization
+    
+    \begin{itemize}[label={}]
+        \item $r, r' \sample \ZZ_q$
+        \item $\widetilde A_i = [r']A_i \quad \forall i \in \set{0, \dots l} $
+        \item $\widetilde B_i = [r']B_i \quad \forall i \in \set{0, \dots l} $
+        \item $\widetilde C = [rr']C $
+        \item $\sigma' = (\widetilde A_0, \dots \widetilde A_l, \widetilde B_0, \dots \widetilde B_l, \widetilde C) $
+    \end{itemize}
+    
+    \item Commitments calculations
+    
+    Calculated as in Attributes Commitment in Credential Issuance. If the verifier is not an issuer then list of \textsf{bases} of unknown discrete logarithm are interpreted as the public keys $\set{Z_i}$.
+    
+    % Open commitments are sent in \textsf{open}. 
+    % Each commitment in \textsf{hidden} is calculated similar to the commitments calculated in the credential issuance procedure. $I$ denotes indices of messages in the \textsf{CommitmentGroup} and $\set{Q_i}$ the set of bases, if the verifier is also an issuer then $\set{Q_i} = \set{Z_i}$, in other case its set of bases of unknown discrete logarithm.
+    
+    % $ D_i = \sum_{i \in I} [m_i]Q_i$
+\end{enumerate}
+
+\subsubsection*{3. Signature Commitment Verification}
+
+Verifier may perform verification of values sent in plain-text. If any of the verification fails the execution should be terminated. Performs computations of the commitments $D_i$ for attributes sent in plain-text by first hashing $m_i$.
+
+(Optional) The verifier may now perform the validation of part of credential, or leave this step to the 7. Verification of Response.
+\begin{itemize}[label=$\circ$]
+    \item $e(\widetilde A_0, Z^{(2)}_i) \stackrel{?}{=} e(\widetilde A_i, G_2) \quad \forall i \in \set{1, \dots l} $
+    \item $e(\widetilde A_i, Y^{(2)}) \stackrel{?}{=} e(\widetilde B_i, G_2) \quad \forall i \in \set{0, \dots l} $
+\end{itemize}
+
+
+
+
+\subsection*{II. Proof of Knowledge of Credential Attributes}
+In this part the user proves the knowledge of the attributes that were signed into the credential. We assume that if the message was signed in \textsf{open} commitment then here $m_i \in O$ is already value of hashed into $\ZZ_q$. Steps are depicted in figure \ref{tech:verify-protocol-zkp}.
+
+\begin{figure}[h]
+\centering
+\procedure[]{}{%
+  \textbf{User} \< \< \textbf{Issuer} \\
+  k_r, k_0, \dots k_l \sample \ZZ_q^{l+2} \< \< \\
+  T = [k_r]\widetilde A_0 + \textstyle \sum _{i = 0} ^ l [k_i]\widetilde B_i \< \< \\
+  \dbox{$\textstyle t_i = [k_r]D_i + \sum_{j \in L_i} [-k_j] Q_j$} \< \< \\
+  \< \sendmessageright*[3cm]{T \dbox{$, \set{t_i}$}} \< \\
+  \< \< c \sample \ZZ_q \\
+  \< \sendmessageleft*[3cm]{c} \< \\
+  s_r = k_r - cr \< \< \\
+  s_i = k_i - crm_i \quad \forall i \in \set{0, \dots l}\< \< \\
+  \< \sendmessageright*[3cm]{s_r, s_0, \dots s_l} \<  \\
+  \< \< \dbox{$\textstyle t_i \stackrel{?}{=} [s_r]D_i + \sum_{j \in L} [-s_j] Q_j \quad \forall i$} \\
+  \< \< e([c] \widetilde C, G_2) \stackrel{?}{=} e(T - [s_r] \widetilde A_0 - \textstyle \sum_{i = 0}^l [s_i] \widetilde B_i, X^{(2)}) \\
+  \< \< \dbox{$e(\widetilde A_0, Z^{(2)}_i) \stackrel{?}{=} e(\widetilde A_i, G_2) \quad \forall i \in \set{1, \dots l}$} \\
+  \< \< \dbox{$e(\widetilde A_i, Y^{(2)}) \stackrel{?}{=} e(\widetilde B_i, G_2) \quad \forall i \in \set{0, \dots l} $}
+}
+\caption{Proof of Knowledge of Attributes in Credential.}
+\label{tech:verify-protocol-zkp}
+\end{figure}
+
+\subsubsection*{4. Commitment to Signed Values}
+User generates $l+1$ random values, and calculates $T$. If additional \textsf{hidden} commitments $D_i$ were requested user calculates additional commitments $\set{t_i}$.
+
+\subsubsection*{5. Challenge Generation}
+Issuer selects one integer $c \sample \ZZ_q$ as the challenge for the user claim about knowledge of signed attributes.
+
+\subsubsection*{6. Response to Challenge}
+The user computes response only, if the user knows the signed values of attributes.
+
+\subsubsection*{7. Verification of Response}
+Verifier performs the comparison of proper values to check if the user knows signed attributes. If the verification of part of credential was performed in step 3. Signature Commitment Verification then it may be skipped here. The verification of $\set{t_i}$ (if present) assures that the values in credential are the same as those used in the commitments $\set{D_i}$.
+
+
+
+\subsection*{III (Extension) Additional Verification}
+
+\subsubsection*{Range Proofs}
+It is possible to extend the protocol by specialized value checks (e.g. if the value is in proper range) without revealing the value itself. The structure of those protocols are out of the scope of this document, we just leave the space open for possible extensions. For possible extending protocols we refer to \cite{bulletproofs}.
+
+\subsubsection{Simple Logical Circuits}
+
+\paragraph{The Same Value under Commitment}
+User sent to verifier in previous commitments values $P_i = [m]G + [r_i]H$ for $i \in \set{1, ...n}$. If the verifiying entity wants to check if in fact the same value $m$ was used in all commitments, they perform the protocol depicted in figure \ref{tech:and-protocol}.
+
+
+
+\paragraph{One of Values under Commitment}
+User sent to verifier in previous commitment value $P = [m_a]G + [r]H$ where $m_a$ might be one of $n$ possible different $m_i$ values. If the verifier wants to check if the value $m_a$ is in fact one from the set $\set{m_i}$, they perform the protocol depicted in figure \ref{tech:or-protocol}.
+
+\begin{figure}[p]
+\centering
+\procedure[]{}{%
+  \textbf{User} \< \< \textbf{Verifier} \\
+  P = [m_a]G + [r]H \< \< P \\
+  k_a \sample \ZZ_q \< \< \\
+  s_i \sample \ZZ_q \quad \forall i \neq a \< \< \\
+  c_i \sample \ZZ_q \quad \forall i \neq a \< \< \\
+  T_i = [c_i]P - [c_im_i]G + [s_i]H \quad \forall i \neq a \< \< \\
+  T_a = [k_a]H \< \< \\
+  \< \sendmessageright*[2.5cm]{\set{T_i}} \\
+  \< \< c \sample \ZZ_q \\
+  \< \sendmessageleft*[2.5cm]{c} \\
+  c_a = c - \sum c_i \< \< \\
+  s_a = k_a - c_ar \< \< \\
+  \< \sendmessageright*[2.5cm]{\set{c_i}, \set{s_i}}  \< \\
+  \< \< c \stackrel{?}{=} \sum c_i \\
+  \< \< T_i \stackrel{?}{=} [c_i]P - [c_im_i]G + [s_i]H
+}
+\caption{Simple check if $m_a$ is from set $\set{m_i}$}
+\label{tech:or-protocol}
+
+\vspace{2cm}
+
+\procedure[]{}{%
+  \textbf{User} \< \< \textbf{Verifier} \\
+  P_i = [m]G + [r_i]H \quad \forall i \in \set{1, ...n}  \< \< P_i \quad  i \in \set{1, ...n} \\
+  k_m, k_1, ...k_n \sample \ZZ_q^{n+1} \< \< \\
+  T_i = [k_m]G + [k_i]H  \quad \forall i \in \set{1, ...n}\< \< \\
+  \< \sendmessageright*[2.5cm]{\set{T_i}} \< \\
+  \< \< c \sample \ZZ_q \\
+  \< \sendmessageleft*[2.5cm]{c} \< \\
+  s_m = k_m - cm \< \< \\
+  s_i = k_i - cr_i  \quad \forall i \in \set{1, ...n}\< \< \\
+  \< \sendmessageright*[2.5cm]{s_m, \set{s_i}} \< \\
+  \< \< T_i \stackrel{?}{=} [c]P_i + [s_m]G + [s_i]H \quad \forall i \in \set{1, ...n}
+}
+\caption{Simple check if $m$ is the same in all commitments}
+\label{tech:and-protocol}
+\end{figure}
+
+
+\subsection*{IV (Extension) Credential Chaining}
+If a verifier is also an issuer, then the protocol can be extended by what is called credential chaining. That is the verifier-issuer can create new credential under hid set of keys under values (or subset of values) of attributes that were just proven valid.
+
+In this extension user would expect to receive new \textsf{Credential} after the verification (see figure \ref{tech:verify-chaining}). And the process would be the same as in part IV. Credential Issunace in Credential Issuance Protocol.
+
+\begin{figure}[H]
+\centering
+\procedure[]{}{%
+  \textbf{User} \< \< \textbf{Verifier} \pclb
+  \pcintertext[dotted]{(Extension) Credential Chaining}
+  \< \< \textsf{8*. Credential Creation} \\
+  \< \sendmessageleft*[3.5cm]{\texttt{Credential}} \< \\
+  \textsf{9*. Storage of Credential} \< \<
+}
+\caption{Credential Chaining}
+\label{tech:verify-chaining}
+\end{figure}
+
+
+\subsection*{ASN.1}
+\begin{verbatim}
+CredentialVerification DEFINITIONS ::= BEGIN
+
+    -- I. Signature Commitment --
+
+    OpenCommitment ::= CHOICE {
+        number      INTEGER,
+        string      IA5String
+    }
+
+    AttributesCommit ::= SEQUENCE {
+        sigma       Credential,
+        open        SEQUENCE OF OpenCommitment,
+        hidden      SEQUENCE OF ECPoint
+    }
+
+
+    -- II. Proof of Knowledge of Credential Attributes --
+
+    Commit ::= SEQUENCE {
+        T           ECPoint,
+        t           OPTIONAL SEQUENCE OF ECPoint
+    }
+    
+    Challenge ::= SEQUENCE {
+        c           INTEGER
+    }
+    
+    Response ::= SEQUENCE {
+        s_r         INTEGER,
+        s_i         SEQUENCE OF INTEGER
+    }
+END
+\end{verbatim}
+
+\clearpage
+
+
+
+\section{Security Consiredations}
+
+This document describes the cryptographic protocols which security depends entirely on the secrecy of the relevant private keys. For a malicious adversary to defeat the security provided by the algorithms employed would be to perform computationally-intensive cryptographic attacks to recover the private keys.
+
+We assume that users and people implementing CreS will require adequate level of cryptograhic strength, according to NIST \cite{nist-keys}.
+\begin{itemize}[label=$\circ$]
+    \item 112-bit level
+    
+    Is suitable for use in the system where credential expiration time is rather small. Protects information whose useful life time extends up to year 2030. 
+    
+    \item 128-bit level and more
+    
+    Is suitable for the use in the system where protection of information whose useful life extends past the year 2030 is required.
+\end{itemize}
+
+Note that the security of some of protocols requires secure hash functions. Because this documentation assumes the freedom of choice for those, we only state that adequate level of security must be assured.
+
+The randomness of the random values that are used in the cryptographic protocols is crucial to the security of the system. Any implementation of CreS must use a source of random values that provides an adequate level of security.
+
+We also note that the security of the credential system strongly relies on the security of transport layer and public key infrastructure. That is system must assure the appropriate level of security.
