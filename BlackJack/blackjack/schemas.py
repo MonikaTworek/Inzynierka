@@ -3,14 +3,22 @@ schemas = {
     "register": {
         "type": "object",
         "properties": {
-            "cash": {
-                "type": "number"
-            },
-            "seed": {
+            "numberof": {
                 "type": "number"
             }
-        },
-        "required": ["cash"]
+        }
+        ,
+        "required": ["numberof"]
+    },
+    "generate": {
+        "type": "object",
+        "properties": {
+            "numberof": {
+                "type": "number"
+            }
+        }
+        ,
+        "required": ["numberof"]
     },
     "begin_game": {
         "type": "object",
@@ -20,33 +28,6 @@ schemas = {
             }
         },
         "required": ["bid"]
-    },
-    "action_in_game": {
-        "type": "object",
-        "properties": {
-            "action": {
-                "type": "string",
-                "enum": ["split", "double_down", "hit", "stand"]
-            }
-        },
-        "required": ["action"]
-    }
-}
-
-
-#TODO: to trzeba koniecznie zmienic!!!
-scheme = {
-    "register": {
-        "type": "object",
-        "properties": {
-            "cash": {
-                "type": "number"
-            }
-        },
-        "required": ["cash"]
-    },
-    "begin_game": {
-        "type": "object"
     },
     "action_in_game": {
         "type": "object",

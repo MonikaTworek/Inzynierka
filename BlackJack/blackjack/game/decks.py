@@ -2,7 +2,7 @@ from random import Random
 
 
 class Card:
-    colors = ['Diamond', 'Clubs', 'Hearts', 'Spades']
+    colors = ['Karo', 'Trefl', 'Kier', 'Pik']
     ranks = list(range(1, 14))
 
     def __init__(self, color: str, rank: int, face_up: bool=False):

@@ -30,22 +30,28 @@ def handle_exception(exception):
     response.status_code = 400
     return response
 
-#TODO: Zastanowic sie z Mackiem, czy potrzebujesz uid
-
 
 @app.route('/register', methods=['POST'])
 @validate_schema('register')
 def register():
+    number = request.json["numberof"]
     uid = max(tables) + 1 if tables else 0
-    tables[uid] = Table()
-    #TODO: watki zrob boty w tym momencie
+    tables[uid] = Table(number)
+    #tutaj wywołać boty
     return jsonify({"header": "confirm_register", "uid": uid})
+
+@app.route('/generate', methods=['POST'])
+@validate_schema('generate')
+def generate():
+    number = request.json["numberof"]
+    #tutaj wywołać boty
+    return jsonify({"header": "data was generate in C: Users Public"})
 
 
 @app.route('/player/<int:uid>/begin', methods=['POST'])
 @validate_schema('begin_game')
 def begin_game(uid: int):
-    tables[uid].begin_game(request.json["bid"])
+    tables[uid].begin_game()
 
     table_dict = table_to_dict(tables[uid])
     table_dict["header"] = "success"

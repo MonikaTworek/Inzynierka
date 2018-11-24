@@ -35,12 +35,6 @@ class Hand:
         return value
 
     @property
-    def can_insure(self):
-        cards = [x for x in self.cards if x.face_up]
-        aces = len([x for x in cards if x.rank == 1])
-        return aces == 1
-
-    @property
     def has_blackjack(self) -> bool:
         return self.value == 21 and len(self.cards) == 2
 

@@ -36,6 +36,7 @@ def croupier_to_dict(croupier: Croupier):
 def state_to_dict(state: State):
     return {
         "phase": state.phase,
+        "bid": state.bid,
         "winnings": state.winnings
     }
 

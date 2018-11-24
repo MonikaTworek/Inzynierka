@@ -9,7 +9,6 @@ State = namedlist("State", ["phase", "bid", "winnings"])
 account_balance = 100
 bid = 10
 
-
 def action(from_phases, to_phase):
     def decorator(foo):
         @wraps(foo)
@@ -28,15 +27,13 @@ def action(from_phases, to_phase):
                     self.player.switch_hand()
                 else:
                     self.resolve_game()
-
         return wrapper
-
     return decorator
 
 
 class Table:
-    def __init__(self):
-        self.state = State(phase="awaiting", winnings=0)
+    def __init__(self, number: int=1):
+        self.state = State(phase="awaiting", bid=0, winnings=0)
         self.player = Player(account_balance)
         self.croupier = Croupier()
         self.decks = Decks()
@@ -44,6 +41,12 @@ class Table:
         self.draw = 0
         self.loosings = 0
         self.is_insure = False
+        self.numberOfCards = number * 52
+
+    def finish_game(self,):
+        #polacz sie z server wywolaj koniec gry
+        self.draw += 1
+        self.draw -= 1
 
     def resolve_game(self):
         self.state.phase = "end_game"
@@ -65,7 +68,7 @@ class Table:
 
         if croupier_hand.has_blackjack and self.is_insure:
             self.player.account_balance += bid
-#za blackjack jest 1.5 stawki
+
         for player_hand in valid_hands:
             if croupier_hand.has_blackjack and player_hand.has_blackjack:
                 self.draw += 1
@@ -83,7 +86,11 @@ class Table:
                 # No blackjack scenario
                 # Croupier has defined strategy
                 while croupier_hand.value <= 16:
-                    croupier_hand.add(self.decks.get())
+                    if self.numberOfCards < 1:
+                        self.draw += 1
+                        self.finish_game()
+                    else:
+                        croupier_hand.add(self.decks.get())
                 if croupier_hand.value > 21 or player_hand.value > croupier_hand.value:
                     multiplier = 2
                     player_hand.winner = "Player"
@@ -104,23 +111,33 @@ class Table:
         self.player.clear()
 
         self.is_insure = False
-        self.player.balance -= bid
+        self.player.account_balance -= bid
         self.state.winnings = 0
 
-        #TODO: a co jak sie kosnczyly karty?
+        if self.numberOfCards < 4:
+            self.draw += 1
+            self.state = "end_game"
+            self.finish_game()
 
         self.croupier.hand.add(self.decks.get(), face_up=False)
         self.croupier.hand.add(self.decks.get(), face_up=True)
         self.player.hand.add(self.decks.get(), face_up=True)
         self.player.hand.add(self.decks.get(), face_up=True)
 
+        self.numberOfCards -= 4
+
         if self.player.hand.value >= 21:
             self.player.hand.playing = False
 
+
     @action(from_phases=("begin_game", "in_game"), to_phase="in_game")
     def hit(self):
+        if self.numberOfCards < 1 :
+            self.draw += 1
+            self.state = "end_game"
+            self.finish_game()
         self.player.hand.add(self.decks.get(), face_up=True)
-        # TODO: a co jak sie kosnczyly karty?
+        self.numberOfCards -= 1
         if self.player.hand.value >= 21:
             self.player.hand.playing = False
 
@@ -128,11 +145,16 @@ class Table:
     def stand(self):
         self.player.hand.playing = False
 
-    @action(from_phases=("begin_game",), to_phase="in_game")
+    @action(from_phases=("begin_game",),  to_phase="in_game")
     def double_down(self):
-        self.player.balance -= self.state.bid
+        if self.numberOfCards < 1:
+            self.draw += 1
+            self.state = "end_game"
+            self.finish_game()
+        self.player.account_balance -= self.state.bid
         self.state.bid *= 2
         self.player.hand.add(self.decks.get(), face_up=True)
+        self.numberOfCards -= 1
         self.player.hand.playing = False
 
     @action(from_phases=("begin_game",), to_phase="in_game")
@@ -144,10 +166,17 @@ class Table:
         if first_hand.cards[0].rank != first_hand.cards[1].rank:
             raise InvalidMove("Cannot split cards")
 
-        self.player.balance -= self.state.bid
+        if self.numberOfCards < 3:
+            self.state = "end_game"
+            self.draw += 1
+            self.finish_game()
+
+        self.player.account_balance -= self.state.bid
         second_hand.add(first_hand.cards.pop())
         first_hand.add(self.decks.get(), face_up=True)
         second_hand.add(self.decks.get(), face_up=True)
+
+        self.numberOfCards -= 3
 
     @action(from_phases=("begin_game",), to_phase="in_game")
     def insure(self):
