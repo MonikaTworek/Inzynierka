@@ -42,7 +42,9 @@ class Hand:
 class Player:
     def __init__(self, account_balance: int):
         self._balance = account_balance
-        self.hands = (Hand(), Hand())
+        self.hands1 = Hand()
+        self.hands2 = Hand()
+        self.hands = [self.hands1, self.hands2]
 
     @property
     def account_balance(self) -> int:
@@ -54,17 +56,13 @@ class Player:
             raise InvalidMove("Negative account balance is not allowed")
         self._balance = value
 
-    def switch_hand(self):
-        if self.hands[1].playing:
-            self.hands = (self.hands[1], self.hands[0])
+    @property
+    def hand1(self) -> Hand:
+        return self.hands1
 
     @property
-    def hand(self) -> Hand:
-        return self.hands[0]
-
-    @property
-    def other_hand(self):
-        return self.hands[1]
+    def hand2(self) -> Hand:
+        return self.hands2
 
     def clear(self):
         for hand in self.hands:

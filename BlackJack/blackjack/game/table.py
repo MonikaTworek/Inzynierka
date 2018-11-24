@@ -9,6 +9,7 @@ State = namedlist("State", ["phase", "bid", "winnings"])
 account_balance = 100
 bid = 10
 
+
 def action(from_phases, to_phase):
     def decorator(foo):
         @wraps(foo)
@@ -20,19 +21,13 @@ def action(from_phases, to_phase):
             # Execute action and switch to target phase
             foo(self, *args, **kw)
             self.state.phase = to_phase
-
-            # Switch if other hand is still playing, resolve if none is
-            if not self.player.hand.playing:
-                if self.player.other_hand.playing:
-                    self.player.switch_hand()
-                else:
-                    self.resolve_game()
         return wrapper
+
     return decorator
 
 
 class Table:
-    def __init__(self, number: int=1):
+    def __init__(self, number: int = 1):
         self.state = State(phase="awaiting", bid=0, winnings=0)
         self.player = Player(account_balance)
         self.croupier = Croupier()
@@ -43,8 +38,8 @@ class Table:
         self.is_insure = False
         self.numberOfCards = number * 52
 
-    def finish_game(self,):
-        #polacz sie z server wywolaj koniec gry
+    def finish_game(self):
+        # polacz sie z server wywolaj koniec gry
         self.draw += 1
         self.draw -= 1
 
@@ -113,6 +108,7 @@ class Table:
         self.is_insure = False
         self.player.account_balance -= bid
         self.state.winnings = 0
+        self.state.bid = bid
 
         if self.numberOfCards < 4:
             self.draw += 1
@@ -121,41 +117,57 @@ class Table:
 
         self.croupier.hand.add(self.decks.get(), face_up=False)
         self.croupier.hand.add(self.decks.get(), face_up=True)
-        self.player.hand.add(self.decks.get(), face_up=True)
-        self.player.hand.add(self.decks.get(), face_up=True)
+        self.player.hands1.add(self.decks.get(), face_up=True)
+        self.player.hands1.add(self.decks.get(), face_up=True)
 
         self.numberOfCards -= 4
 
-        if self.player.hand.value >= 21:
-            self.player.hand.playing = False
-
+        if self.player.hands1.value >= 21:
+            self.player.hands1.playing = False
 
     @action(from_phases=("begin_game", "in_game"), to_phase="in_game")
-    def hit(self):
-        if self.numberOfCards < 1 :
+    def hit1(self):
+        if self.numberOfCards < 1:
             self.draw += 1
             self.state = "end_game"
             self.finish_game()
-        self.player.hand.add(self.decks.get(), face_up=True)
+        self.player.hands1.add(self.decks.get(), face_up=True)
         self.numberOfCards -= 1
-        if self.player.hand.value >= 21:
-            self.player.hand.playing = False
+        if self.player.hands1.value >= 21:
+            self.player.hands1.playing = False
 
     @action(from_phases=("begin_game", "in_game"), to_phase="in_game")
-    def stand(self):
-        self.player.hand.playing = False
+    def hit2(self):
+        if self.player.hands1.playing is False:
+            raise InvalidMove("Hand is empty")
+        if self.numberOfCards < 1:
+            self.draw += 1
+            self.state = "end_game"
+            self.finish_game()
+        self.player.hands2.add(self.decks.get(), face_up=True)
+        self.numberOfCards -= 1
+        if self.player.hands2.value >= 21:
+            self.player.hands2.playing = False
 
-    @action(from_phases=("begin_game",),  to_phase="in_game")
+    @action(from_phases=("begin_game", "in_game"), to_phase="in_game")
+    def stand1(self):
+        self.player.hands1.playing = False
+
+    @action(from_phases=("begin_game", "in_game"), to_phase="in_game")
+    def stand2(self):
+        self.player.hands2.playing = False
+
+    @action(from_phases=("begin_game",), to_phase="in_game")
     def double_down(self):
         if self.numberOfCards < 1:
             self.draw += 1
             self.state = "end_game"
             self.finish_game()
-        self.player.account_balance -= self.state.bid
+        self.player.account_balance -= bid
         self.state.bid *= 2
-        self.player.hand.add(self.decks.get(), face_up=True)
+        self.player.hands1.add(self.decks.get(), face_up=True)
         self.numberOfCards -= 1
-        self.player.hand.playing = False
+        self.player.hands1.playing = False
 
     @action(from_phases=("begin_game",), to_phase="in_game")
     def split(self):

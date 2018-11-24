@@ -64,11 +64,13 @@ def make_action(uid: int):
     actions = {
         "split": Table.split,
         "double_down": Table.double_down,
-        "stand": Table.stand,
-        "hit": Table.hit,
-        "end_game": Table.finish_game(),
-        "insure": Table.insure(),
-        "surrender": Table.surrender()
+        "stand1": Table.stand1,
+        "stand2": Table.stand2,
+        "hit1": Table.hit1,
+        "hit2": Table.hit2,
+        "end_game": Table.finish_game,
+        "insure": Table.insure,
+        "surrender": Table.surrender
     }
     actions[request.json["action"]](tables[uid])
 

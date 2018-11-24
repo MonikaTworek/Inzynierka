@@ -21,8 +21,8 @@ def hand_to_dict(hand: Hand):
 
 def player_to_dict(player: Player):
     return {
-        "hands": [hand_to_dict(hand) for hand in player.hands],
-        "current_hand": hand_to_dict(player.hand),
+        "hands1": hand_to_dict(player.hands1),
+        "hands2": hand_to_dict(player.hands2),
         "account_balance": player.account_balance
     }
 
