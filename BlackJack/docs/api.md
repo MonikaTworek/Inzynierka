@@ -64,7 +64,7 @@ Perform one of available actions.
 ```javascript
 Action
 {
-    "action": string  # split, double_down, stay, hit
+    "action": string  # split, double_down, stay, hit, end_game
 }
 ```
 ### Response JSON

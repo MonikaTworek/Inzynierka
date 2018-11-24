@@ -65,7 +65,8 @@ def make_action(uid: int):
         "split": Table.split,
         "double_down": Table.double_down,
         "stand": Table.stand,
-        "hit": Table.hit
+        "hit": Table.hit,
+        "end_game": Table.finish_game()
     }
     actions[request.json["action"]](tables[uid])
 

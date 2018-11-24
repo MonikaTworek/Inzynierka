@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f20ec02-2cfb-4f1a-87ad-7d3b98b4b95c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/BlackJack.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BlackJack.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../angular-client" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blackjack/describe.py" beforeDir="false" afterPath="$PROJECT_DIR$/blackjack/describe.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blackjack/game/decks.py" beforeDir="false" afterPath="$PROJECT_DIR$/blackjack/game/decks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blackjack/game/players.py" beforeDir="false" afterPath="$PROJECT_DIR$/blackjack/game/players.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blackjack/strategy/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blackjack/strategy/bots.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blackjack/strategy/generate_data.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,22 +61,24 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="md" value="101" />
-          <entry key="py" value="717" />
+          <entry key="py" value="729" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Markdown" value="101" />
-          <entry key="Python" value="717" />
+          <entry key="Python" value="729" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="md" value="1" />
           <entry key="py" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="Markdown" value="1" />
           <entry key="Python" value="3" />
         </counts>
       </usages-collector>
@@ -93,16 +86,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blackjack/game/table.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="109" selection-start-line="109" selection-end-line="129" selection-end-column="44" />
+            <state relative-caret-position="149">
+              <caret line="130" lean-forward="true" selection-start-line="130" selection-end-line="130" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
-                <marker date="1543076918007" expanded="true" signature="1446:1455" ph="..." />
-                <marker date="1543076918007" expanded="true" signature="1446:1546" ph="..." />
-                <marker date="1543076918007" expanded="true" signature="6610:6615" ph="..." />
+                <marker date="1543077152108" expanded="true" signature="1446:1455" ph="..." />
+                <marker date="1543077152108" expanded="true" signature="1446:1546" ph="..." />
+                <marker date="1543077152108" expanded="true" signature="3878:3887" ph="..." />
+                <marker date="1543077152108" expanded="true" signature="6614:6619" ph="..." />
               </folding>
             </state>
           </provider>
@@ -116,6 +110,18 @@
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/docs/api.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="272">
+                <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -142,7 +148,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
@@ -170,6 +176,11 @@
               <item name="BlackJack" type="462c0819:PsiDirectoryNode" />
               <item name="blackjack" type="462c0819:PsiDirectoryNode" />
               <item name="game" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BlackJack" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlackJack" type="462c0819:PsiDirectoryNode" />
+              <item name="docs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -241,12 +252,12 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11940298" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11940298" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34127843" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.34127843" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -300,16 +311,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/api.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="272">
-            <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/flask/app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="237">
@@ -352,14 +353,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/blackjack/game/table.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="109" selection-start-line="109" selection-end-line="129" selection-end-column="44" />
+        <state relative-caret-position="149">
+          <caret line="130" lean-forward="true" selection-start-line="130" selection-end-line="130" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
-            <marker date="1543076918007" expanded="true" signature="1446:1455" ph="..." />
-            <marker date="1543076918007" expanded="true" signature="1446:1546" ph="..." />
-            <marker date="1543076918007" expanded="true" signature="6610:6615" ph="..." />
+            <marker date="1543077152108" expanded="true" signature="1446:1455" ph="..." />
+            <marker date="1543077152108" expanded="true" signature="1446:1546" ph="..." />
+            <marker date="1543077152108" expanded="true" signature="3878:3887" ph="..." />
+            <marker date="1543077152108" expanded="true" signature="6614:6619" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/api.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="272">
+            <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
