@@ -15,8 +15,8 @@ class Card:
 
 
 class Decks:
-    def __init__(self, seed: int=42, count: int=1):
-        self.random = Random(seed)
+    def __init__(self, count: int=1):
+        self.random = Random()
         self.count = count
         self.cards = []
         self._prepare()

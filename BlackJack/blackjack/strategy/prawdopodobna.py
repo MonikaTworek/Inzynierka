@@ -1,0 +1,2 @@
+# Na podstawie kart, które zostały juz od poczatku gry uzyte wyliczane jest prawdopodobienstwo przekroczenia
+# przez uzytkownika 21. Jezeli jest ono niskie gracz dobiera karte, w przeciwnym razie pasuje.

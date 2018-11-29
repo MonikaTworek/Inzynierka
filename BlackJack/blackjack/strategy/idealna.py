@@ -1,0 +1,1 @@
+# Znajac układ całej talii wyliczana jest idealna rozgrywka, w której gracz wygrywa najwiecej rozgrywek.

@@ -1,0 +1,2 @@
+# Jest to ta sama strategia według której gra krupier. Jezeli ma 16 punktów lub mniej w kartach musi
+# dociagnac karte. W przypadku gdy ma 17 i wiecej nie dobiera kart bez wzgledu na to ile punktów ma gracz.
