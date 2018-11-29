@@ -1,3 +1,4 @@
+import copy
 from functools import wraps
 
 from jsonschema import validate, ValidationError
@@ -5,12 +6,13 @@ from flask import Flask, request, jsonify
 
 from blackjack.game.table import Table, InvalidMove
 from blackjack.schemas import schemas
-from blackjack.describe import table_to_dict
+from blackjack.describe import table_to_dict, score_to_dict
+from blackjack.strategy.generate_data import Generate
 
 app = Flask(__name__)
 
-
 tables = {}
+scores = {}
 
 
 def validate_schema(schema_name):
@@ -19,7 +21,9 @@ def validate_schema(schema_name):
         def wrapper(*args, **kw):
             validate(request.json, schema=schemas[schema_name])
             return f(*args, **kw)
+
         return wrapper
+
     return decorator
 
 
@@ -37,14 +41,15 @@ def register():
     number = request.json["numberof"]
     uid = max(tables) + 1 if tables else 0
     tables[uid] = Table(number)
-    #tutaj wywołać boty
+    scores[uid] = Generate.game(copy.deepcopy(tables[uid]))
     return jsonify({"header": "confirm_register", "uid": uid})
+
 
 @app.route('/generate', methods=['POST'])
 @validate_schema('generate')
 def generate():
     number = request.json["numberof"]
-    #tutaj wywołać boty
+    Generate.generate(1000, number)
     return jsonify({"header": "data was generate in C: Users Public"})
 
 
@@ -77,3 +82,13 @@ def make_action(uid: int):
     table_dict = table_to_dict(tables[uid])
     table_dict["header"] = "success"
     return jsonify(table_dict)
+
+
+@app.route('/player/<int:uid>/finish', methods=['POST'])
+@validate_schema('finish_game')
+def finish_game(uid: int):
+    tables[uid].finish_game()
+
+    score_dict = score_to_dict(tables[uid], scores[uid])
+    score_dict["header"] = "success"
+    return jsonify(score_dict)

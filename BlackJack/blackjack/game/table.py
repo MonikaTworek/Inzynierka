@@ -6,20 +6,6 @@ from blackjack.game.exceptions import InvalidMove
 from blackjack.game.players import Player, Croupier
 
 State = namedlist("State", ["phase", "bid", "winnings"])
-#wywalić dekorat i wstawiać ify na początki -.-
-
-def action(from_phases, to_phase):
-    def decorator(foo):
-        @wraps(foo)
-        def wrapper(self, *args, **kw):
-            # Do not allow execution of command if not in proper phase
-            if self.state.phase not in from_phases:
-                raise InvalidMove("Not in proper phase")
-            foo(self, *args, **kw)
-            self.state.phase = to_phase
-        return wrapper
-
-    return decorator
 
 
 class Table:
@@ -35,14 +21,15 @@ class Table:
         self.account_balance = 1000
         self.player = Player(self.account_balance)
         self.croupier = Croupier()
+        self.is_finished = False
 
     def finish_game(self):
-        # polacz sie z server wywolaj koniec gry
-        self.draw += 1
-        self.draw -= 1
-
-    @action(from_phases=("in_game", "begin_game"), to_phase="end_game")
+        self.is_finished = True
+        # raise InvalidMove("You finish")
+    #     Jezeli w webstormie umiem przechwytywac errory to te rozwiazanie. jak nie to trzeba cos wymyslic
     def resolve_game(self):
+        if self.state.phase not in ["in_game", "begin_game"]:
+            raise InvalidMove("Not in proper phase")
         self.state.phase = "end_game"
 
         croupier_hand = self.croupier.hand
@@ -88,20 +75,23 @@ class Table:
                 if croupier_hand.value > 21 or player_hand.value > croupier_hand.value:
                     multiplier = 2
                     player_hand.winner = "Player"
+                    self.winnings += 1
                 elif player_hand.value == croupier_hand.value:
                     multiplier = 1
                     player_hand.winner = "Draw"
+                    self.draw += 1
                 else:
                     multiplier = 0
                     player_hand.winner = "Croupier"
+                    self.loosings += 1
 
             self.state.winnings += self.state.bid * multiplier
         self.player.account_balance += self.state.winnings
         self.state.phase = "end_game"
-        # a =3
 
-    @action(from_phases=("awaiting", "end_game"), to_phase="begin_game")
     def begin_game(self):
+        if self.state.phase not in ["awaiting", "end_game"]:
+            raise InvalidMove("Not in proper phase. You cannot begin game!")
         self.croupier.clear()
         self.player.clear()
 
@@ -111,82 +101,104 @@ class Table:
         self.state.bid = self.bid
 
         if self.numberOfCards < 4:
-            self.draw += 1
             self.state = "end_game"
             self.finish_game()
 
-        self.croupier.hand.add(self.decks.get(), face_up=False)
-        self.croupier.hand.add(self.decks.get(), face_up=True)
-        self.player.hands1.add(self.decks.get(), face_up=True)
-        self.player.hands1.add(self.decks.get(), face_up=True)
+        else:
+            self.croupier.hand.add(self.decks.get(), face_up=False)
+            self.croupier.hand.add(self.decks.get(), face_up=True)
+            self.player.hands1.add(self.decks.get(), face_up=True)
+            self.player.hands1.add(self.decks.get(), face_up=True)
 
-        self.numberOfCards -= 4
+            self.numberOfCards -= 4
 
-        if self.player.hands1.value >= 21:
-            self.player.hands1.playing = False
-        # a=1
+            if self.player.hands1.value >= 21:
+                self.player.hands1.playing = False
+            self.state.phase = "begin_game"
 
-    @action(from_phases=("begin_game", "in_game"), to_phase="in_game")
     def hit1(self):
+        if self.state.phase not in ["in_game", "begin_game"]:
+            raise InvalidMove("Not in proper phase. You cannot hit!")
         if self.player.hands1.playing is False:
             raise InvalidMove("Not in proper phase")
+
         if self.numberOfCards < 1:
-            self.draw += 1
             self.state = "end_game"
             self.finish_game()
-        self.player.hands1.add(self.decks.get(), face_up=True)
-        # self.numberOfCards -= 1
-        if self.player.hands1.value >= 21:
-            self.player.hands1.playing = False
-            if self.player.hands2.playing is False:
-                self.resolve_game()
-        # a=2
 
-    @action(from_phases=("begin_game", "in_game"), to_phase="in_game")
+        else:
+            self.player.hands1.add(self.decks.get(), face_up=True)
+            self.numberOfCards -= 1
+            if self.player.hands1.value >= 21:
+                self.player.hands1.playing = False
+                if self.player.hands2.playing is False:
+                    self.resolve_game()
+                else:
+                    self.state.phase = "in_game"
+            else:
+                self.state.phase = "in_game"
+
     def hit2(self):
+        if self.state.phase not in ["in_game", "begin_game"]:
+            raise InvalidMove("Not in proper phase. You cannot hit!")
         if self.player.hands1.playing is False:
             raise InvalidMove("Hand is empty")
+
         if self.numberOfCards < 1:
-            self.draw += 1
             self.state = "end_game"
             self.finish_game()
-        self.player.hands2.add(self.decks.get(), face_up=True)
-        self.numberOfCards -= 1
-        if self.player.hands2.value >= 21:
-            self.player.hands2.playing = False
-            if self.player.hands1.playing is False:
-                self.resolve_game()
-        # a =3
 
-    @action(from_phases=("begin_game", "in_game"), to_phase="in_game")
+        else:
+            self.player.hands2.add(self.decks.get(), face_up=True)
+            self.numberOfCards -= 1
+            if self.player.hands2.value >= 21:
+                self.player.hands2.playing = False
+                if self.player.hands1.playing is False:
+                    self.resolve_game()
+                else:
+                    self.state.phase = "in_game"
+            else:
+                self.state.phase = "in_game"
+
     def stand1(self):
+        if self.state.phase not in ["in_game", "begin_game"]:
+            raise InvalidMove("Not in proper phase. You cannot stand!")
+
         self.player.hands1.playing = False
         if self.player.hands2.playing is False:
             self.resolve_game()
-        # a=3
+        else:
+            self.state.phase = "in_game"
 
-    @action(from_phases=("begin_game", "in_game"), to_phase="in_game")
     def stand2(self):
+        if self.state.phase not in ["in_game", "begin_game"]:
+            raise InvalidMove("Not in proper phase. You cannot stand!")
+
         self.player.hands2.playing = False
         if self.player.hands1.playing is False:
             self.resolve_game()
-        # a=3
+        else:
+            self.state.phase = "in_game"
 
-    @action(from_phases=("begin_game",), to_phase="in_game")
     def double_down(self):
+        if self.state.phase is not "begin_game":
+            raise InvalidMove("Not in proper phase. You cannot double down!")
         if self.numberOfCards < 1:
-            self.draw += 1
             self.state.phase = "end_game"
             self.finish_game()
-        self.player.account_balance -= self.bid
-        self.state.bid *= 2
-        self.player.hands1.add(self.decks.get(), face_up=True)
-        self.numberOfCards -= 1
-        self.player.hands1.playing = False
-        # a=2
 
-    @action(from_phases=("begin_game",), to_phase="in_game")
+        else:
+            self.player.account_balance -= self.bid
+            self.state.bid *= 2
+            self.player.hands1.add(self.decks.get(), face_up=True)
+            self.numberOfCards -= 1
+            self.player.hands1.playing = False
+            self.state.phase = "in_game"
+
     def split(self):
+        if self.state.phase is not "begin_game":
+            raise InvalidMove("Not in proper phase. You cannot split!")
+
         first_hand, second_hand = self.player.hands
         if not (first_hand.is_empty or second_hand.is_empty):
             raise InvalidMove("Already did split")
@@ -196,27 +208,27 @@ class Table:
 
         if self.numberOfCards < 3:
             self.state.phase = "end_game"
-            self.draw += 1
             self.finish_game()
 
-        self.player.account_balance -= self.state.bid
-        second_hand.add(first_hand.cards.pop())
-        first_hand.add(self.decks.get(), face_up=True)
-        second_hand.add(self.decks.get(), face_up=True)
+        else:
+            self.player.account_balance -= self.state.bid
+            second_hand.add(first_hand.cards.pop())
+            first_hand.add(self.decks.get(), face_up=True)
+            second_hand.add(self.decks.get(), face_up=True)
 
-        self.numberOfCards -= 3
-        # a =3
+            self.numberOfCards -= 3
+            self.state.phase = "in_game"
 
-    @action(from_phases=("begin_game",), to_phase="in_game")
     def insure(self):
+        if self.state.phase is not "begin_game":
+            raise InvalidMove("Not in proper phase. You cannot insure!")
+
         if self.croupier.hand.can_insure:
             self.player._balance -= 0.5 * self.bid
             self.is_insure = True
         else:
             raise InvalidMove("You cannot insure!")
-        # a =3
 
-    @action(from_phases=("in_game",), to_phase="begin_game")
     def surrender(self):
         self.loosings += 1
-        # a =3
+        self.state.phase = "end_game"
