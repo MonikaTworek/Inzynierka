@@ -38,5 +38,13 @@ schemas = {
             }
         },
         "required": ["action"]
-    }
+    },
+    "finish_game": {
+        "type": "object",
+        "properties": {
+            "uid": {
+                "type": "number"
+            }
+        }
+    },
 }

@@ -7,11 +7,13 @@ class Hand:
         self.playing = False
         self.cards = []
         self.winner = "None"
+        self.lastcard = None
 
     def add(self, card: Card, face_up: bool=True):
         self.playing = True
         card.face_up = face_up
         self.cards.append(card)
+        self.lastcard = card
 
     @property
     def is_empty(self):
@@ -19,6 +21,9 @@ class Hand:
 
     def clear(self):
         self.cards.clear()
+
+    def lastCard(self):
+        return self.lastcard
 
     @property
     def value(self) -> int:
@@ -40,8 +45,8 @@ class Hand:
 
 
 class Player:
-    def __init__(self, account_balance: int):
-        self._balance = account_balance
+    def __init__(self):
+        self._balance = 0
         self.hands1 = Hand()
         self.hands2 = Hand()
         self.hands = [self.hands1, self.hands2]
@@ -52,8 +57,6 @@ class Player:
 
     @account_balance.setter
     def account_balance(self, value: int):
-        if value < 0:
-            raise InvalidMove("Negative account balance is not allowed")
         self._balance = value
 
     @property

@@ -1,36 +1,91 @@
 import copy
-
 from namedlist import namedlist
 
 from blackjack.game.table import Table
-from blackjack.strategy import ekspansyjna
-from blackjack.strategy.ekspansyjna import Ekspans
 
-Score = namedlist("score", ["name", "winning", "draw", "loosing"])
+from blackjack.strategy.Hi_Low import HiLow
+from blackjack.strategy.Intuicyjna import Intuicyjna
+from blackjack.strategy.ekspansyjna import Ekspans
+from blackjack.strategy.krupierska import Krupier
+from blackjack.strategy.reaguj_na_bank import Bank
+
+Score = namedlist("score", ["name", "winning", "draw", "loosing", "money", "blackjack"])
+
 
 class Generate:
     def game(self, table: Table):
         score = []
         explist = Ekspans(copy.deepcopy(table)).play()
-        score.append(Score(name = "Ekspansyjna", winning = explist[0], draw = explist[1], loosing = explist[2]))
+        score.append(Score(name="Ekspansyjna", winning=explist[0], draw=explist[1], loosing=explist[2], money=explist[3], blackjack=explist[4]))
 
+        bank = Bank(copy.deepcopy(table)).play()
+        score.append(Score(name="ReagujNaBank", winning=bank[0], draw=bank[1], loosing=bank[2], money=bank[3], blackjack=bank[4]))
+
+        hilow = HiLow(copy.deepcopy(table)).play()
+        score.append(Score(name="HILow", winning=hilow[0], draw=hilow[1], loosing=hilow[2], money=hilow[3], blackjack=hilow[4]))
+
+        intuicja = Intuicyjna(copy.deepcopy(table)).play()
+        score.append(Score(name="Intuicyjna", winning=intuicja[0], draw=intuicja[1], loosing=intuicja[2], money=intuicja[3], blackjack=intuicja[4]))
         return score
 
-    def generate(self, series: int, number: int):
-        winnigsEksp = 0
-        drawEksp = 0
-        loosEksp = 0
+    @staticmethod
+    def generate(series: int, number: int):
+        eksp = Score(name="Ekspansyjna", winning=0, draw=0, loosing=0, money=0, blackjack=0)
+        banks = Score(name="ReagujNaBank", winning=0, draw=0, loosing=0, money=0, blackjack=0)
+        hilows = Score(name="HiLow", winning=0, draw=0, loosing=0, money=0, blackjack=0)
+        int = Score(name="Intuiocyjna", winning=0, draw=0, loosing=0, money=0, blackjack=0)
+        krupier = Score(name="Krupierska", winning=0, draw=0, loosing=0, money=0, blackjack=0)
 
         for _ in range(series):
             table = Table(number)
-            ekspansyjna = Ekspans(table)
-            explist = ekspansyjna.play()
-            winnigsEksp += explist[0]
-            drawEksp += explist[1]
-            loosEksp += explist[2]
 
-        f = open("C:\\Users\\Public\\eksp.txt", "w+")
-        f.write("Winning " + str(winnigsEksp) + "\n")
-        f.write("Draw " + str(drawEksp) + "\n")
-        f.write("Loosing " + str(loosEksp) + "\n")
+            explist = Ekspans(copy.deepcopy(table)).play()
+            eksp.winning += explist[0]
+            eksp.draw += explist[1]
+            eksp.loosing += explist[2]
+            eksp.money += explist[3]
+            eksp.blackjack += explist[4]
+
+            bank = Bank(copy.deepcopy(table)).play()
+            banks.winning += bank[0]
+            banks.draw += bank[1]
+            banks.loosing += bank[2]
+            banks.money += bank[3]
+            banks.blackjack += bank[4]
+
+            hilow = HiLow(copy.deepcopy(table)).play()
+            hilows.winning += hilow[0]
+            hilows.draw += hilow[1]
+            hilows.loosing += hilow[2]
+            hilows.money += hilow[3]
+            hilows.blackjack += hilow[4]
+
+            intuicja = Intuicyjna(copy.deepcopy(table)).play()
+            int.winning += intuicja[0]
+            int.draw += intuicja[1]
+            int.loosing += intuicja[2]
+            int.money += intuicja[3]
+            int.blackjack += intuicja[4]
+
+            krupierska = Krupier(copy.deepcopy(table)).play()
+            krupier.winning += krupierska[0]
+            krupier.draw += krupierska[1]
+            krupier.loosing += krupierska[2]
+            krupier.money += krupierska[3]
+            krupier.blackjack += krupierska[4]
+
+
+
+        f = open("C:\\Users\\Public\\score.txt", "w+")
+        f.write(str(eksp) + "\n")
+        f.write(str(banks) + "\n")
+        f.write(str(hilows) + "\n")
+        f.write(str(int) + "\n")
+        f.write(str(krupier) + "\n")
         f.close()
+
+
+
+if __name__ == '__main__':
+    Generate.generate(100, 1)
+

@@ -2,10 +2,11 @@
 
 |                       |        |                        |                                       |
 |:--------------------- | ------:|:---------------------- |:------------------------------------- |
-| [generate](#generate) | `POST` | `/generate`            | Generate data `uid`. |
+| [generate](#generate) | `POST` | `/generate`            | Generate data `uid`.                  |
 | [register](#register) | `POST` | `/register`            | Register new player and obtain `uid`. |
 | [begin](#begin)       | `POST` | `/player/<uid>/begin`  | Begin new deal with specified `bid`.  |
 | [action](#action)     | `POST` | `/player/<uid>/action` | Perform `action`.                     |
+| [finish](#finish)     | `POST` | `/player/<uid>/finish` | Finish game                           |
 
 # API
 Blackjack API is failry simple. Using only three endpoints we are able to play game continously.
@@ -70,6 +71,18 @@ Action
 ### Response JSON
 [`Table`](#table)
 
+## <a id="action"></a> `POST` `/player/<uid>/finish`
+Finish game.
+### Request JSON
+```javascript
+Action
+{
+    "uid": number
+}
+```
+### Response JSON
+[`Score`](#score)
+
 ## Structures
 
 ### Error
@@ -131,5 +144,39 @@ Card
 {
     "color": string,
     "rank": string
+}
+```
+### Score
+```javascript
+Table
+{
+    "player_score": Player_score,
+    "bots_score": Bots_score
+}
+```
+
+```javascript
+Player_score
+{
+    "winning": number,
+    "draw": number,
+    "loosing": number
+}
+```
+
+```javascript
+Bots_score
+{
+    "name": string,
+    "score": Bot_result
+}
+```
+
+```javascript
+bot_result
+{
+    "winning": number,
+    "draw": number,
+    "loosing": number
 }
 ```

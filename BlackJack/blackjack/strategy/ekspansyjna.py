@@ -15,4 +15,4 @@ class Ekspans:
                 if self.table.player.hand1 is True:
                     self.table.resolve_game()
         except:
-            return [self.table.winnings, self.table.draw, self.table.loosings]
+            return [self.table.winnings, self.table.draw, self.table.loosings, self.table.player.account_balance, self.table.blackjack]

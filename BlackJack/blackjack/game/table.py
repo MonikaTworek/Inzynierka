@@ -18,10 +18,11 @@ class Table:
         self.is_insure = False
         self.numberOfCards = number * 52
         self.bid = 10
-        self.account_balance = 1000
-        self.player = Player(self.account_balance)
+        self.account_balance = 0
+        self.player = Player()
         self.croupier = Croupier()
         self.is_finished = False
+        self.blackjack = 0
 
     def finish_game(self):
         self.is_finished = True
@@ -55,6 +56,7 @@ class Table:
                 self.draw += 1
                 multiplier = 1
                 player_hand.winner = "Draw"
+                self.blackjack += 1
             elif croupier_hand.has_blackjack:
                 multiplier = 0
                 self.loosings += 1
@@ -63,6 +65,7 @@ class Table:
                 multiplier = 2
                 self.winnings += 1
                 player_hand.winner = "Player"
+                self.blackjack += 1
             else:
                 # No blackjack scenario
                 # Croupier has defined strategy

@@ -41,7 +41,8 @@ def register():
     number = request.json["numberof"]
     uid = max(tables) + 1 if tables else 0
     tables[uid] = Table(number)
-    scores[uid] = Generate.game(copy.deepcopy(tables[uid]))
+    gen = Generate
+    scores[uid] = gen.game(gen, copy.deepcopy(tables[uid]))
     return jsonify({"header": "confirm_register", "uid": uid})
 
 
@@ -49,7 +50,7 @@ def register():
 @validate_schema('generate')
 def generate():
     number = request.json["numberof"]
-    Generate.generate(1000, number)
+    Generate.generate(number)
     return jsonify({"header": "data was generate in C: Users Public"})
 
 
