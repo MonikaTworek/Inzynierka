@@ -18,7 +18,6 @@ class Table:
         self.is_insure = False
         self.numberOfCards = number * 52
         self.bid = 10
-        self.account_balance = 0
         self.player = Player()
         self.croupier = Croupier()
         self.is_finished = False
@@ -26,12 +25,16 @@ class Table:
 
     def finish_game(self):
         self.is_finished = True
-        # raise InvalidMove("You finish")
+        self.player.account_balance += self.bid
+        raise InvalidMove("You finish")
     #     Jezeli w webstormie umiem przechwytywac errory to te rozwiazanie. jak nie to trzeba cos wymyslic
     def resolve_game(self):
         if self.state.phase not in ["in_game", "begin_game"]:
             raise InvalidMove("Not in proper phase")
         self.state.phase = "end_game"
+
+        self.player.hand1.playing = False
+        self.player.hand2.playing = False
 
         croupier_hand = self.croupier.hand
         croupier_hand.cards[0].face_up = True
@@ -117,7 +120,10 @@ class Table:
 
             if self.player.hands1.value >= 21:
                 self.player.hands1.playing = False
-            self.state.phase = "begin_game"
+                self.state = "end_game"
+                self.finish_game()
+            else:
+                self.state.phase = "begin_game"
 
     def hit1(self):
         if self.state.phase not in ["in_game", "begin_game"]:

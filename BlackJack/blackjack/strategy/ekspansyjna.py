@@ -12,7 +12,7 @@ class Ekspans:
                 self.table.begin_game()
                 while self.table.player.hand1.playing is True and self.table.player.hand1.value < 20:
                     self.table.hit1()
-                if self.table.player.hand1 is True:
+                if self.table.player.hand1.playing is True:
                     self.table.resolve_game()
         except:
             return [self.table.winnings, self.table.draw, self.table.loosings, self.table.player.account_balance, self.table.blackjack]
