@@ -1,7 +1,6 @@
 # Losowana jest liczba z przedziału 0-100. Jezeli zostanie wynik jest nizszy niz 50% to uzytkownik przestaje
 # dobierac karty.
 from random import Random
-
 from blackjack.game.table import Table
 
 
@@ -16,6 +15,7 @@ class Intuicyjna:
                 self.table.begin_game()
                 while self.table.player.hand1.playing is True and self.random.randint(0, 100) > 50:
                     self.table.hit1()
-                self.table.resolve_game()
+                if self.table.player.hand1.playing is True:
+                    self.table.resolve_game()
         except:
             return [self.table.winnings, self.table.draw, self.table.loosings, self.table.player.account_balance, self.table.blackjack]

@@ -28,6 +28,7 @@ class Table:
         self.player.account_balance += self.bid
         raise InvalidMove("You finish")
     #     Jezeli w webstormie umiem przechwytywac errory to te rozwiazanie. jak nie to trzeba cos wymyslic
+
     def resolve_game(self):
         if self.state.phase not in ["in_game", "begin_game"]:
             raise InvalidMove("Not in proper phase")
@@ -107,7 +108,7 @@ class Table:
         self.state.bid = self.bid
 
         if self.numberOfCards < 4:
-            self.state = "end_game"
+            self.state.phase = "end_game"
             self.finish_game()
 
         else:
@@ -120,8 +121,8 @@ class Table:
 
             if self.player.hands1.value >= 21:
                 self.player.hands1.playing = False
-                self.state = "end_game"
-                self.finish_game()
+                self.state.phase = "end_game"
+                self.resolve_game()
             else:
                 self.state.phase = "begin_game"
 
@@ -132,7 +133,7 @@ class Table:
             raise InvalidMove("Not in proper phase")
 
         if self.numberOfCards < 1:
-            self.state = "end_game"
+            self.state.phase = "end_game"
             self.finish_game()
 
         else:
@@ -154,7 +155,7 @@ class Table:
             raise InvalidMove("Hand is empty")
 
         if self.numberOfCards < 1:
-            self.state = "end_game"
+            self.state.phase = "end_game"
             self.finish_game()
 
         else:

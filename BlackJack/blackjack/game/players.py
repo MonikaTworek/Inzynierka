@@ -13,7 +13,7 @@ class Hand:
         self.playing = True
         card.face_up = face_up
         self.cards.append(card)
-        self.lastcard = card
+        self.lastcard = card.rank
 
     @property
     def is_empty(self):

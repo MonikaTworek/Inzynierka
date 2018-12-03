@@ -8,6 +8,7 @@ from blackjack.game.table import Table
 from blackjack.strategy.Hi_Low import HiLow
 from blackjack.strategy.Intuicyjna import Intuicyjna
 from blackjack.strategy.ekspansyjna import Ekspans
+from blackjack.strategy.idealna import Idealna
 from blackjack.strategy.krupierska import Krupier
 from blackjack.strategy.never_bust import NeverBust
 from blackjack.strategy.prawdopodobna import Prawdopodobna
@@ -63,6 +64,7 @@ class Generate:
         przelampasse = Score(name="PrzelamPasse", winning=0, draw=0, loosing=0, money=0, blackjack=0)
         przetrzymajpasse = Score(name="PrzetrzymajPasse", winning=0, draw=0, loosing=0, money=0, blackjack=0)
         zalezna = Score(name="ZaleznaOdSzczescia", winning=0, draw=0, loosing=0, money=0, blackjack=0)
+        idealna = Score(name="Idealna", winning=0, draw=0, loosing=0, money=0, blackjack=0)
 
         for _ in range(series):
             table = Table(number)
@@ -137,6 +139,12 @@ class Generate:
             zalezna.money += zalez[3]
             zalezna.blackjack += zalez[4]
 
+            # id = Idealna(copy.deepcopy(table)).play()
+            # idealna.winning += id[0]
+            # idealna.draw += id[1]
+            # idealna.loosing += id[2]
+            # idealna.money += id[3]
+            # idealna.blackjack += id[4]
 
         path = "C:\\Users\\Public\\score_series" + str(series) + "_" + str(datetime.date.today()) + ".txt"
 
@@ -151,6 +159,7 @@ class Generate:
         f.write(str(przelampasse) + "\n")
         f.write(str(przetrzymajpasse) + "\n")
         f.write(str(zalezna) + "\n")
+        f.write(str(idealna) + "\n")
         f.close()
 
 
@@ -158,6 +167,5 @@ if __name__ == '__main__':
     Generate.generate(10, 1)
 
 # dziwne wyniki - malo gier ma
-# HiLow
 # Intuicyjna
 
