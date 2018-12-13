@@ -16,4 +16,4 @@ class NeverBust:
                 if self.table.player.hand1.playing is True:
                     self.table.resolve_game()
         except:
-            return [self.table.winnings, self.table.draw, self.table.loosings, self.table.player.account_balance, self.table.blackjack]
+            return [self.table.winnings, self.table.draw, self.table.loosing, self.table.player.account_balance, self.table.blackjack]

@@ -1,0 +1,48 @@
+<div>
+  <div class="greeting">
+    <h1>Zasady BlackJacka</h1>
+    <p class="gretting-small">
+      Gra karciana, w której użytkownik gra przeciwko krupierowi 1 na 1 poprzez uzyskanie w kartach wartości jak
+       najbardziej zbliżonej do 21 nie przekraczając jej.
+      Figury są warte 10 punktów. As jest liczony za 1 lub 11 punktów w zależności od lepszego wyniku.
+      Pozostałe karty mają tyle punktów jaką mają wartość.
+      Gra rozpoczyna się od stawienia zakładu (10). Następnie gracz otrzymuje dwie odkryte karty, a krupie jedną zakrytą,
+      a drugą odkrytą. W początkowym momencie może:
+      ubezpieczyć się (insure) - jeżeli widoczną kartą krupiera jest as, gracz może postawić dodatkową stawkę, że krupier ma blackjack i
+      ten zakład wygrywa się 2 do 1;
+      rozdwoić karty (split) - jeżeli karty gracza są tej samej wartości, użytkownik dokłada dodatkową stawkę (10) i gra wtedy na dwie ręce;
+      podwoić stawkę (double_down) - gracz stawia dodatkową stawkę i otrzymuje tylko jedną kartę dodatkowo;
+      Ponadto użytkownik może:
+      dobrać kartę (hit) lub przestać dobierać (stand). Jeżeli przestał dobierać w obu "rękach" gra jest rozwiązywana.
+
+      Jeżeli gracz ma więcej niż 21 punktów gracz przegrywa.
+
+      Rozwiązanie gry polega na odsłonięciu odwróconej karty krupiera, a następnie krupier dobiera tak długo jak ma mniej niż 17 punktów,
+      a nastę[nie przestaje dobierać bez względu na ilość punktów u gracza.
+
+      Jeżeli gracz ma BlackJack - dłoń wartości 21 przy tylko 2 kartach, to otrzymuje 2.5 stawki wygranej, w pozostałych wypadkach
+      2-krotną, czyli odpowiednio 25 dla blackjacka i 20 dla zwykłego zwycięstwa.
+    </p>
+  </div>
+
+  <div class="greeting">
+    <h1>Zasady gry</h1>
+    <p class="gretting-small">
+      Na początku gracz wybiera na ile talii chce grać. Następnie klika przycisk play.
+      W tym momencie rozpoczyna się rozgrywa - użytkownik może zgodnie z zasadami Blackjacka grać korzystając z przycisków
+      po prawej stronie. Po skończonej rozgrywce pojawia się okienko umożliwające ponowne rozdanie.
+      Gdy zakończą się karty lub użytkownik zakończy grę klikając "End game" zostanie porównany wynik gracza do zaimplementowanych strategii.
+    </p>
+  </div>
+
+  <div class="greeting">
+    <h1>Zaimplementowane strategie</h1>
+    <p class="gretting-small">
+      Opis zaimplementowanych strategii
+    </p>
+  </div>
+  <div class="greeting">
+    <button class="titled-box" (click)="ComeBack()">TO START</button><br>
+  </div>
+</div>
+

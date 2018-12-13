@@ -1,6 +1,6 @@
 from blackjack.game.decks import Card
 from blackjack.game.players import Hand
-from blackjack.game.table import Player, Croupier, State, Table
+from blackjack.game.table import Player, Croupier, Table
 from blackjack.strategy.generate_data import Score
 
 
@@ -34,19 +34,12 @@ def croupier_to_dict(croupier: Croupier):
     }
 
 
-def state_to_dict(state: State):
-    return {
-        "phase": state.phase,
-        "bid": state.bid,
-        "winnings": state.winnings
-    }
-
-
 def player_score_to_dict(table: Table):
     return {
         "winning": table.winnings,
         "draw": table.draw,
-        "loosing": table.loosings
+        "loosing": table.loosing,
+        "blackjack": table.blackjack
     }
 
 
@@ -54,20 +47,20 @@ def bot_result(score: Score):
     return {
         "winning": score.winnings,
         "draw": score.draw,
-        "loosing": score.loosings
+        "loosing": score.loosing,
+        "blackjack": score.blackjack
     }
 
 
 def bot_score_to_dict(score: Score):
     return {
-        "name": score.name,
-        "score": bot_result(score)
+        score.name: bot_result(score)
     }
 
 
 def table_to_dict(table: Table):
     return {
-        "state": state_to_dict(table.state),
+        "phase": table.phase,
         "player": player_to_dict(table.player),
         "croupier": croupier_to_dict(table.croupier)
     }

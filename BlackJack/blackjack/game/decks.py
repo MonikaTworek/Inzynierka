@@ -15,7 +15,7 @@ class Card:
 
 
 class Decks:
-    def __init__(self, count: int=1):
+    def __init__(self, count):
         self.random = Random()
         self.count = count
         self.cards = []

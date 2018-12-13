@@ -38,7 +38,7 @@ class HiLow:
                 elif self.table.player.hand1.cards[1].rank in self.high:
                     self.score -= 1
 
-                while self.table.player.hand1.playing is True:
+                while self.table.player.hand1.playing:
                     if 21 - self.table.player.hand1.value > 10:
                         if self.score > 0:
                             self.table.hit1()
@@ -87,4 +87,4 @@ class HiLow:
 
 
         except:
-            return [self.table.winnings, self.table.draw, self.table.loosings, self.table.player.account_balance, self.table.blackjack]
+            return [self.table.winnings, self.table.draw, self.table.loosing, self.table.player.account_balance, self.table.blackjack]

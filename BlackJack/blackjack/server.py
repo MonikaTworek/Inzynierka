@@ -41,8 +41,7 @@ def register():
     number = request.json["numberof"]
     uid = max(tables) + 1 if tables else 0
     tables[uid] = Table(number)
-    gen = Generate
-    scores[uid] = gen.game(gen, copy.deepcopy(tables[uid]))
+    scores[uid] = Generate.game(copy.deepcopy(tables[uid])) ###zrobić to na wątku
     return jsonify({"header": "confirm_register", "uid": uid})
 
 
@@ -50,8 +49,9 @@ def register():
 @validate_schema('generate')
 def generate():
     number = request.json["numberof"]
-    Generate.generate(number)
-    return jsonify({"header": "data was generate in C: Users Public"})
+    Generate.generate(100, number)
+
+    return jsonify({"header": "success", "tekst": "data was generate in C: Users Public"})
 
 
 @app.route('/player/<int:uid>/begin', methods=['POST'])
@@ -88,8 +88,10 @@ def make_action(uid: int):
 @app.route('/player/<int:uid>/finish', methods=['POST'])
 @validate_schema('finish_game')
 def finish_game(uid: int):
-    tables[uid].finish_game()
-
+    try:
+        tables[uid].finish_game()
+    except:
+        a=6
     score_dict = score_to_dict(tables[uid], scores[uid])
     score_dict["header"] = "success"
     return jsonify(score_dict)

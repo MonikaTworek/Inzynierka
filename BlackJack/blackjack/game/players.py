@@ -1,5 +1,4 @@
 from blackjack.game.decks import Card
-from blackjack.game.exceptions import InvalidMove
 
 
 class Hand:

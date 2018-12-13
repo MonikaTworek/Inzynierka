@@ -14,20 +14,19 @@ class Bank:
             while True:
                 self.table.begin_game()
                 if self.table.croupier.hand.value in [2, 3]:  # or self.table.croupier.hand.value == 3:
-                    while self.table.player.hand1.playing is True and self.table.player.hand1.value < 13:
+                    while self.table.player.hand1.playing and self.table.player.hand1.value < 13:
                         self.table.hit1()
-                    if self.table.player.hand1.playing is True:
+                    if self.table.player.hand1.playing:
                         self.table.resolve_game()
                 elif self.table.croupier.hand.value in [4, 5, 6, 7]:
                     while self.table.player.hand1.playing is True and self.table.player.hand1.value < 17:
                         self.table.hit1()
-                    if self.table.player.hand1.playing is True:
+                    if self.table.player.hand1.playing:
                         self.table.resolve_game()
                 else:
-                    while self.table.player.hand1.playing is True and self.table.player.hand1.value < 18:
+                    while self.table.player.hand1.playing and self.table.player.hand1.value < 18:
                         self.table.hit1()
-                    if self.table.player.hand1.playing is True:
+                    if self.table.player.hand1.playing:
                         self.table.resolve_game()
         except:
-            return [self.table.winnings, self.table.draw, self.table.loosings, self.table.player.account_balance,
-                    self.table.blackjack]
+            return [self.table.winnings, self.table.draw, self.table.loosing, self.table.player.account_balance, self.table.blackjack]

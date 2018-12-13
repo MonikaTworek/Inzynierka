@@ -26,7 +26,7 @@ class Zalezna:
         try:
             while True:
                 self.table.begin_game()
-                while self.table.player.hand1.playing is True:
+                while self.table.player.hand1.playing:
                     if self.table.player.hand1.value < zaleznosc[seriaPorazek]:
                         self.table.hit1()
                     else:
@@ -43,4 +43,4 @@ class Zalezna:
                     else:
                         seriaPorazek += 1
         except:
-            return [self.table.winnings, self.table.draw, self.table.loosings, self.table.player.account_balance, self.table.blackjack]
+            return [self.table.winnings, self.table.draw, self.table.loosing, self.table.player.account_balance, self.table.blackjack]

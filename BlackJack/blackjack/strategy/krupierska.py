@@ -11,9 +11,9 @@ class Krupier:
         try:
             while True:
                 self.table.begin_game()
-                while self.table.player.hand1.playing is True and self.table.player.hand1.value < 17:
+                while self.table.player.hand1.playing and self.table.player.hand1.value < 17:
                     self.table.hit1()
-                if self.table.player.hand1.playing is True:
+                if self.table.player.hand1.playing:
                     self.table.resolve_game()
         except:
-            return [self.table.winnings, self.table.draw, self.table.loosings, self.table.player.account_balance, self.table.blackjack]
+            return [self.table.winnings, self.table.draw, self.table.loosing, self.table.player.account_balance, self.table.blackjack]
