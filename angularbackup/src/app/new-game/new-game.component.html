@@ -1,13 +1,21 @@
-<div [(ngModel)]="game_over">
-  <p class="gretting-small">
-    Koniec gry! Skończyły się karty!
-  </p>
-  <button (click)="Score()"> OK </button > <br>
+<div *ngIf="game_over">
+  <div class="greeting col-10">
+    <p  class="gretting-small">
+      Koniec gry! <br>
+      Skończyły się karty!
+    </p>
+  <button class="titled-box" (click)="Score()"> OK </button >
+  </div>
 </div>
-<div [(ngModel)]="new_game">
+
+<div *ngIf="new_game">
+  <div class="greeting col-10">
   <p class="gretting-small">
     Koniec rundy!
-  </p> <br>
-  <p id="wygrales" class="gretting-small">
-    <button (click)="New_Game()"> NEW GAME </button > <br>
+  </p>
+    <div id = "wygrales"><p class="gretting-small">Wygrałeś!</p></div>
+    <div id="remis" ><p class="gretting-small">Remis</p></div>
+    <div id="przegrales" ><p class="gretting-small">Przegrałeś</p>
+    <button class="titled-box" (click)="New_Game()"> NEW GAME </button > <br>
+  </div>
 </div>

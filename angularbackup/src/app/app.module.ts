@@ -12,11 +12,9 @@ import { WynikDanychComponent } from './wynik-danych/wynik-danych.component';
 import {HttpClientModule} from '@angular/common/http';
 import { EkranComponent } from './ekran/ekran.component';
 import { ReadmeComponent } from './readme/readme.component';
-import { OkienkoNowaGRaComponent } from './okienko-nowa-gra/okienko-nowa-gra.component';
 import { GenerateComponent } from './generate/generate.component';
 import { GenerateBadComponent } from './generate-bad/generate-bad.component';
 import { EkranWynikowComponent } from './ekran-wynikow/ekran-wynikow.component';
-import { NewGameComponent } from './new-game/new-game.component';
 
 @NgModule({
   declarations: [
@@ -28,11 +26,9 @@ import { NewGameComponent } from './new-game/new-game.component';
     WynikDanychComponent,
     EkranComponent,
     ReadmeComponent,
-    OkienkoNowaGRaComponent,
     GenerateComponent,
     GenerateBadComponent,
-    EkranWynikowComponent,
-    NewGameComponent
+    EkranWynikowComponent
   ],
   imports: [
     BrowserModule,

@@ -29,12 +29,13 @@ class Table:
         print("finish")
         self.is_finished = True
         self.player.account_balance += self.bid
+
         raise InvalidMove("You finish")
     #     Jezeli w webstormie umiem przechwytywac errory to te rozwiazanie. jak nie to trzeba cos wymyslic
 
     def resolve_game(self):
         self.phase = "end_game"
-        print("resolve_game")
+        # print("resolve_game")
 
         self.player.hand1.playing = False
         self.player.hand2.playing = False
@@ -48,7 +49,7 @@ class Table:
         invalid_hands = (x for x in self.player.hands if x.value > 21)
 
         for player_hand in invalid_hands_none:
-            player_hand.winner = "Croupier"
+            player_hand.winner = "None"
 
         for player_hand in invalid_hands:
             player_hand.winner = "Croupier"
@@ -81,6 +82,7 @@ class Table:
                         self.finish_game()
                     else:
                         croupier_hand.add(self.decks.get())
+                self.decks.up()
                 if croupier_hand.value > 21 or player_hand.value > croupier_hand.value:
                     multiplier = 2
                     player_hand.winner = "Player"
@@ -105,7 +107,7 @@ class Table:
         self.croupier.clear()
         self.player.clear()
         self.phase = "begin_game"
-        print("begin game")
+        # print("begin game")
 
         self.is_insure = False
         self.player.account_balance -= self.bid
@@ -121,6 +123,7 @@ class Table:
             self.croupier.hand.add(self.decks.get(), face_up=True)
             self.player.hands1.add(self.decks.get(), face_up=True)
             self.player.hands1.add(self.decks.get(), face_up=True)
+            self.decks.up()
 
             if self.player.hands1.value >= 21:
                 self.player.hands1.playing = False
@@ -140,6 +143,7 @@ class Table:
 
         else:
             self.player.hands1.add(self.decks.get(), face_up=True)
+            self.decks.up()
             if self.player.hands1.value >= 21:
                 self.player.hands1.playing = False
                 if self.player.hands2.playing is False:
@@ -163,6 +167,7 @@ class Table:
 
         else:
             self.player.hands2.add(self.decks.get(), face_up=True)
+            self.decks.up()
             if self.player.hands2.value >= 21:
                 self.player.hands2.playing = False
                 if self.player.hands1.playing is False:
@@ -206,6 +211,7 @@ class Table:
             self.player.account_balance -= self.bid
             self.statebid *= 2
             self.player.hands1.add(self.decks.get(), face_up=True)
+            self.decks.up()
             self.player.hands1.playing = False
             self.resolve_game()
 
@@ -232,6 +238,7 @@ class Table:
             second_hand.add(first_hand.cards.pop())
             first_hand.add(self.decks.get(), face_up=True)
             second_hand.add(self.decks.get(), face_up=True)
+            self.decks.up()
 
             self.phase = "in_game"
 

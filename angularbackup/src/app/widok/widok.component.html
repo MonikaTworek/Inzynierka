@@ -1,14 +1,16 @@
+<div class="greeting col-10">
 <table>
   <tr>
-    <td><p>Krupier</p></td>
+    <td><p class="gretting-small">Krupier</p></td>
     <td *ngFor="let row of Row1"><img src="{{getCardUrl(row)}}"></td>
   </tr>
   <tr>
-    <td><p>1st Hand</p></td>
+    <td><p class="gretting-small">1st Hand</p></td>
     <td *ngFor="let row of Row2"><img src="{{getCardUrl(row)}}"></td>
   </tr>
-  <td><p>2nd Hand</p></td>
+  <td><p class="gretting-small">2nd Hand</p></td>
     <td *ngFor="let row of Row3"><img src="{{getCardUrl(row)}}"></td>
   <tr>
   </tr>
 </table>
+</div>

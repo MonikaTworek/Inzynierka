@@ -20,6 +20,7 @@ class Decks:
         self.count = count
         self.cards = []
         self._prepare()
+        self.aces = len([x for x in self.cards if x.rank == 1])
 
     def _prepare(self):
         self.cards = [
@@ -34,3 +35,6 @@ class Decks:
         if len(self.cards) == 0:
             self._prepare()
         return self.cards.pop()
+
+    def up(self):
+        self.aces = len([x for x in self.cards if x.rank == 1])

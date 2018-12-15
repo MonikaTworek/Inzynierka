@@ -46,6 +46,8 @@ class Idealna:
                             nowtable.begin_game()
                         struct = Structure(copy.deepcopy(nowtable), "Hit")
                         nowtable.hit1()
+                        if nowtable.winnings - nowtable.loosing + 0.5 * nowtable.blackjack + 1.5 * nowtable.decks.aces + (len(nowtable.decks.cards)-nowtable.decks.aces)*0.25 < self.maxMoney:
+                            nowtable.is_finished = True
                         self.stos.append(struct)
 
                     except:
@@ -53,10 +55,15 @@ class Idealna:
 
                 else:
                     try:
+                        if nowtable.winnings - nowtable.loosing + 0.5 * nowtable.blackjack + 1.5 * nowtable.decks.aces + (len(nowtable.decks.cards)-nowtable.decks.aces)*0.25  < self.maxMoney:
+                            nowtable.is_finished = True
+                            continue
                         while not nowtable.player.hand1.playing:
                             nowtable.begin_game()
                         struct = Structure(copy.deepcopy(nowtable), "Stand")
                         nowtable.stand1()
+                        if nowtable.winnings - nowtable.loosing + 0.5 * nowtable.blackjack + 1.5 * nowtable.decks.aces + (len(nowtable.decks.cards)-nowtable.decks.aces)*0.25  < self.maxMoney:
+                            nowtable.is_finished = True
                         self.stos.append(struct)
                     except:
                         nowtable.is_finished = True

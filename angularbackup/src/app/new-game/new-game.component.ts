@@ -3,6 +3,8 @@ import {TableService} from '../table.service';
 import {ConnectToBlackJackService} from '../connect-to-black-jack.service';
 import {Visibility} from 'tslint/lib/rules/completedDocsRule';
 import {Router} from '@angular/router';
+import {WynikDanychComponent} from '../wynik-danych/wynik-danych.component';
+import {WynikGraczaComponent} from '../wynik-gracza/wynik-gracza.component';
 
 @Component({
   selector: 'app-new-game',
@@ -12,35 +14,41 @@ import {Router} from '@angular/router';
 export class NewGameComponent implements OnInit {
   game_over: any;
   new_game: any;
+  playercsore: WynikGraczaComponent;
+  score: WynikDanychComponent;
 
   constructor(private server: ConnectToBlackJackService, private table: TableService, private router: Router) { }
 
   ngOnInit() {
-    this.game_over.visibility = false;
-    this.new_game.visibility = false;
+    this.game_over  = false;
+    this.new_game = false;
   }
 
   New_Game() {
-    this.server.BeginGame().subscribe(begin => {
+    this.server.BeginGame().subscribe((begin: any) => {
         this.table.SetRow1(begin.croupier.hand.cards);
         this.table.SetRow2(begin.player.hands1.cards);
         this.table.SetRow3(begin.player.hands2.cards);
       }
     );
-    this.new_game.visibility = false;
+    this.new_game = false;
   }
 
-  Visibility(tekst) {
+  Visibility(tekst: any) {
     if (tekst.header === 'error' && tekst.message === 'You finish') {
-      this.game_over.visibility = true;
+      this.game_over = true;
     }
 
     if (tekst.phase === 'end_game') {
-      this.new_game.visibility = true;
+      this.new_game = true;
     }
   }
 
   Score() {
-    this.router.navigate(['/game']);
+    this.server.Finish_game().subscribe((end: any) => {
+      this.score.Update(end);
+      this.playercsore.Update(end);
+    });
+    this.router.navigate(['/solution']);
   }
 }

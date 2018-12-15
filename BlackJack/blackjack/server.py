@@ -41,7 +41,11 @@ def register():
     number = request.json["numberof"]
     uid = max(tables) + 1 if tables else 0
     tables[uid] = Table(number)
-    scores[uid] = Generate.game(copy.deepcopy(tables[uid])) ###zrobić to na wątku
+    if number > 2 :
+        with_perfect = False
+    else:
+        with_perfect = True
+    scores[uid] = Generate.game(copy.deepcopy(tables[uid]), with_perfect) ###zrobić to na wątku
     return jsonify({"header": "confirm_register", "uid": uid})
 
 
@@ -49,7 +53,11 @@ def register():
 @validate_schema('generate')
 def generate():
     number = request.json["numberof"]
-    Generate.generate(100, number)
+    if number > 2 :
+        with_perfect = False
+    else:
+        with_perfect = True
+    Generate.generate(1, number, with_perfect)
 
     return jsonify({"header": "success", "tekst": "data was generate in C: Users Public"})
 
@@ -91,7 +99,7 @@ def finish_game(uid: int):
     try:
         tables[uid].finish_game()
     except:
-        a=6
+        print("FIINISH")
     score_dict = score_to_dict(tables[uid], scores[uid])
     score_dict["header"] = "success"
     return jsonify(score_dict)

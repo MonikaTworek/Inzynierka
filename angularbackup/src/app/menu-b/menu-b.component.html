@@ -1,13 +1,43 @@
-<div>
-  <button (click)="Hit1()"> HIT1 </button > <br>
-  <button (click)="Hit2()"> HIT2 </button > <br>
-  <button (click)="Stand1()"> STAND1 </button> <br>
-  <button (click)="Stand2()"> STAND2 </button> <br>
-  <button (click)="Double_down()"> DOUBLE DOWN </button> <br>
-  <button (click) ="Split()"> SPLIT </button> <br>
-  <button (click) ="Insure()"> INSURE </button> <br>
-  <button (click) ="Surrender()"> SURRENDER </button> <br>
-  <button (click) ="End_game()"> END </button>
-</div>
+  <table class="gretting-small">
+    <tr>
+      <td>
+        <div *ngIf="new_game">
+          <div class="greeting col-10">
+            <p class="gretting-small">
+              Koniec rundy!
+            </p>
+              <div *ngIf="status"><p class="gretting-small">{{zawartosc}}</p></div>
+            </div>
+          </div>
+      </td>
+      <td>
+        <button class="titled-box" (click)="Hit1()"> HIT1 </button > <br>
+        <button class="titled-box" (click)="Hit2()"> HIT2 </button > <br>
+        <button class="titled-box" (click)="Stand1()"> STAND1 </button> <br>
+        <button class="titled-box" (click)="Stand2()"> STAND2 </button> <br>
+        <button class="titled-box" (click)="Double_down()"> DOUBLE DOWN </button> <br>
+        <button class="titled-box" (click) ="Split()"> SPLIT </button> <br>
+        <button class="titled-box" (click) ="Insure()"> INSURE </button> <br>
+        <button class="titled-box" (click) ="Surrender()"> SURRENDER </button> <br>
+        <button class="titled-box" (click) ="End_game()"> END </button><br>
+        <button *ngIf="new_game_fun" class="titled-box" (click)="New_Game()"> NOWA GRA </button > <br>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div *ngIf="game_over">
+          <div class="greeting col-10">
+            <p  class="gretting-small">
+              Koniec gry! <br>
+              Skończyły się karty!
+            </p>
+            <button class="titled-box" (click)="Score()"> OK </button >
+          </div>
+        </div>
+      </td>
+      <td>
+        <!--to jest wolne-->
+      </td>
+    </tr>
 
-<!--css -> display block-->
+

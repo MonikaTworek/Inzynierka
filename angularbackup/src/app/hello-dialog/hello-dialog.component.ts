@@ -11,8 +11,6 @@ import {Router} from '@angular/router';
 export class HelloDialogComponent implements OnInit {
   numberOfCards: number;
 
-  // AnswerFromServer: any;
-
   constructor(private server: ConnectToBlackJackService, private table: TableService, private router: Router) {
   }
 
@@ -21,25 +19,30 @@ export class HelloDialogComponent implements OnInit {
 
   Register() {
     console.log(this.numberOfCards);
-    this.server.Register(this.numberOfCards).subscribe(register => {
+    this.server.Register(this.numberOfCards).subscribe((register: any) => {
       this.server.RememberID(register.uid);
-      this.server.BeginGame().subscribe(begin => {
+      this.server.BeginGame().subscribe((begin: any) => {
           this.table.SetRow1(begin.croupier.hand.cards);
           this.table.SetRow2(begin.player.hands1.cards);
           this.router.navigate(['/game']);
+          if (begin.phase === 'end_game') {
+            this.server.SetFirst(true, begin.player.winner);
+          } else {
+            this.server.SetFirst(false, 'None');
+          }
         }
       );
     });
   }
 
   Generate() {
-    this.server.GenerateData(this.numberOfCards).subscribe( lol => {
+    this.server.GenerateData(this.numberOfCards).subscribe( (lol: any) => {
       this.GoTo(lol);
     });
     // jezeli header to sukces to/generate, a jak nie to /badgenerate
   }
 
-  GoTo (tekst) {
+  GoTo (tekst: any) {
     if (tekst.header === 'success') {
       this.router.navigate(['/generate']);
     } else {

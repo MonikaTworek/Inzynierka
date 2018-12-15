@@ -23,7 +23,7 @@ Score = namedlist("score", ["name", "winnings", "draw", "loosing", "money", "bla
 
 
 class Generate:
-    def game(table: Table):
+    def game(table: Table, with_perfect: bool):
         score = []
 
         explist = Ekspans(copy.deepcopy(table)).play()
@@ -59,13 +59,14 @@ class Generate:
         passing = Pasujaca(copy.deepcopy(table)).play()
         score.append(Score(name="Pasujaca", winnings=passing[0], draw=passing[1], loosing=passing[2], money=passing[3], blackjack=passing[4]))
 
-        ideal = Idealna(copy.deepcopy(table)).play()
-        score.append(Score(name="Idealna", winnings=ideal[0], draw=ideal[1], loosing=ideal[2], money=ideal[3], blackjack=ideal[4]))
+        if with_perfect:
+            ideal = Idealna(copy.deepcopy(table)).play()
+            score.append(Score(name="Idealna", winnings=ideal[0], draw=ideal[1], loosing=ideal[2], money=ideal[3], blackjack=ideal[4]))
 
         return score
 
     @staticmethod
-    def generate(series: int, numberTalii: int):
+    def generate(series: int, numberTalii: int, wiht_perfect: bool):
         eksp = Score(name="Ekspansyjna", winnings=0, draw=0, loosing=0, money=0, blackjack=0)
         banks = Score(name="ReagujNaBank", winnings=0, draw=0, loosing=0, money=0, blackjack=0)
         hilows = Score(name="HiLow", winnings=0, draw=0, loosing=0, money=0, blackjack=0)
@@ -119,8 +120,9 @@ class Generate:
             passlol = Pasujaca(copy.deepcopy(table)).play()
             packing(passing, passlol)
 
-            id = Idealna(copy.deepcopy(table)).play()
-            packing(idealna, id)
+            if wiht_perfect:
+                id = Idealna(copy.deepcopy(table)).play()
+                packing(idealna, id)
 
         path = "C:\\Users\\Public\\score_series" + str(series) + "_DeckOfCard" + str(numberTalii) + "_" + str(datetime.date.today()) + ".txt"
 
@@ -150,8 +152,5 @@ def packing(score: Score, list: []):
 
 
 if __name__ == '__main__':
-    Generate.generate(1, 2)
-
-# dziwne wyniki - malo gier ma
-# Intuicyjna
+    Generate.generate(1, 2, True)
 
