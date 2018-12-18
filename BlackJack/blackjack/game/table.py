@@ -26,7 +26,7 @@ class Table:
         self.is_perfect = False
 
     def finish_game(self):
-        print("finish")
+        # print("finish")
         self.is_finished = True
         self.player.account_balance += self.bid
 

@@ -62,6 +62,8 @@ class Generate:
         if with_perfect:
             ideal = Idealna(copy.deepcopy(table)).play()
             score.append(Score(name="Idealna", winnings=ideal[0], draw=ideal[1], loosing=ideal[2], money=ideal[3], blackjack=ideal[4]))
+        else:
+            score.append(Score(name="Idealna", winnings=0, draw=0, loosing=0, money=0, blackjack=0))
 
         return score
 
@@ -152,5 +154,5 @@ def packing(score: Score, list: []):
 
 
 if __name__ == '__main__':
-    Generate.generate(1, 2, True)
+    Generate.generate(1, 3, True)
 
