@@ -84,7 +84,8 @@ class Generate:
         idealna = Score(name="Idealna", winnings=0, draw=0, loosing=0, money=0, blackjack=0)
 
         # for _ in range(series):
-        while True:
+        lol = True
+        while lol:
             table = Table(numberTalii)
             series = 1
 
@@ -124,9 +125,9 @@ class Generate:
             passlol = Pasujaca(copy.deepcopy(table)).play()
             packing(passing, passlol)
 
-            if wiht_perfect:
-                id = Idealna(copy.deepcopy(table)).play()
-                packing(idealna, id)
+            # if wiht_perfect:
+            #     id = Idealna(copy.deepcopy(table)).play()
+            #     packing(idealna, id)
 
             path = "C:\\Users\\Public\\score_series" + str(series) + "_DeckOfCard" + str(numberTalii) + "_" + str(datetime.date.today()) + ".txt"
 
@@ -147,6 +148,7 @@ class Generate:
             f.close()
 
             series += 1
+            lol = False
 
 
 def packing(score: Score, list: []):
