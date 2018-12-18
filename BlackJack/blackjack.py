@@ -1,7 +1,7 @@
 import argparse
 
 from blackjack.server import app
-
+from blackjack.strategy.generate_data import Generate
 
 parser = argparse.ArgumentParser(description='Blackjack server')
 parser.add_argument('-a', '--host', help='Host address', required=False, default="localhost")
@@ -11,4 +11,5 @@ args = parser.parse_args()
 
 
 if __name__ == '__main__':
-    app.run(host=args.host, port=args.port, debug=args.verbose)
+    # app.run(host=args.host, port=args.port, debug=args.verbose)
+    Generate.generate(1, 3, True)
