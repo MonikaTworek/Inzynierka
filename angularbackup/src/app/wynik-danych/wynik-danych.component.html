@@ -1,3 +1,10 @@
-<p>
-  wynik-danych works!
-</p>
+<table class="">
+  <tr *ngFor="let s of strategie">
+    <td>{{s.name}}</td>
+    <td>{{s.winning}}</td>
+    <td>{{s.draw}}</td>
+    <td>{{s.loosing}}</td>
+    <td>{{s.blackjack}}</td>
+    <td>{{s.money}}</td>
+  </tr>
+</table>

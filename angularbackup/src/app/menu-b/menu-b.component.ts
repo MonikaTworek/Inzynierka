@@ -38,7 +38,6 @@ export class MenuBComponent implements OnInit {
       this.new_game_fun = false;
     }
   }
-  // BEGIN GAME -> CO JAK OCZKO?!?!?!?!?!
 
   Visibility(tekst: any) {
     this.status = true;

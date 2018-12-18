@@ -36,6 +36,113 @@ export class ConnectToBlackJackService {
 
   Set() {
     return this.lastMessage;
+    // return {
+    //   "bots_score": [
+    //     {
+    //       "Ekspansyjna": {
+    //         "blackjack": 1,
+    //         "draw": 0,
+    //         "loosing": 6,
+    //         "winning": 2
+    //       }
+    //     },
+    //     {
+    //       "ReagujNaBank": {
+    //         "blackjack": 0,
+    //         "draw": 2,
+    //         "loosing": 6,
+    //         "winning": 1
+    //       }
+    //     },
+    //     {
+    //       "HILow": {
+    //         "blackjack": 0,
+    //         "draw": 0,
+    //         "loosing": 7,
+    //         "winning": 3
+    //       }
+    //     },
+    //     {
+    //       "Intuicyjna": {
+    //         "blackjack": 1,
+    //         "draw": 0,
+    //         "loosing": 8,
+    //         "winning": 2
+    //       }
+    //     },
+    //     {
+    //       "NeverBust": {
+    //         "blackjack": 1,
+    //         "draw": 2,
+    //         "loosing": 5,
+    //         "winning": 3
+    //       }
+    //     },
+    //     {
+    //       "NeverBust": {
+    //         "blackjack": 0,
+    //         "draw": 1,
+    //         "loosing": 7,
+    //         "winning": 2
+    //       }
+    //     },
+    //     {
+    //       "PrzelamPasse": {
+    //         "blackjack": 0,
+    //         "draw": 1,
+    //         "loosing": 6,
+    //         "winning": 2
+    //       }
+    //     },
+    //     {
+    //       "PrzetrzymajPasse": {
+    //         "blackjack": 0,
+    //         "draw": 1,
+    //         "loosing": 5,
+    //         "winning": 3
+    //       }
+    //     },
+    //     {
+    //       "Podstawowa": {
+    //         "blackjack": 0,
+    //         "draw": 1,
+    //         "loosing": 5,
+    //         "winning": 3
+    //       }
+    //     },
+    //     {
+    //       "ZaleznaOdSzczescia": {
+    //         "blackjack": 0,
+    //         "draw": 1,
+    //         "loosing": 5,
+    //         "winning": 3
+    //       }
+    //     },
+    //     {
+    //       "Pasujaca": {
+    //         "blackjack": 1,
+    //         "draw": 2,
+    //         "loosing": 4,
+    //         "winning": 4
+    //       }
+    //     },
+    //     {
+    //       "Idealna": {
+    //         "blackjack": 1,
+    //         "draw": 2,
+    //         "loosing": 1,
+    //         "winning": 6
+    //       }
+    //     }
+    //   ],
+    //   "header": "success",
+    //   "player_score": {
+    //     "blackjack": 0,
+    //     "draw": 0,
+    //     "loosing": 0,
+    //     "winning": 0
+    //   }
+    // };
   }
 
   Register(number: number) {

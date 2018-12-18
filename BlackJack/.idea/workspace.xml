@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f20ec02-2cfb-4f1a-87ad-7d3b98b4b95c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blackjack/game/table.py" beforeDir="false" afterPath="$PROJECT_DIR$/blackjack/game/table.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blackjack/strategy/generate_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/blackjack/strategy/generate_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/Wyniki.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/bez idealnej/Wyniki.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../DOC/wyniki/bez idealnej/Wyniki.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/bez idealnej/score_series1_DeckOfCard3_2018-12-15.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angularbackup/src/app/connect-to-black-jack.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angularbackup/src/app/connect-to-black-jack.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angularbackup/src/app/hello-dialog/hello-dialog.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angularbackup/src/app/hello-dialog/hello-dialog.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angularbackup/src/app/menu-b/menu-b.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angularbackup/src/app/menu-b/menu-b.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angularbackup/src/app/menu-b/menu-b.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angularbackup/src/app/menu-b/menu-b.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angularbackup/src/app/wynik-danych/wynik-danych.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angularbackup/src/app/wynik-danych/wynik-danych.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angularbackup/src/app/wynik-danych/wynik-danych.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angularbackup/src/app/wynik-danych/wynik-danych.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angularbackup/src/app/wynik-gracza/wynik-gracza.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angularbackup/src/app/wynik-gracza/wynik-gracza.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angularbackup/src/app/wynik-gracza/wynik-gracza.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angularbackup/src/app/wynik-gracza/wynik-gracza.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angularbackup/src/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../angularbackup/src/style.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +94,7 @@
         <counts>
           <entry key="dummy" value="8" />
           <entry key="md" value="312" />
-          <entry key="py" value="15795" />
+          <entry key="py" value="15821" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -99,7 +102,7 @@
           <entry key="JavaScript" value="4" />
           <entry key="Markdown" value="308" />
           <entry key="PLAIN_TEXT" value="8" />
-          <entry key="Python" value="15795" />
+          <entry key="Python" value="15821" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -134,13 +137,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/blackjack/strategy/generate_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="145" selection-start-line="145" selection-end-line="145" />
+            <state relative-caret-position="472">
+              <caret line="146" column="8" selection-start-line="132" selection-start-column="4" selection-end-line="146" selection-end-column="8" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
-                <marker date="1545045235558" expanded="true" signature="903:908" ph="..." />
-                <marker date="1545045235558" expanded="true" signature="3570:3576" ph="..." />
-                <marker date="1545045235558" expanded="true" signature="3752:3753" ph="..." />
+                <marker date="1545164111108" expanded="true" signature="903:908" ph="..." />
+                <marker date="1545164111108" expanded="true" signature="3570:3576" ph="..." />
+                <marker date="1545164111108" expanded="true" signature="3752:3753" ph="..." />
               </folding>
             </state>
           </provider>
@@ -149,7 +152,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blackjack/strategy/idealna.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="986">
+            <state relative-caret-position="506">
               <caret line="59" column="36" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
               <folding>
                 <element signature="e#116#127#0" expanded="true" />
@@ -223,7 +226,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
@@ -381,7 +384,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.07675906" />
@@ -389,7 +392,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.35969663" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.35969663" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3434453" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -403,7 +406,7 @@
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.32995737" />
       <window_info anchor="right" id="Database" order="4" />
     </layout>
     <layout-to-restore>
@@ -658,7 +661,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/blackjack/strategy/idealna.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
+        <state relative-caret-position="506">
           <caret line="59" column="36" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
           <folding>
             <element signature="e#116#127#0" expanded="true" />
@@ -669,13 +672,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/blackjack/strategy/generate_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="145" selection-start-line="145" selection-end-line="145" />
+        <state relative-caret-position="472">
+          <caret line="146" column="8" selection-start-line="132" selection-start-column="4" selection-end-line="146" selection-end-column="8" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <marker date="1545045235558" expanded="true" signature="903:908" ph="..." />
-            <marker date="1545045235558" expanded="true" signature="3570:3576" ph="..." />
-            <marker date="1545045235558" expanded="true" signature="3752:3753" ph="..." />
+            <marker date="1545164111108" expanded="true" signature="903:908" ph="..." />
+            <marker date="1545164111108" expanded="true" signature="3570:3576" ph="..." />
+            <marker date="1545164111108" expanded="true" signature="3752:3753" ph="..." />
           </folding>
         </state>
       </provider>
