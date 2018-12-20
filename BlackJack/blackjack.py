@@ -11,5 +11,4 @@ args = parser.parse_args()
 
 
 if __name__ == '__main__':
-    # app.run(host=args.host, port=args.port, debug=args.verbose)
-    Generate.generate(1, 3, True)
+    app.run(host=args.host, port=args.port, debug=args.verbose)

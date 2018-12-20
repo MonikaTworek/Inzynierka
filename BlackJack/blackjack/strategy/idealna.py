@@ -30,8 +30,7 @@ class Idealna:
 
         try:
             nowtable = passtable
-            while not ((len(
-                    nowtable.decks.cards) < 4 or nowtable.is_finished) and self.onlyHit()):  # dopóki są karty, a ruchy to nie same hit
+            while not ((len(nowtable.decks.cards) < 4 or nowtable.is_finished) and self.onlyHit()):  # dopóki są karty, a ruchy to nie same hit
                 if len(nowtable.decks.cards) < 4 or nowtable.is_finished:
                     if nowtable.winnings - nowtable.loosing + 0.5 * nowtable.blackjack > self.maxMoney or (nowtable.winnings - nowtable.loosing + 0.5 * nowtable.blackjack == self.maxMoney and nowtable.blackjack > besttable.blackjack):
                         besttable = nowtable

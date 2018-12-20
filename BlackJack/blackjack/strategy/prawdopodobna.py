@@ -10,25 +10,24 @@ class Prawdopodobna:
     def play(self):
         try:
             czyGram = True
+            number = len(self.table.decks.cards) / 52
+            probably = {
+                1: (4 * number) / len(self.table.decks.cards),
+                2: (4 * number) / len(self.table.decks.cards),
+                3: (4 * number) / len(self.table.decks.cards),
+                4: (4 * number) / len(self.table.decks.cards),
+                5: (4 * number) / len(self.table.decks.cards),
+                6: (4 * number) / len(self.table.decks.cards),
+                7: (4 * number) / len(self.table.decks.cards),
+                8: (4 * number) / len(self.table.decks.cards),
+                9: (4 * number) / len(self.table.decks.cards),
+                10: (4 * number) / len(self.table.decks.cards),
+                11: (4 * number) / len(self.table.decks.cards),
+                12: (4 * number) / len(self.table.decks.cards),
+                13: (4 * number) / len(self.table.decks.cards)
+            }
 
             while True:
-                number = len(self.table.decks.cards) / 52
-                probably = {
-                     1: (4 * number) / len(self.table.decks.cards),
-                     2: (4 * number) / len(self.table.decks.cards),
-                     3: (4 * number) / len(self.table.decks.cards),
-                     4: (4 * number) / len(self.table.decks.cards),
-                     5: (4 * number) / len(self.table.decks.cards),
-                     6: (4 * number) / len(self.table.decks.cards),
-                     7: (4 * number) / len(self.table.decks.cards),
-                     8: (4 * number) / len(self.table.decks.cards),
-                     9: (4 * number) / len(self.table.decks.cards),
-                    10: (4 * number) / len(self.table.decks.cards),
-                    11: (4 * number) / len(self.table.decks.cards),
-                    12: (4 * number) / len(self.table.decks.cards),
-                    13: (4 * number) / len(self.table.decks.cards)
-                }
-
                 self.table.begin_game()
                 czyGram = True
 
@@ -42,9 +41,9 @@ class Prawdopodobna:
                 probably[self.table.player.hand1.cards[1].rank] = oldvalue - 1 / len(self.table.decks.cards)
 
                 playerValue = self.table.player.hand1.value
-                newcard = 0
 
                 while self.table.player.hand1.playing and czyGram:
+                    newcard = 0
                     roznica = 21 - self.table.player.hand1.value
                     prawdopodobienstwo = 0
                     for i in probably.keys():

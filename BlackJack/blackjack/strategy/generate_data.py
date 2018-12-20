@@ -38,11 +38,14 @@ class Generate:
         intuicja = Intuicyjna(copy.deepcopy(table)).play()
         score.append(Score(name="Intuicyjna", winnings=intuicja[0], draw=intuicja[1], loosing=intuicja[2], money=intuicja[3], blackjack=intuicja[4]))
 
+        krupier = Krupier(copy.deepcopy(table)).play()
+        score.append( Score(name="Kruppierska", winnings=krupier[0], draw=krupier[1], loosing=krupier[2], money=krupier[3], blackjack=krupier[4]))
+
         neverbust = NeverBust(copy.deepcopy(table)).play()
         score.append(Score(name="NeverBust", winnings=neverbust[0], draw=neverbust[1], loosing=neverbust[2], money=neverbust[3], blackjack=neverbust[4]))
 
         prawdopodobna = Prawdopodobna(copy.deepcopy(table)).play()
-        score.append(Score(name="NeverBust", winnings=prawdopodobna[0], draw=prawdopodobna[1], loosing=prawdopodobna[2], money=prawdopodobna[3], blackjack=prawdopodobna[4]))
+        score.append(Score(name="Prawdopodobna", winnings=prawdopodobna[0], draw=prawdopodobna[1], loosing=prawdopodobna[2], money=prawdopodobna[3], blackjack=prawdopodobna[4]))
 
         przelam = PrzelamPasse(copy.deepcopy(table)).play()
         score.append(Score(name="PrzelamPasse", winnings=przelam[0], draw=przelam[1], loosing=przelam[2], money=przelam[3], blackjack=przelam[4]))
@@ -83,11 +86,8 @@ class Generate:
         passing = Score(name="Pasujaca", winnings=0, draw=0, loosing=0, money=0, blackjack=0)
         idealna = Score(name="Idealna", winnings=0, draw=0, loosing=0, money=0, blackjack=0)
 
-        # for _ in range(series):
-        lol = True
-        while lol:
+        for _ in range(series):
             table = Table(numberTalii)
-            series = 1
 
             explist = Ekspans(copy.deepcopy(table)).play()
             packing(eksp, explist)
@@ -125,9 +125,9 @@ class Generate:
             passlol = Pasujaca(copy.deepcopy(table)).play()
             packing(passing, passlol)
 
-            # if wiht_perfect:
-            #     id = Idealna(copy.deepcopy(table)).play()
-            #     packing(idealna, id)
+            if wiht_perfect:
+                id = Idealna(copy.deepcopy(table)).play()
+                packing(idealna, id)
 
             path = "C:\\Users\\Public\\score_series" + str(series) + "_DeckOfCard" + str(numberTalii) + "_" + str(datetime.date.today()) + ".txt"
 
@@ -147,8 +147,6 @@ class Generate:
             f.write(str(idealna) + "\n")
             f.close()
 
-            series += 1
-            lol = False
 
 
 def packing(score: Score, list: []):
@@ -160,5 +158,5 @@ def packing(score: Score, list: []):
 
 
 if __name__ == '__main__':
-    Generate.generate(1, 3, True)
+    Generate.generate(1, 4, True)
 
