@@ -1,0 +1,31 @@
+<div class="game-messages">
+  <div *ngIf="new_game" class="greeting col-10">
+    <p class="gretting-small">
+      Koniec rundy!
+    </p>
+    <div *ngIf="status"><p class="gretting-small">{{zawartosc}}</p></div><br>
+    <a class="mea-button" *ngIf="new_game_fun" (click)="New_Game()"> NOWA GRA </a>
+  </div>
+
+  <div *ngIf="game_over" class="greeting col-10">
+    <p class="gretting-small">
+      Koniec gry! <br>
+      Skończyły się karty!
+    </p>
+    <a class="mea-button" (click)="End_game()"> OK </a>
+  </div>
+</div>
+
+<div class="game-controlls">
+  <a class="mea-button" (click)="Hit1()"> HIT1 </a > <br>
+  <a class="mea-button" (click)="Hit2()"> HIT2 </a > <br>
+  <a class="mea-button" (click)="Stand1()"> STAND1 </a> <br>
+  <a class="mea-button" (click)="Stand2()"> STAND2 </a> <br>
+  <a class="mea-button" (click)="Double_down()"> DOUBLE DOWN </a> <br>
+  <a class="mea-button" (click) ="Split()"> SPLIT </a> <br>
+  <a class="mea-button" (click) ="Insure()"> INSURE </a> <br>
+  <a class="mea-button" (click) ="Surrender()"> SURRENDER </a> <br>
+  <a class="mea-button" (click) ="End_game()"> END </a><br>
+</div>
+
+

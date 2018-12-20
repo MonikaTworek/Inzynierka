@@ -1,0 +1,20 @@
+<div class="greeting col-10">
+  <h1>Blackjack</h1>
+  <p class="gretting-small">Wybierz z ile potrzebujesz talii kart (1-4):</p>
+
+  <div class="main-menu-container">
+    <div class="main-menu-number">
+      <input min="1" max="4" type="number" class="mea-input" [(ngModel)]="numberOfCards">
+
+    </div>
+    <div class="main-menu-register">
+      <a class="mea-button" (click)="Register()">NOWA GRA    </a><br>
+    </div>
+    <div class="main-menu-generate">
+      <a class="mea-button" (click)="Generate()">GENEROWANIE </a><br>
+    </div>
+    <div class="main-menu-readme">
+      <a class="mea-button" (click)="ReadMe()"  >ZASADY      </a>
+    </div>
+  </div>
+</div>

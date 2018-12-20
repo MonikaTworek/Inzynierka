@@ -89,45 +89,45 @@ class Generate:
         for _ in range(series):
             table = Table(numberTalii)
 
-            explist = Ekspans(copy.deepcopy(table)).play()
-            packing(eksp, explist)
-
-            bank = Bank(copy.deepcopy(table)).play()
-            packing(banks, bank)
-
-            hilow = HiLow(copy.deepcopy(table)).play()
-            packing(hilows, hilow)
-
-            intuicja = Intuicyjna(copy.deepcopy(table)).play()
-            packing(int, intuicja)
-
-            krupierska = Krupier(copy.deepcopy(table)).play()
-            packing(krupier, krupierska)
-
-            nvbust = NeverBust(copy.deepcopy(table)).play()
-            packing(neverbust, nvbust)
+            # explist = Ekspans(copy.deepcopy(table)).play()
+            # packing(eksp, explist)
+            #
+            # bank = Bank(copy.deepcopy(table)).play()
+            # packing(banks, bank)
+            #
+            # hilow = HiLow(copy.deepcopy(table)).play()
+            # packing(hilows, hilow)
+            #
+            # intuicja = Intuicyjna(copy.deepcopy(table)).play()
+            # packing(int, intuicja)
+            #
+            # krupierska = Krupier(copy.deepcopy(table)).play()
+            # packing(krupier, krupierska)
+            #
+            # nvbust = NeverBust(copy.deepcopy(table)).play()
+            # packing(neverbust, nvbust)
 
             prob = Prawdopodobna(copy.deepcopy(table)).play()
             packing(prawdopodobna, prob)
 
-            przelam = PrzelamPasse(copy.deepcopy(table)).play()
-            packing(przelampasse, przelam)
-
-            przetrzym = PrzetrzymajPasse(copy.deepcopy((table))).play()
-            packing(przetrzymajpasse, przetrzym)
-
-            zalez = Zalezna(copy.deepcopy((table))).play()
-            packing(zalezna, zalez)
-
-            pod = Podstawowa(copy.deepcopy(table)).play()
-            packing(podstaw, pod)
-
-            passlol = Pasujaca(copy.deepcopy(table)).play()
-            packing(passing, passlol)
-
-            if wiht_perfect:
-                id = Idealna(copy.deepcopy(table)).play()
-                packing(idealna, id)
+            # przelam = PrzelamPasse(copy.deepcopy(table)).play()
+            # packing(przelampasse, przelam)
+            #
+            # przetrzym = PrzetrzymajPasse(copy.deepcopy((table))).play()
+            # packing(przetrzymajpasse, przetrzym)
+            #
+            # zalez = Zalezna(copy.deepcopy((table))).play()
+            # packing(zalezna, zalez)
+            #
+            # pod = Podstawowa(copy.deepcopy(table)).play()
+            # packing(podstaw, pod)
+            #
+            # passlol = Pasujaca(copy.deepcopy(table)).play()
+            # packing(passing, passlol)
+            #
+            # if wiht_perfect:
+            #     id = Idealna(copy.deepcopy(table)).play()
+            #     packing(idealna, id)
 
             path = "C:\\Users\\Public\\score_series" + str(series) + "_DeckOfCard" + str(numberTalii) + "_" + str(datetime.date.today()) + ".txt"
 
@@ -158,5 +158,5 @@ def packing(score: Score, list: []):
 
 
 if __name__ == '__main__':
-    Generate.generate(1, 4, True)
+    Generate.generate(100, 4, True)
 

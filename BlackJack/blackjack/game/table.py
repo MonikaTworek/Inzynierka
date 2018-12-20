@@ -26,7 +26,6 @@ class Table:
         self.is_perfect = False
 
     def finish_game(self):
-        # print("finish")
         self.is_finished = True
         self.player.account_balance += self.bid
 
@@ -134,7 +133,7 @@ class Table:
             print("Not in proper phase. You cannot hit1!")
             raise InvalidMove("Not in proper phase. You cannot hit!")
         if self.player.hands1.playing is False:
-            print("Not have caard. You cannot hit1!")
+            print("Not have card. You cannot hit1!")
             raise InvalidMove("Not in proper phase")
 
         if len(self.decks.cards) < 1:

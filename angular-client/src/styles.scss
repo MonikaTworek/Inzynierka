@@ -180,7 +180,12 @@ input[type=checkbox]:checked ~ #menu{
   float: right;
 }
 
-.mea-button {
+.mea-input {
+  border: none;
+}
+
+.mea-button, .mea-input {
+  display: inline-block;
   font-size: 1.8em;
   /* background: aqua; */
   background-color: rgb(246,246,246);
@@ -192,4 +197,92 @@ input[type=checkbox]:checked ~ #menu{
 
 .mea-button:hover {
   background-color: rgb(154,160,255);
+}
+
+.main-menu-container {
+  display: grid;
+  grid-template-columns: 1fr 18em 18em 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    ". . register ."
+    ". number generate ."
+    ". . readme .";
+
+
+  .main-menu-number {
+    grid-area: number;
+
+    .mea-input {
+      width: 1.5em;
+    }
+  }
+  .main-menu-register {
+    grid-area: register;
+  }
+  .main-menu-generate {
+    grid-area: generate;
+  }
+  .main-menu-readme {
+    grid-area: readme;
+  }
+
+  .mea-button {
+    width: 7.7em;
+    margin: 0.07em 0;
+  }
+}
+
+
+.game-messages {
+  position: fixed;
+  width: 18em;
+  left: calc(50% - 9em);
+  top: 9em;
+
+  .gretting-small {
+    background-color: white;
+  }
+
+  .mea-button {
+    text-align: center;
+    width: 7.45em;
+  }
+}
+
+.game-controlls {
+  .mea-button {
+    text-align: center;
+    width: 7.45em;
+    margin: 0.07em 0;
+  }
+}
+
+.card-img {
+  border-radius: 0.55em;
+}
+
+.scoreboard {
+  display: flex;
+
+  * {
+    margin-right: 8px;
+    margin-bottom: 8px;
+  }
+
+  table {
+    font-size: 2em;
+    border-collapse: collapse;
+
+    .num {
+      text-align: right;
+    }
+
+    tr:not(:first-child):hover {
+      background-color: rgba(154,160,255,0.78);
+    }
+
+    th, td {
+      padding: 0.5em;
+    }
+  }
 }
