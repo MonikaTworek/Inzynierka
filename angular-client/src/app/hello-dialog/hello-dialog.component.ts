@@ -26,7 +26,7 @@ export class HelloDialogComponent implements OnInit {
           this.table.SetRow2(begin.player.hands1.cards);
           this.router.navigate(['/game']);
           if (begin.phase === 'end_game') {
-            this.server.SetFirst(true, begin.player.winner);
+            this.server.SetFirst(true, begin.player.hands1.winner);
           } else {
             this.server.SetFirst(false, 'None');
           }

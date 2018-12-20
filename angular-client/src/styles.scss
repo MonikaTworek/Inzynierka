@@ -279,6 +279,7 @@ input[type=checkbox]:checked ~ #menu{
 
     tr:not(:first-child):hover {
       background-color: rgba(154,160,255,0.78);
+      transition: 0.1s ease-in;
     }
 
     th, td {

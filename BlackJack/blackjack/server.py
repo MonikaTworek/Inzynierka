@@ -41,7 +41,7 @@ def register():
     number = request.json["numberof"]
     uid = max(tables) + 1 if tables else 0
     tables[uid] = Table(number)
-    if number > 2 :
+    if number > 1:
         with_perfect = False
     else:
         with_perfect = True

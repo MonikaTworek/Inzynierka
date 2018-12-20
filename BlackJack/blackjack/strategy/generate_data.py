@@ -39,7 +39,7 @@ class Generate:
         score.append(Score(name="Intuicyjna", winnings=intuicja[0], draw=intuicja[1], loosing=intuicja[2], money=intuicja[3], blackjack=intuicja[4]))
 
         krupier = Krupier(copy.deepcopy(table)).play()
-        score.append( Score(name="Kruppierska", winnings=krupier[0], draw=krupier[1], loosing=krupier[2], money=krupier[3], blackjack=krupier[4]))
+        score.append( Score(name="Krupierska", winnings=krupier[0], draw=krupier[1], loosing=krupier[2], money=krupier[3], blackjack=krupier[4]))
 
         neverbust = NeverBust(copy.deepcopy(table)).play()
         score.append(Score(name="NeverBust", winnings=neverbust[0], draw=neverbust[1], loosing=neverbust[2], money=neverbust[3], blackjack=neverbust[4]))
