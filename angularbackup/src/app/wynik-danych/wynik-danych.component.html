@@ -1,10 +1,23 @@
-<table class="">
+<table class="gretting-small">
+  <tr>
+    <th>NAZWA</th>
+    <td>ZWYCIĘSTWA</td>
+    <td>REMISY</td>
+    <td>PORAŻKI</td>
+    <td>BLACKJACKI</td>
+    <td>WYNIK</td>
+  </tr>
   <tr *ngFor="let s of strategie">
-    <td>{{s.name}}</td>
-    <td>{{s.winning}}</td>
-    <td>{{s.draw}}</td>
-    <td>{{s.loosing}}</td>
-    <td>{{s.blackjack}}</td>
-    <td>{{s.money}}</td>
+    <td class = "">{{s.name}}</td>
+    <td class = "">{{s.winning}}</td>
+    <td class = "">{{s.draw}}</td>
+    <td class = "">{{s.loosing}}</td>
+    <td class = "">{{s.blackjack}}</td>
+    <td class = "">{{s.money}}</td>
   </tr>
 </table>
+
+
+
+<!--<div class="greeting">-->
+

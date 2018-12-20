@@ -136,6 +136,25 @@ input[type=checkbox]:checked ~ #menu{
   justify-content: center;
   align-items: center;
   min-height: 50px;
+  min-width: 50px;
+}
+
+.gretting-my{
+  background-color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50px;
+  min-width: 150px;
+}
+
+.gretting-big{
+  background-color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 250px;
+  min-width: 150px;
 }
 
 .titled-box{
@@ -159,4 +178,18 @@ input[type=checkbox]:checked ~ #menu{
 .right-column {
   width: 30.902vw;
   float: right;
+}
+
+.mea-button {
+  font-size: 1.8em;
+  /* background: aqua; */
+  background-color: rgb(246,246,246);
+  padding: 0.4em 0.8em;
+  border-radius: 0.3em;
+  cursor: pointer;
+  transition: 0.1s ease-in;
+}
+
+.mea-button:hover {
+  background-color: rgb(154,160,255);
 }

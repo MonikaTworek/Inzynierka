@@ -62,6 +62,9 @@ export class WynikDanychComponent implements OnInit {
     //   this.mapScore(
     //   'Intuicyjna', tekst.bots_score.Intuicyjna
     // ),
+      //   this.mapScore(
+      //   'Krupierska', tekst.bots_score.Krupierska
+      // ),
     //   this.mapScore(
     //   'NeverBust', tekst.bots_score.NeverBust
     // ),
