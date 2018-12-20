@@ -1,0 +1,25 @@
+score(name='Ekspansyjna', winnings=6, draw=1, loosing=20, money=-130.0, blackjack=2)
+
+score(name='ReagujNaBank', winnings=15, draw=1, loosing=12, money=40.0, blackjack=2)
+
+score(name='HiLow', winnings=8, draw=0, loosing=22, money=-135.0, blackjack=1)
+
+score(name='Intuicyjna', winnings=12, draw=3, loosing=14, money=-10.0, blackjack=2)
+
+score(name='Krupierska', winnings=11, draw=1, loosing=15, money=-35.0, blackjack=1)
+
+score(name='NeverBust', winnings=14, draw=1, loosing=15, money=0.0, blackjack=2)
+
+score(name='Prawdopodobna', winnings=6, draw=0, loosing=1, money=55.0, blackjack=1)
+
+score(name='PrzelamPasse', winnings=16, draw=3, loosing=10, money=75.0, blackjack=3)
+
+score(name='PrzetrzymajPasse', winnings=13, draw=0, loosing=15, money=-15.0, blackjack=1)
+
+score(name='ZaleznaOdSzczescia', winnings=13, draw=1, loosing=13, money=10.0, blackjack=2)
+
+score(name='Podstawowa', winnings=17, draw=3, loosing=10, money=90.0, blackjack=2)
+
+score(name='Pasujaca', winnings=14, draw=2, loosing=16, money=-10.0, blackjack=2)
+
+score(name='Idealna', winnings=24, draw=1, loosing=2, money=225.0, blackjack=1)
