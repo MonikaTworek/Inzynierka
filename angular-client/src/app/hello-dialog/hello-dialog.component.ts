@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./hello-dialog.component.scss']
 })
 export class HelloDialogComponent implements OnInit {
-  numberOfCards = 1;
+  numberOfCards = 2;
 
   constructor(private server: ConnectToBlackJackService, private table: TableService, private router: Router) {
   }

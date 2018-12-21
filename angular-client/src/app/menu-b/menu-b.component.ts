@@ -167,7 +167,7 @@ export class MenuBComponent implements OnInit {
     this.server.End_game();
     this.server.Finish_game().subscribe((end: any) => {
       this.server.Update(end);
+      this.router.navigate(['/solution']);
     });
-    this.router.navigate(['/solution']);
   }
 }

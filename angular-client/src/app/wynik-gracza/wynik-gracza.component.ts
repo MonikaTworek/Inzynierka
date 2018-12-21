@@ -20,17 +20,11 @@ export class WynikGraczaComponent implements OnInit {
   }
 
   Update(tekst: any) {
-    console.log(tekst);
     this.Wynikwinning = tekst.player_score.winning;
-     // this.Wynikwinning = 0;
     this.Wynikdraw = tekst.player_score.draw;
     this.Wynikloosing = tekst.player_score.loosing;
     this.Wynikblackjack = tekst.player_score.winning;
-    // this.Wynikdraw = 0;
-    // this.Wynikloosing = 0;
-    // this.Wynikblackjack = 0;
     this.Wynikmoney = (tekst.player_score.winning - tekst.player_score.loosing + 0.5 * tekst.player_score.blackjack) * 10;
-    // this.Wynikmoney = 12;
   }
 
   ComeBack() {

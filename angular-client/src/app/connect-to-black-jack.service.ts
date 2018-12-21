@@ -13,6 +13,8 @@ export class ConnectToBlackJackService {
   lastMessage: any;
   first_blackjack: boolean;
   whoWin: string;
+  bots: any;
+  player: any;
 
   constructor(private Client: HttpClient, private  router: Router) {
   }
@@ -35,122 +37,7 @@ export class ConnectToBlackJackService {
   }
 
   Set() {
-    // return this.lastMessage;
-    return {
-      'bots_score': [
-        {
-          'Ekspansyjna': {
-            'blackjack': 2,
-            'draw': 0,
-            'loosing': 5,
-            'winning': 4
-          }
-        },
-        {
-          'ReagujNaBank': {
-            'blackjack': 1,
-            'draw': 1,
-            'loosing': 4,
-            'winning': 4
-          }
-        },
-        {
-          'HILow': {
-            'blackjack': 1,
-            'draw': 0,
-            'loosing': 5,
-            'winning': 5
-          }
-        },
-        {
-          'Intuicyjna': {
-            'blackjack': 2,
-            'draw': 0,
-            'loosing': 5,
-            'winning': 5
-          }
-        },
-        {
-          'Krupierska': {
-            'blackjack': 1,
-            'draw': 1,
-            'loosing': 2,
-            'winning': 6
-          }
-        },
-        {
-          'NeverBust': {
-            'blackjack': 1,
-            'draw': 0,
-            'loosing': 6,
-            'winning': 4
-          }
-        },
-        {
-          'Prawdopodobna': {
-            'blackjack': 1,
-            'draw': 0,
-            'loosing': 0,
-            'winning': 1
-          }
-        },
-        {
-          'PrzelamPasse': {
-            'blackjack': 2,
-            'draw': 1,
-            'loosing': 4,
-            'winning': 5
-          }
-        },
-        {
-          'PrzetrzymajPasse': {
-            'blackjack': 1,
-            'draw': 1,
-            'loosing': 2,
-            'winning': 6
-          }
-        },
-        {
-          'Podstawowa': {
-            'blackjack': 2,
-            'draw': 1,
-            'loosing': 2,
-            'winning': 7
-          }
-        },
-        {
-          'ZaleznaOdSzczescia': {
-            'blackjack': 2,
-            'draw': 1,
-            'loosing': 4,
-            'winning': 5
-          }
-        },
-        {
-          'Pasujaca': {
-            'blackjack': 1,
-            'draw': 0,
-            'loosing': 7,
-            'winning': 4
-          }
-        },
-        {
-          'Idealna': {
-            'blackjack': 2,
-            'draw': 1,
-            'loosing': 1,
-            'winning': 8
-          }
-        }
-      ],
-      'header': 'success',
-      'player_score': {
-        'blackjack': 1,
-        'draw': 0,
-        'loosing': 0,
-        'winning': 1
-      }
-    };
+    return this.lastMessage;
   }
 
   Register(number: number) {

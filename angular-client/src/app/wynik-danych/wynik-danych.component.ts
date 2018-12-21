@@ -17,10 +17,8 @@ class ScoreRecord {
 })
 export class WynikDanychComponent implements OnInit {
   strategie = [];
-  WynikGracza = 0;
 
   mapScore(name, {winning, draw, loosing, blackjack}): ScoreRecord {
-    console.log(arguments);
     return {
       name: name,
       winning: winning,
@@ -51,9 +49,9 @@ export class WynikDanychComponent implements OnInit {
       this.mapScore(
       'Intuicyjna', tekst.bots_score[3].Intuicyjna
     ),
-        this.mapScore(
-        'Krupierska', tekst.bots_score[4].Krupierska
-      ),
+      this.mapScore(
+      'Krupierska', tekst.bots_score[4].Krupierska
+    ),
       this.mapScore(
       'NeverBust', tekst.bots_score[5].NeverBust
     ),
