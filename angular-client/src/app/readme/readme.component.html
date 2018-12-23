@@ -40,8 +40,78 @@
 
   <div class="greeting">
     <h1>Zaimplementowane strategie</h1>
+    <h2>Ekspansyjna</h2>
     <p class="gretting-small">
-      Opis zaimplementowanych strategii
+      Dąży do wartości jak najbardziej zbliżonej do 21. Jeżeli gracz ma mniej niż 20 oczek ciągnie kartę.
+    </p>
+    <h2>Reaguj na bank</h2>
+    <p class="gretting-small">
+      W zależności od widocznej karty krupiera jest inna wartość po której gracz nie ciągnie kart. Jeżeli widoczną
+      kartą krupiera jest 2 lub 3 to gracz ciągnie kartę jak ma mniej niż 13 oczek. Jeżeli widoczną kartą krupiera jest
+      karta między 4, a 7, to gracz przestaje wykonuje stand jeżeli ma conajmniej 17 punktów. Jeżeli karta krupiera ma wartość
+      większą od 7, to gracz ciągnie dopóki nie ma co najmniej 18 oczek.
+    </p>
+    <h2>HiLow</h2>
+    <p class="gretting-small">
+      Jest to tak zwane liczenie kart. Karty od 2 do 6 mają wartość +1, karty od 7 do 9 są neutralne i mają wartość 0, a
+      pozostałe karty są wysokie i mają wartość -1. Przed rozpoczęciem gry wartość stołu wynosi 0. Wraz ze wzrostem wartości
+      stołu rośnie prawdopodobieństwo, że w talii zostały wysokie karty i odwrotnie - dla ujemnej wartości stołu można
+      spodziewać się niskich kart.
+    </p>
+    <h2>Intuicyjna</h2>
+    <p class="gretting-small">
+      W celu przybliżenia głosów intuicji losowana jest liczba z zakresu od 0 do 100. Jeżeli jest większa niż 50, to gracz
+      ciągnie kartę.
+    </p>
+    <h2>Krupierska</h2>
+    <p class="gretting-small">
+      Jest to ta sama strategia według której postępuje krupier. Jeżeli wartość ręki jest mniejsza niż 17, to gracz ciągnie
+      kartę. Jeżeli przekroczy tę wartość, to pasuje.
+    </p>
+    <h2>NeverBust</h2>
+    <p class="gretting-small">
+      Strategia ta dąży by nie przekroczyć nigdy 21 oczek, więc jeżeli wartość ręki gracza to co najmniej 11 oczek, to
+      pasuje. W tej strategii zwraca się uwagę jak często przegrywa krupier, który musi przekroczyć wartość 17 oczek.
+    </p>
+    <h2>Prawdopodobna</h2>
+    <p class="gretting-small">
+      Przed każdym ruchem jest liczone prawdopodobieństwo przekroczenia 21 oczek na podstawie kart, które zostały użyte.
+      Jeżeli prawdopodobieństwo pojawienia się w talii następnej karty, która przekroczy różnicę między 21, a wartością
+      ręki gracza jest większa niż 50%, to użytkownik pasuje. W przeciwnym wypadku ciągnie kartę.
+    </p>
+    <h2>Przełam passę</h2>
+    <p class="gretting-small">
+      Na początku gracz pasuje jeżeli ma co najmniej 15 oczek. Jeżeli w ciągu ostatnich 3 rund przegrał, to pasuje jeżeli
+      przekroczy 17 punktów. Jeżeli przegrał 5 razy z rzędu, to ciągnie kartę jeżeli ma mniej niż 19 punktów. Jeżeli pojawi
+      się zwycięstwo gracz znowu zaczyna od granicy 15 oczek.
+    </p>
+    <h2>Przetrzymaj passę</h2>
+    <p class="gretting-small">
+      Analogiczna strategia jak przełam passę, ale obniżająca granicę w zależności od liczby porażek. Na początku gracz
+      pasuje jeżeli ma co najmniej 17 oczek. Przy 3 porażkach z rzędu użytkownik pasuje jeżeli ma co najmniej 14 oczek.
+      Jeżeli w ciągu ostatnich 5 rund gracz przegrał je wszystkie, to pasuje, gdy przekroczy wartością ręki 11 oczek. W
+      momencie zwycięstwa gracz rozpoczyna od granicy 17 oczek.
+    </p>
+    <h2>Zależna od szczęścia</h2>
+    <p class="gretting-small">
+      Gracz rozpoczyna od granicy punktów. Z każdym zwycięstwem ta granica jest podwyższana o 1 aż do 20 punktów w przypadku
+      5 zwycięstw z rzędu. Z każdą porażką granica ta jest obniżana o 1 aż do 4 porażek z rzędu, gdy użytkownik pasuje
+      jeżeli ma co najmniej 11 oczek.
+    </p>
+    <h2>Podstawowa</h2>
+    <p class="gretting-small">
+      Strategia oparta na prawdopodobieństwie wyciągnięcia karty w zależności od widocznej karty krupiera i kart trzymanych
+      przez gracza.
+    </p>
+    <h2>Pasująca</h2>
+    <p class="gretting-small">
+      Bez względu na wartość ręki gracz pasuje zaraz po rozpoczęciu gry.
+    </p>
+    <h2>Idealna</h2>
+    <p class="gretting-small">
+      Jedyna strategia, która ma dostęp do kolejności kart w talii. Znając układ i wiedząc jaka karta będzie następna
+      korzystając ze stosu i nawrotów maksymalizowany jest wynik jaki można uzyskać. Ze względu na dużą ilość obliczeń ta
+      strategia jest liczona tylko dla 1 talii.
     </p>
   </div>
   <div class="greeting">

@@ -125,6 +125,12 @@ input[type=checkbox]:checked ~ #menu{
   color: rgba(0, 0, 0, 0.8);
   padding-bottom: 0;
 }
+.greeting h2{
+  font-family: 'Lobster', cursive;
+  font-size: 90px;
+  color: rgba(0, 0, 0, 0.8);
+  padding-bottom: 0;
+}
 .greeting p{
   font-family: 'Montserrat', cursive;
   font-size: 25px;

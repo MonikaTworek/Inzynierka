@@ -53,7 +53,7 @@ def register():
 @validate_schema('generate')
 def generate():
     number = request.json["numberof"]
-    if number > 2 :
+    if number > 1 :
         with_perfect = False
     else:
         with_perfect = True

@@ -53,8 +53,6 @@ class Prawdopodobna:
                     prawdopodobienstwo /= len(self.table.decks.cards)
 
                     if prawdopodobienstwo > 0.5:
-                        if not self.table.player.hand1.playing:
-                            print("DZieje sie cos dziwnego. ")
                         self.table.hit1()
 
                         oldvalue = probably[self.table.player.hand1.lastcard]

@@ -87,6 +87,7 @@ class Generate:
         idealna = Score(name="Idealna", winnings=0, draw=0, loosing=0, money=0, blackjack=0)
 
         for _ in range(series):
+        # while True:
             table = Table(numberTalii)
 
             explist = Ekspans(copy.deepcopy(table)).play()
@@ -129,7 +130,7 @@ class Generate:
                 id = Idealna(copy.deepcopy(table)).play()
                 packing(idealna, id)
 
-            path = "C:\\Users\\Public\\score_series" + str(series) + "_DeckOfCard" + str(numberTalii) + "_" + str(datetime.date.today()) + ".txt"
+            path = "C:\\Users\\Public\\score_DeckOfCard" + str(numberTalii) + "_" + str(datetime.date.today()) + ".txt"
 
             f = open(path, "w+")
             f.write(str(eksp) + "\n")
@@ -150,13 +151,13 @@ class Generate:
 
 
 def packing(score: Score, list: []):
-    score.winnings = list[0]
-    score.draw = list[1]
-    score.loosing = list[2]
-    score.money = list[3]
-    score.blackjack = list[4]
+    score.winnings += list[0]
+    score.draw += list[1]
+    score.loosing += list[2]
+    score.money += list[3]
+    score.blackjack += list[4]
 
 
 if __name__ == '__main__':
-    Generate.generate(1, 4, True)
+    Generate.generate(1, 3, False)
 
