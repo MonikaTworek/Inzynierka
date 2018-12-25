@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7fa7ecf1-8c21-43c1-b4c3-f2ef5614bc08" name="Default" comment="" />
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="hello-dialog.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/hello-dialog/hello-dialog.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="452">
+              <caret line="38" column="26" lean-forward="false" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="connect-to-black-jack.service.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/connect-to-black-jack.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="65" column="2" lean-forward="false" selection-start-line="65" selection-start-column="2" selection-end-line="65" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>console</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/app/hello-dialog/hello-dialog.component.html" />
+        <option value="$PROJECT_DIR$/src/app/hello-dialog/hello-dialog.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/menu-b/menu-b.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/wynik-danych/wynik-danych.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/connect-to-black-jack.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/wynik-gracza/wynik-gracza.component.ts" />
+        <option value="$PROJECT_DIR$/src/styles.scss" />
+        <option value="$PROJECT_DIR$/src/app/readme/readme.component.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
+    <package-json value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="953" />
+    <option name="width" value="974" />
+    <option name="height" value="1047" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="angular-client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="angular-client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="angular-client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="angular-client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="angular-client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="angular-client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="angular-client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="angular-client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="hello-dialog" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.tslint" value="D:\repository\Inzynierka\angular-client\node_modules\tslint" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7fa7ecf1-8c21-43c1-b4c3-f2ef5614bc08" name="Default" comment="" />
+      <created>1545346394358</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1545346394358</updated>
+      <workItem from="1545346398554" duration="4252000" />
+      <workItem from="1545470076369" duration="4476000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="8728000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14750542" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1569247" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/app/menu-b/menu-b.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/hello-dialog/hello-dialog.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="27" lean-forward="false" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/ekran-wynikow/ekran-wynikow.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/wynik-gracza/wynik-gracza.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="122" lean-forward="false" selection-start-line="26" selection-start-column="122" selection-end-line="26" selection-end-column="122" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/ekran-wynikow/ekran-wynikow.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JavaScript-modules-diagram/D:/repository/Inzynierka/angular-client/src">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JavaScript-modules-diagram</ID>
+          <OriginalElement>$PROJECT_DIR$/src</OriginalElement>
+          <nodes>
+            <node x="" y="">$PROJECT_DIR$/src/app/Card.model.ts#Card#0;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/rxjs/internal/Observable.d.ts#Observable#313;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/rxjs/internal/ReplaySubject.d.ts#ReplaySubject#168;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/rxjs/internal/Subject.d.ts#Subject#429;</node>
+            <node x="" y="">$PROJECT_DIR$/src/app/app-routing.module.ts#AppRoutingModule#999;D:/repository/Inzynierka/angular-client/src/app/app-routing.module.ts#EkranComponent#182;D:/repository/Inzynierka/angular-client/src/app/app-routing.module.ts#EkranWynikowComponent#438;D:/repository/Inzynierka/angular-client/src/app/app-routing.module.ts#GenerateBadComponent#362;D:/repository/Inzynierka/angular-client/src/app/app-routing.module.ts#GenerateComponent#297;D:/repository/Inzynierka/angular-client/src/app/app-routing.module.ts#HelloDialogComponent#106;D:/repository/Inzynierka/angular-client/src/app/app-routing.module.ts#NgModule#9;D:/repository/Inzynierka/angular-client/src/app/app-routing.module.ts#ReadmeComponent#238;D:/repository/Inzynierka/angular-client/src/app/app-routing.module.ts#RouterModule#59;D:/repository/Inzynierka/angular-client/src/app/app-routing.module.ts#Routes#51;</node>
+            <node x="" y="">$PROJECT_DIR$/src/app/app.component.ts#AppComponent#44;D:/repository/Inzynierka/angular-client/src/app/app.component.ts#Component#9;</node>
+            <node x="" y="">$PROJECT_DIR$/src/app/app.module.ts#AppComponent#168;D:/repository/Inzynierka/angular-client/src/app/app.module.ts#AppModule#1004;D:/repository/Inzynierka/angular-client/src/app/app.module.ts#AppRoutingModule#111;D:/repository/Inzynierka/angular-client/src/app/app.module.ts#BrowserModule#9;D:/repository/Inzynierka/angular-client/src/app/app.module.ts#EkranComponent#667;D:/repository/Inzynierka/angular-client/src/app/app.module.ts#EkranWynikowComponent#931;D:/repository/Inzynierka/angular-client/src/app/app.module.ts#FormsModule#293;D:/repository/Inzynierka/angular-client/src/app/app.module.ts#GenerateBadComponent#853;D:/repository/Inzynierka/angular-client/src/app/app.module.ts#GenerateComponent#786;D:/repository/Inzynierka/angular-client/src/app/app.module.ts#HelloDialogComponent#216;D:/repository/Inzynierka/angular-client/src/app/app.module.ts#HttpClientModule#611;D:/repository/Inzynierka/angular-client/src/app/app.module.ts#MenuBComponent#396;D:/repository/Inzynierka/angular-client/src/app/app.module.ts#NgModule#68;D:/repository/Inzynierka/angular-client/src/app/app.module.ts#ReadmeComponent#725;D:/repository/Inzynierka/angular-client/src/app/app.module.ts#WidokComponent#338;D:/repository/Inzynierka/angular-client/src/app/app.module.ts#WynikDanychComponent#534;D:/repository/Inzynierka/angular-client/src/app/app.module.ts#WynikGraczaComponent#456;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/@angular/platform-browser/src/browser.d.ts#BrowserModule#1063;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/@angular/common/http/src/client.d.ts#HttpClient#520;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/tslint/lib/rules/completedDocsRule.d.ts#Visibility#2588;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/@angular/router/src/config.d.ts#Routes#7791;</node>
+            <node x="" y="">$PROJECT_DIR$/src/app/connect-to-black-jack.service.ts#ConnectToBlackJackService#229;D:/repository/Inzynierka/angular-client/src/app/connect-to-black-jack.service.ts#HttpClient#52;D:/repository/Inzynierka/angular-client/src/app/connect-to-black-jack.service.ts#HttpHeaders#64;D:/repository/Inzynierka/angular-client/src/app/connect-to-black-jack.service.ts#Injectable#9;D:/repository/Inzynierka/angular-client/src/app/connect-to-black-jack.service.ts#Router#114;D:/repository/Inzynierka/angular-client/src/app/connect-to-black-jack.service.ts#catchError#154;D:/repository/Inzynierka/angular-client/src/app/connect-to-black-jack.service.ts#map#166;D:/repository/Inzynierka/angular-client/src/app/connect-to-black-jack.service.ts#of#211;</node>
+            <node x="" y="">Component;Injectable;NgModule;</node>
+            <node x="" y="">$PROJECT_DIR$/src/app/ekran-wynikow/ekran-wynikow.component.ts#Component#9;D:/repository/Inzynierka/angular-client/src/app/ekran-wynikow/ekran-wynikow.component.ts#EkranWynikowComponent#52;D:/repository/Inzynierka/angular-client/src/app/ekran-wynikow/ekran-wynikow.component.ts#OnInit#20;</node>
+            <node x="" y="">$PROJECT_DIR$/src/app/ekran/ekran.component.ts#Component#9;D:/repository/Inzynierka/angular-client/src/app/ekran/ekran.component.ts#EkranComponent#52;D:/repository/Inzynierka/angular-client/src/app/ekran/ekran.component.ts#OnInit#20;</node>
+            <node x="" y="">$PROJECT_DIR$/src/environments/environment.ts#environment#235;</node>
+            <node x="" y="">$PROJECT_DIR$/src/favicon.ico</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/@angular/forms/src/form_providers.d.ts#FormsModule#256;</node>
+            <node x="" y="">$PROJECT_DIR$/src/app/generate-bad/generate-bad.component.ts#Component#9;D:/repository/Inzynierka/angular-client/src/app/generate-bad/generate-bad.component.ts#GenerateBadComponent#92;D:/repository/Inzynierka/angular-client/src/app/generate-bad/generate-bad.component.ts#OnInit#20;D:/repository/Inzynierka/angular-client/src/app/generate-bad/generate-bad.component.ts#Router#59;</node>
+            <node x="" y="">$PROJECT_DIR$/src/app/generate/generate.component.ts#Component#9;D:/repository/Inzynierka/angular-client/src/app/generate/generate.component.ts#GenerateComponent#92;D:/repository/Inzynierka/angular-client/src/app/generate/generate.component.ts#OnInit#20;D:/repository/Inzynierka/angular-client/src/app/generate/generate.component.ts#Router#59;</node>
+            <node x="" y="">$PROJECT_DIR$/src/grid.css</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/@angular/common/http/src/headers.d.ts#HttpHeaders#203;</node>
+            <node x="" y="">$PROJECT_DIR$/src/app/hello-dialog/hello-dialog.component.ts#Component#9;D:/repository/Inzynierka/angular-client/src/app/hello-dialog/hello-dialog.component.ts#ConnectToBlackJackService#59;D:/repository/Inzynierka/angular-client/src/app/hello-dialog/hello-dialog.component.ts#HelloDialogComponent#215;D:/repository/Inzynierka/angular-client/src/app/hello-dialog/hello-dialog.component.ts#OnInit#20;D:/repository/Inzynierka/angular-client/src/app/hello-dialog/hello-dialog.component.ts#Router#182;D:/repository/Inzynierka/angular-client/src/app/hello-dialog/hello-dialog.component.ts#TableService#135;</node>
+            <node x="" y="">catchError;</node>
+            <node x="" y="">of;</node>
+            <node x="" y="">$PROJECT_DIR$/src/index.html</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/karma-jasmine-html-reporter/src/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/karma-chrome-launcher/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/karma-jasmine/lib/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/@angular/core/src/is_dev_mode.d.ts#enableProdMode#484;</node>
+            <node x="" y="">$PROJECT_DIR$/src/karma.conf.js#index.js#282;D:/repository/Inzynierka/angular-client/src/karma.conf.js#join#658;D:/repository/Inzynierka/angular-client/src/karma.conf.js#karma.d.ts#451;D:/repository/Inzynierka/angular-client/src/karma.conf.js#reporter.js#400;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/@angular-devkit/build-angular/plugins/karma.d.ts</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/@angular/core/src/metadata/lifecycle_hooks.d.ts#OnInit#1368;</node>
+            <node x="" y="">$PROJECT_DIR$/src/main.ts#AppModule#134;D:/repository/Inzynierka/angular-client/src/main.ts#enableProdMode#9;D:/repository/Inzynierka/angular-client/src/main.ts#environment#180;D:/repository/Inzynierka/angular-client/src/main.ts#platformBrowserDynamic#57;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/rxjs/internal/operators/map.d.ts#map#129;</node>
+            <node x="" y="">$PROJECT_DIR$/src/app/menu-b/menu-b.component.ts#Component#9;D:/repository/Inzynierka/angular-client/src/app/menu-b/menu-b.component.ts#ConnectToBlackJackService#59;D:/repository/Inzynierka/angular-client/src/app/menu-b/menu-b.component.ts#MenuBComponent#215;D:/repository/Inzynierka/angular-client/src/app/menu-b/menu-b.component.ts#OnInit#20;D:/repository/Inzynierka/angular-client/src/app/menu-b/menu-b.component.ts#Router#182;D:/repository/Inzynierka/angular-client/src/app/menu-b/menu-b.component.ts#TableService#135;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/@angular/common/http/src/module.d.ts#HttpClientModule#2647;</node>
+            <node x="" y="">$PROJECT_DIR$/src/app/new-game/new-game.component.ts#Component#9;D:/repository/Inzynierka/angular-client/src/app/new-game/new-game.component.ts#ConnectToBlackJackService#106;D:/repository/Inzynierka/angular-client/src/app/new-game/new-game.component.ts#OnInit#20;D:/repository/Inzynierka/angular-client/src/app/new-game/new-game.component.ts#Router#245;D:/repository/Inzynierka/angular-client/src/app/new-game/new-game.component.ts#TableService#59;D:/repository/Inzynierka/angular-client/src/app/new-game/new-game.component.ts#Visibility#182;D:/repository/Inzynierka/angular-client/src/app/new-game/new-game.component.ts#WynikDanychComponent#285;D:/repository/Inzynierka/angular-client/src/app/new-game/new-game.component.ts#WynikGraczaComponent#362;</node>
+            <node x="" y="">$PROJECT_DIR$/src/app/okienko-nowa-gra/okienko-nowa-gra.component.ts#Component#9;D:/repository/Inzynierka/angular-client/src/app/okienko-nowa-gra/okienko-nowa-gra.component.ts#OnInit#20;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/@angular/platform-browser-dynamic/src/platform-browser-dynamic.d.ts#platformBrowserDynamic#525;</node>
+            <node x="" y="">$PROJECT_DIR$/src/polyfills.ts#zone.js/dist/zone#3045;</node>
+            <node x="" y="">$PROJECT_DIR$/src/app/readme/readme.component.ts#Component#9;D:/repository/Inzynierka/angular-client/src/app/readme/readme.component.ts#OnInit#20;D:/repository/Inzynierka/angular-client/src/app/readme/readme.component.ts#ReadmeComponent#92;D:/repository/Inzynierka/angular-client/src/app/readme/readme.component.ts#Router#59;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/karma-coverage-istanbul-reporter/src/reporter.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/@angular/router/src/router.d.ts#Router#4624;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/@angular/router/src/router_module.d.ts#RouterModule#1291;</node>
+            <node x="" y="">$PROJECT_DIR$/src/style.css</node>
+            <node x="" y="">$PROJECT_DIR$/src/app/table.service.ts#Card#52;D:/repository/Inzynierka/angular-client/src/app/table.service.ts#Injectable#9;D:/repository/Inzynierka/angular-client/src/app/table.service.ts#Observable#87;D:/repository/Inzynierka/angular-client/src/app/table.service.ts#ReplaySubject#99;D:/repository/Inzynierka/angular-client/src/app/table.service.ts#Subject#114;D:/repository/Inzynierka/angular-client/src/app/table.service.ts#TableService#137;</node>
+            <node x="" y="">$PROJECT_DIR$/src/test.ts#BrowserDynamicTestingModule#198;D:/repository/Inzynierka/angular-client/src/test.ts#getTestBed#144;D:/repository/Inzynierka/angular-client/src/test.ts#platformBrowserDynamicTesting#229;D:/repository/Inzynierka/angular-client/src/test.ts#zone.js/dist/zone-testing#99;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/@angular/core/testing/src/test_bed.d.ts#getTestBed#10687;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/@angular/platform-browser-dynamic/testing/src/testing.d.ts#BrowserDynamicTestingModule#444;D:/repository/Inzynierka/angular-client/node_modules/@angular/platform-browser-dynamic/testing/src/testing.d.ts#platformBrowserDynamicTesting#349;</node>
+            <node x="" y="">$PROJECT_DIR$/src/app/widok/widok.component.html</node>
+            <node x="" y="">$PROJECT_DIR$/src/app/widok/widok.component.ts#Card#59;D:/repository/Inzynierka/angular-client/src/app/widok/widok.component.ts#Component#9;D:/repository/Inzynierka/angular-client/src/app/widok/widok.component.ts#Observable#142;D:/repository/Inzynierka/angular-client/src/app/widok/widok.component.ts#OnInit#20;D:/repository/Inzynierka/angular-client/src/app/widok/widok.component.ts#TableService#95;D:/repository/Inzynierka/angular-client/src/app/widok/widok.component.ts#WidokComponent#168;</node>
+            <node x="" y="">$PROJECT_DIR$/src/app/wynik-danych/wynik-danych.component.ts#Component#9;D:/repository/Inzynierka/angular-client/src/app/wynik-danych/wynik-danych.component.ts#ConnectToBlackJackService#59;D:/repository/Inzynierka/angular-client/src/app/wynik-danych/wynik-danych.component.ts#OnInit#20;D:/repository/Inzynierka/angular-client/src/app/wynik-danych/wynik-danych.component.ts#WynikDanychComponent#237;</node>
+            <node x="" y="">$PROJECT_DIR$/src/app/wynik-gracza/wynik-gracza.component.ts#Component#9;D:/repository/Inzynierka/angular-client/src/app/wynik-gracza/wynik-gracza.component.ts#ConnectToBlackJackService#59;D:/repository/Inzynierka/angular-client/src/app/wynik-gracza/wynik-gracza.component.ts#OnInit#20;D:/repository/Inzynierka/angular-client/src/app/wynik-gracza/wynik-gracza.component.ts#Router#135;D:/repository/Inzynierka/angular-client/src/app/wynik-gracza/wynik-gracza.component.ts#WynikGraczaComponent#168;</node>
+            <node x="" y="">https://fonts.googleapis.com/css?family=Lobster%7CMontserrat</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/@types/node/index.d.ts#join#227233;</node>
+            <node x="" y="">zone.js/dist/zone</node>
+            <node x="" y="">zone.js/dist/zone-testing</node>
+            <node x="" y="">{{getCardUrl(row)}}</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.2507767421216156" x="1173.5" y="1451.4592920353984" />
+          <SelectedNodes />
+          <Categories>
+            <Category>All</Category>
+          </Categories>
+          <VISIBILITY>Details</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/readme/readme.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1572">
+          <caret line="113" column="47" lean-forward="false" selection-start-line="113" selection-start-column="47" selection-end-line="113" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/menu-b/menu-b.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="169" column="21" lean-forward="false" selection-start-line="169" selection-start-column="21" selection-end-line="169" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/wynik-danych/wynik-danych.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="80" column="9" lean-forward="true" selection-start-line="80" selection-start-column="9" selection-end-line="80" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="117" column="21" lean-forward="true" selection-start-line="117" selection-start-column="21" selection-end-line="117" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/hello-dialog/hello-dialog.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="38" column="26" lean-forward="false" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/connect-to-black-jack.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="65" column="2" lean-forward="false" selection-start-line="65" selection-start-column="2" selection-end-line="65" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
