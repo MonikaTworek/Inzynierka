@@ -15,6 +15,7 @@ class Idealna:
         passtable = copy.deepcopy(self.table)
         self.stos.append(Structure(copy.deepcopy(passtable), "None"))
         besttable = passtable
+        bestmove = ""
 
         ##Odkłądać na stos przed ruchem z którym chce się to zrobić
 
@@ -34,6 +35,7 @@ class Idealna:
                 if len(nowtable.decks.cards) < 4 or nowtable.is_finished:
                     if nowtable.winnings - nowtable.loosing + 0.5 * nowtable.blackjack > self.maxMoney or (nowtable.winnings - nowtable.loosing + 0.5 * nowtable.blackjack == self.maxMoney and nowtable.blackjack > besttable.blackjack):
                         besttable = nowtable
+                        bestmove =  self.moving()
                         self.maxMoney = nowtable.winnings - nowtable.loosing + 0.5 * nowtable.blackjack
                     nowstruct = self.stos.pop()
                     while nowstruct.lastChoos is "Hit":
@@ -66,9 +68,15 @@ class Idealna:
                         self.stos.append(struct)
                     except:
                         nowtable.is_finished = True
-
+            path = "C:\\Users\\Public\\movies"
+            f = open(path, "w+")
+            f.write(bestmove + "\n")
+            f.close()
             return [besttable.winnings, besttable.draw, besttable.loosing, besttable.player.account_balance, besttable.blackjack]
         except:
+            f = open(path, "w+")
+            f.write(bestmove + "\n")
+            f.close()
             return [besttable.winnings, besttable.draw, besttable.loosing, besttable.player.account_balance, besttable.blackjack]
 
     def onlyHit(self):
@@ -77,6 +85,12 @@ class Idealna:
             if i.lastChoos not in ["Hit", "None"]:
                 answer = False
         return answer
+
+    def moving(self):
+        string = ""
+        for i in self.stos:
+            string += i.lastChoos
+        return string
 
 
 class Structure:

@@ -89,7 +89,7 @@ class Generate:
         for _ in range(series):
         # while True:
             table = Table(numberTalii)
-
+            a=7
             explist = Ekspans(copy.deepcopy(table)).play()
             packing(eksp, explist)
 
@@ -159,5 +159,5 @@ def packing(score: Score, list: []):
 
 
 if __name__ == '__main__':
-    Generate.generate(1, 3, False)
+    Generate.generate(1, 1, True)
 
