@@ -1,15 +1,10 @@
-from namedlist import namedlist
-
 from blackjack.game.decks import Decks
 from blackjack.game.exceptions import InvalidMove
 from blackjack.game.players import Player, Croupier
 
-#State = namedlist("State", ["phase", "bid", "winnings"])
-
 
 class Table:
     def __init__(self, number: int = 1):
-        #self.state = State(phase="awaiting", bid=0, winnings=0)
         self.phase = "awaiting"
         self.statewin = 0
         self.statebid = 0
@@ -30,11 +25,9 @@ class Table:
         self.player.account_balance += self.bid
 
         raise InvalidMove("You finish")
-    #     Jezeli w webstormie umiem przechwytywac errory to te rozwiazanie. jak nie to trzeba cos wymyslic
 
     def resolve_game(self):
         self.phase = "end_game"
-        # print("resolve_game")
 
         self.player.hand1.playing = False
         self.player.hand2.playing = False
@@ -106,7 +99,6 @@ class Table:
         self.croupier.clear()
         self.player.clear()
         self.phase = "begin_game"
-        # print("begin game")
 
         self.is_insure = False
         self.player.account_balance -= self.bid

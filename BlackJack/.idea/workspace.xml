@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7f20ec02-2cfb-4f1a-87ad-7d3b98b4b95c" name="Default Changelist" comment="" />
+    <list default="true" id="7f20ec02-2cfb-4f1a-87ad-7d3b98b4b95c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +73,7 @@
           <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.15" value="2" />
+          <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.17" value="3" />
           <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.19" value="2" />
@@ -78,14 +81,14 @@
           <entry key="project.open.time.31" value="1" />
           <entry key="project.open.time.47" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="15" />
+          <entry key="project.opened" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="8" />
           <entry key="md" value="312" />
-          <entry key="py" value="16213" />
+          <entry key="py" value="16216" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -93,7 +96,7 @@
           <entry key="JavaScript" value="4" />
           <entry key="Markdown" value="308" />
           <entry key="PLAIN_TEXT" value="8" />
-          <entry key="Python" value="16213" />
+          <entry key="Python" value="16216" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -101,17 +104,17 @@
           <entry key="JavaScript-modules-diagram/D:/repository/Inzynierka/BlackJack" value="1" />
           <entry key="JavaScript-modules-diagram/D:/repository/Inzynierka/BlackJack/blackjack/strategy" value="1" />
           <entry key="Python/#D:/repository/Inzynierka/BlackJack/blackjack" value="2" />
-          <entry key="Python/#D:/repository/Inzynierka/BlackJack/blackjack/game" value="4" />
-          <entry key="Python/#D:/repository/Inzynierka/BlackJack/blackjack/strategy" value="1" />
+          <entry key="Python/#D:/repository/Inzynierka/BlackJack/blackjack/game" value="5" />
+          <entry key="Python/#D:/repository/Inzynierka/BlackJack/blackjack/strategy" value="2" />
           <entry key="md" value="3" />
-          <entry key="py" value="200" />
+          <entry key="py" value="203" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Markdown" value="3" />
-          <entry key="Python" value="198" />
-          <entry key="UML" value="11" />
+          <entry key="Python" value="201" />
+          <entry key="UML" value="13" />
         </counts>
       </usages-collector>
     </session>
@@ -121,30 +124,22 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/blackjack/game/table.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-136">
-              <caret line="63" column="43" lean-forward="true" selection-start-line="63" selection-start-column="43" selection-end-line="63" selection-end-column="43" />
+            <state relative-caret-position="765">
+              <caret line="248" selection-start-line="248" selection-end-line="248" />
               <folding>
-                <element signature="e#0#31#0" expanded="true" />
-                <marker date="1545331841252" expanded="true" signature="784:793" ph="..." />
+                <element signature="e#1#39#0" expanded="true" />
+                <element signature="e#793#905#0" />
+                <element signature="e#1050#3564#0" />
+                <element signature="e#3600#4597#0" />
+                <element signature="e#4627#5489#0" />
+                <element signature="e#5519#6376#0" />
+                <element signature="e#6408#6761#0" />
+                <element signature="e#6793#7146#0" />
+                <element signature="e#7183#7738#0" />
+                <element signature="e#7769#8706#0" />
+                <element signature="e#8738#9039#0" />
+                <marker date="1545850718424" expanded="true" signature="627:636" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blackjack.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blackjack/server.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -213,7 +208,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
@@ -224,7 +219,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -243,10 +237,17 @@
               <item name="blackjack" type="462c0819:PsiDirectoryNode" />
               <item name="game" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="BlackJack" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlackJack" type="462c0819:PsiDirectoryNode" />
+              <item name="blackjack" type="462c0819:PsiDirectoryNode" />
+              <item name="strategy" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -372,7 +373,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11247335" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11353944" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -485,13 +486,6 @@
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/string.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/blackjack/game/exceptions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/blackjack/strategy/Intuicyjna.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -545,11 +539,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
           <caret line="119" column="39" lean-forward="true" selection-start-line="119" selection-start-column="39" selection-end-line="119" selection-end-column="39" />
-          <folding>
-            <element signature="e#105#123#0" />
-            <element signature="e#154#1522#0" />
-            <marker date="1544643028508" expanded="true" signature="145:1528" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -560,24 +549,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blackjack/game/decks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="39" column="63" selection-start-line="39" selection-start-column="63" selection-end-line="39" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/blackjack/strategy/reaguj_na_bank.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blackjack/game/players.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="11" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -610,11 +585,12 @@
           <nodes />
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.6000000000000005" x="832.5" y="434.5" />
+          <settings layout="Hierarchic Group" zoom="1.6000000000000005" x="833.0" y="435.0" />
           <SelectedNodes />
           <Categories>
             <Category>All</Category>
           </Categories>
+          <SCOPE>All</SCOPE>
           <VISIBILITY>Details</VISIBILITY>
         </state>
       </provider>
@@ -627,43 +603,13 @@
           <nodes />
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="832.5" y="434.5" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="833.0" y="435.0" />
           <SelectedNodes />
           <Categories>
             <Category>All</Category>
           </Categories>
+          <SCOPE>All</SCOPE>
           <VISIBILITY>Details</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://Python/#D:/repository/Inzynierka/BlackJack/blackjack/strategy">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>Python</ID>
-          <OriginalElement>#D:/repository/Inzynierka/BlackJack/blackjack/strategy</OriginalElement>
-          <nodes>
-            <node x="" y="">blackjack.strategy.idealna.Idealna</node>
-            <node x="" y="">blackjack.strategy.zalezna_od_szczescia.Zalezna</node>
-            <node x="" y="">object</node>
-            <node x="" y="">blackjack.strategy.Intuicyjna.Intuicyjna</node>
-            <node x="" y="">blackjack.strategy.krupierska.Krupier</node>
-            <node x="" y="">blackjack.strategy.idealna.Structure</node>
-            <node x="" y="">blackjack.strategy.pasujaca.Pasujaca</node>
-            <node x="" y="">blackjack.strategy.ekspansyjna.Ekspans</node>
-            <node x="" y="">blackjack.strategy.generate_data.Generate</node>
-            <node x="" y="">blackjack.strategy.prawdopodobna.Prawdopodobna</node>
-            <node x="" y="">blackjack.strategy.reaguj_na_bank.Bank</node>
-            <node x="" y="">blackjack.strategy.never_bust.NeverBust</node>
-            <node x="" y="">blackjack.strategy.przelam_passe.PrzelamPasse</node>
-            <node x="" y="">blackjack.strategy.Hi_Low.HiLow</node>
-            <node x="" y="">blackjack.strategy.podstawowa.Podstawowa</node>
-            <node x="" y="">blackjack.strategy.przetrzymaj_passe.PrzetrzymajPasse</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.2121287128712872" x="1988.8082499489483" y="251.02650149745728" />
-          <SelectedNodes />
-          <Categories />
         </state>
       </provider>
     </entry>
@@ -701,13 +647,14 @@
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="0.30477759472817134" x="2538.5" y="185.62972972972966" />
+          <settings layout="Hierarchic Group" zoom="0.30477759472817134" x="2539.0" y="186.0" />
           <SelectedNodes />
           <Categories>
             <Category>Methods</Category>
             <Category>Inner Classes</Category>
             <Category>Fields</Category>
           </Categories>
+          <SCOPE>All</SCOPE>
         </state>
       </provider>
     </entry>
@@ -722,9 +669,10 @@
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="126.5" y="202.5" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="127.0" y="203.0" />
           <SelectedNodes />
           <Categories />
+          <SCOPE>All</SCOPE>
         </state>
       </provider>
     </entry>
@@ -739,13 +687,14 @@
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="87.5" y="248.5" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="88.0" y="249.0" />
           <SelectedNodes />
           <Categories>
             <Category>Methods</Category>
             <Category>Inner Classes</Category>
             <Category>Fields</Category>
           </Categories>
+          <SCOPE>All</SCOPE>
         </state>
       </provider>
     </entry>
@@ -753,6 +702,160 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="53" column="59" lean-forward="true" selection-start-line="53" selection-start-column="59" selection-end-line="53" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blackjack/strategy/prawdopodobna.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="54" column="48" selection-start-line="54" selection-start-column="48" selection-end-line="54" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blackjack/strategy/idealna.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blackjack/strategy/generate_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1541">
+          <caret line="161" column="26" selection-start-line="161" selection-start-column="26" selection-end-line="161" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <marker date="1545508109710" expanded="true" signature="903:908" ph="..." />
+            <marker date="1545508109710" expanded="true" signature="3776:3782" ph="..." />
+            <marker date="1545508109710" expanded="true" signature="3958:3959" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/jsonschema/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="uml://Python/#D:/repository/Inzynierka/BlackJack/blackjack/strategy">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>Python</ID>
+          <OriginalElement>#D:/repository/Inzynierka/BlackJack/blackjack/strategy</OriginalElement>
+          <nodes>
+            <node x="0.0" y="615.0">blackjack.strategy.idealna.Idealna</node>
+            <node x="2357.0" y="648.0">blackjack.strategy.zalezna_od_szczescia.Zalezna</node>
+            <node x="1776.9978846582053" y="-6.297038521487423">object</node>
+            <node x="2995.0" y="637.0">blackjack.strategy.Intuicyjna.Intuicyjna</node>
+            <node x="1785.0" y="648.0">blackjack.strategy.krupierska.Krupier</node>
+            <node x="735.0" y="593.0">blackjack.strategy.idealna.Structure</node>
+            <node x="491.0" y="648.0">blackjack.strategy.pasujaca.Pasujaca</node>
+            <node x="3251.0" y="648.0">blackjack.strategy.ekspansyjna.Ekspans</node>
+            <node x="3795.0" y="659.5">blackjack.strategy.generate_data.Generate</node>
+            <node x="2029.0" y="648.0">blackjack.strategy.prawdopodobna.Prawdopodobna</node>
+            <node x="1518.7029614785126" y="649.7991538632822">blackjack.strategy.reaguj_na_bank.Bank</node>
+            <node x="228.0" y="648.0">blackjack.strategy.never_bust.NeverBust</node>
+            <node x="1226.0" y="648.0">blackjack.strategy.przelam_passe.PrzelamPasse</node>
+            <node x="1001.0" y="593.0">blackjack.strategy.Hi_Low.HiLow</node>
+            <node x="3509.0" y="637.0">blackjack.strategy.podstawowa.Podstawowa</node>
+            <node x="2658.0" y="648.0">blackjack.strategy.przetrzymaj_passe.PrzetrzymajPasse</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="blackjack.strategy.ekspansyjna.Ekspans" target="object">
+              <point x="0.0" y="-48.5" />
+              <point x="3370.0" y="533.0" />
+              <point x="1980.0" y="533.0" />
+              <point x="83.0" y="246.5" />
+            </edge>
+            <edge source="blackjack.strategy.generate_data.Generate" target="object">
+              <point x="0.0" y="-37.0" />
+              <point x="3969.0" y="513.0" />
+              <point x="2013.1999999999998" y="513.0" />
+              <point x="116.19999999999982" y="246.5" />
+            </edge>
+            <edge source="blackjack.strategy.pasujaca.Pasujaca" target="object">
+              <point x="0.0" y="-48.5" />
+              <point x="603.0" y="533.0" />
+              <point x="1814.0" y="533.0" />
+              <point x="-83.0" y="246.5" />
+            </edge>
+            <edge source="blackjack.strategy.idealna.Idealna" target="object">
+              <point x="0.0" y="-81.5" />
+              <point x="104.0" y="513.0" />
+              <point x="1780.8000000000002" y="513.0" />
+              <point x="-116.19999999999982" y="246.5" />
+            </edge>
+            <edge source="blackjack.strategy.reaguj_na_bank.Bank" target="object">
+              <point x="0.0" y="-48.5" />
+              <point x="1645.0" y="573.0" />
+              <point x="1880.4" y="573.0" />
+              <point x="-16.59999999999991" y="246.5" />
+            </edge>
+            <edge source="blackjack.strategy.podstawowa.Podstawowa" target="object">
+              <point x="0.0" y="-59.5" />
+              <point x="3642.0" y="523.0" />
+              <point x="1996.6" y="523.0" />
+              <point x="99.59999999999991" y="246.5" />
+            </edge>
+            <edge source="blackjack.strategy.prawdopodobna.Prawdopodobna" target="object">
+              <point x="0.0" y="-48.5" />
+              <point x="2183.0" y="573.0" />
+              <point x="1913.6" y="573.0" />
+              <point x="16.59999999999991" y="246.5" />
+            </edge>
+            <edge source="blackjack.strategy.Hi_Low.HiLow" target="object">
+              <point x="0.0" y="-103.5" />
+              <point x="1103.5" y="553.0" />
+              <point x="1847.1999999999998" y="553.0" />
+              <point x="-49.80000000000018" y="246.5" />
+            </edge>
+            <edge source="blackjack.strategy.never_bust.NeverBust" target="object">
+              <point x="0.0" y="-48.5" />
+              <point x="349.5" y="523.0" />
+              <point x="1797.4" y="523.0" />
+              <point x="-99.59999999999991" y="246.5" />
+            </edge>
+            <edge source="blackjack.strategy.idealna.Structure" target="object">
+              <point x="0.0" y="-103.5" />
+              <point x="858.0" y="543.0" />
+              <point x="1830.6" y="543.0" />
+              <point x="-66.40000000000009" y="246.5" />
+            </edge>
+            <edge source="blackjack.strategy.krupierska.Krupier" target="object">
+              <point x="0.0" y="-48.5" />
+              <point x="0.0" y="246.5" />
+            </edge>
+            <edge source="blackjack.strategy.Intuicyjna.Intuicyjna" target="object">
+              <point x="0.0" y="-59.5" />
+              <point x="3113.0" y="543.0" />
+              <point x="1963.4" y="543.0" />
+              <point x="66.40000000000009" y="246.5" />
+            </edge>
+            <edge source="blackjack.strategy.przelam_passe.PrzelamPasse" target="object">
+              <point x="0.0" y="-48.5" />
+              <point x="1365.5" y="563.0" />
+              <point x="1863.8000000000002" y="563.0" />
+              <point x="-33.19999999999982" y="246.5" />
+            </edge>
+            <edge source="blackjack.strategy.przetrzymaj_passe.PrzetrzymajPasse" target="object">
+              <point x="0.0" y="-48.5" />
+              <point x="2816.5" y="553.0" />
+              <point x="1946.8000000000002" y="553.0" />
+              <point x="49.80000000000018" y="246.5" />
+            </edge>
+            <edge source="blackjack.strategy.zalezna_od_szczescia.Zalezna" target="object">
+              <point x="0.0" y="-48.5" />
+              <point x="2497.5" y="563.0" />
+              <point x="1930.1999999999998" y="563.0" />
+              <point x="33.19999999999982" y="246.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.1116336633663366" x="1156.8984635938543" y="471.8984635938544" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Inner Classes</Category>
+            <Category>Methods</Category>
+            <Category>Fields</Category>
+          </Categories>
         </state>
       </provider>
     </entry>
@@ -775,54 +878,12 @@
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="0.7000000000000001" x="935.2857142857142" y="927.5714285714286" />
+          <settings layout="Hierarchic Group" zoom="0.5999999999999998" x="1021.5606060606063" y="680.166666666667" />
           <SelectedNodes />
           <Categories>
             <Category>Methods</Category>
-            <Category>Inner Classes</Category>
             <Category>Fields</Category>
           </Categories>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blackjack/strategy/prawdopodobna.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="54" column="48" selection-start-line="54" selection-start-column="48" selection-end-line="54" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blackjack/strategy/idealna.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
-          <folding>
-            <element signature="e#116#127#0" expanded="true" />
-            <marker date="1545168048563" expanded="true" signature="183:184" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blackjack/strategy/generate_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1541">
-          <caret line="161" column="26" selection-start-line="161" selection-start-column="26" selection-end-line="161" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-            <marker date="1545508109710" expanded="true" signature="903:908" ph="..." />
-            <marker date="1545508109710" expanded="true" signature="3776:3782" ph="..." />
-            <marker date="1545508109710" expanded="true" signature="3958:3959" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/jsonschema/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blackjack/server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -833,13 +894,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/blackjack/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blackjack/game/exceptions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blackjack/game/players.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+          <folding>
+            <element signature="e#56#1050#0" />
+            <element signature="e#84#186#0" />
+            <element signature="e#247#363#0" />
+            <element signature="e#411#438#0" />
+            <element signature="e#469#487#0" />
+            <element signature="e#521#541#0" />
+            <element signature="e#593#941#0" />
+            <element signature="e#1002#1050#0" />
+            <element signature="e#1099#1222#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blackjack/game/decks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="39" column="63" selection-start-line="39" selection-start-column="63" selection-end-line="39" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/blackjack/game/table.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-136">
-          <caret line="63" column="43" lean-forward="true" selection-start-line="63" selection-start-column="43" selection-end-line="63" selection-end-column="43" />
+        <state relative-caret-position="765">
+          <caret line="248" selection-start-line="248" selection-end-line="248" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
-            <marker date="1545331841252" expanded="true" signature="784:793" ph="..." />
+            <element signature="e#1#39#0" expanded="true" />
+            <element signature="e#793#905#0" />
+            <element signature="e#1050#3564#0" />
+            <element signature="e#3600#4597#0" />
+            <element signature="e#4627#5489#0" />
+            <element signature="e#5519#6376#0" />
+            <element signature="e#6408#6761#0" />
+            <element signature="e#6793#7146#0" />
+            <element signature="e#7183#7738#0" />
+            <element signature="e#7769#8706#0" />
+            <element signature="e#8738#9039#0" />
+            <marker date="1545850718424" expanded="true" signature="627:636" ph="..." />
           </folding>
         </state>
       </provider>
