@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7f20ec02-2cfb-4f1a-87ad-7d3b98b4b95c" name="Default Changelist" comment="" />
+    <list default="true" id="7f20ec02-2cfb-4f1a-87ad-7d3b98b4b95c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../angular-client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../angular-client/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular-client/src/app/generate/generate.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angular-client/src/app/generate/generate.component.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +70,7 @@
     <session id="-1693860771">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="15" />
+          <entry key="project.closed" value="16" />
           <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.15" value="2" />
@@ -77,16 +80,17 @@
           <entry key="project.open.time.19" value="2" />
           <entry key="project.open.time.20" value="2" />
           <entry key="project.open.time.31" value="1" />
+          <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.47" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="17" />
+          <entry key="project.opened" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="8" />
           <entry key="md" value="312" />
-          <entry key="py" value="16486" />
+          <entry key="py" value="16499" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -94,7 +98,7 @@
           <entry key="JavaScript" value="4" />
           <entry key="Markdown" value="308" />
           <entry key="PLAIN_TEXT" value="8" />
-          <entry key="Python" value="16486" />
+          <entry key="Python" value="16499" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -119,7 +123,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/blackjack/strategy/generate_data.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="566">
@@ -129,19 +133,6 @@
                 <marker date="1545935944808" expanded="true" signature="903:908" ph="..." />
                 <marker date="1545935944808" expanded="true" signature="3776:3782" ph="..." />
                 <marker date="1545935944808" expanded="true" signature="3958:3959" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/blackjack/strategy/idealna.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-740">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-              <folding>
-                <element signature="e#116#127#0" expanded="true" />
-                <marker date="1545935944705" expanded="true" signature="173:174" ph="..." />
               </folding>
             </state>
           </provider>
@@ -375,7 +366,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.114605546" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11567164" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -896,17 +887,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
-          <folding>
-            <element signature="e#56#1050#0" />
-            <element signature="e#84#186#0" />
-            <element signature="e#247#363#0" />
-            <element signature="e#411#438#0" />
-            <element signature="e#469#487#0" />
-            <element signature="e#521#541#0" />
-            <element signature="e#593#941#0" />
-            <element signature="e#1002#1050#0" />
-            <element signature="e#1099#1222#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -934,6 +914,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/blackjack/strategy/idealna.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="48" column="33" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="33" />
+          <folding>
+            <marker date="1545948014199" expanded="true" signature="173:174" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/blackjack/strategy/generate_data.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="566">
@@ -943,17 +933,6 @@
             <marker date="1545935944808" expanded="true" signature="903:908" ph="..." />
             <marker date="1545935944808" expanded="true" signature="3776:3782" ph="..." />
             <marker date="1545935944808" expanded="true" signature="3958:3959" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blackjack/strategy/idealna.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-740">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-          <folding>
-            <element signature="e#116#127#0" expanded="true" />
-            <marker date="1545935944705" expanded="true" signature="173:174" ph="..." />
           </folding>
         </state>
       </provider>

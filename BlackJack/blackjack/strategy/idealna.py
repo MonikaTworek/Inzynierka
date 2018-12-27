@@ -44,7 +44,7 @@ class Idealna:
                             nowtable.begin_game()
                         struct = Structure(copy.deepcopy(nowtable), "Hit")
                         nowtable.hit1()
-                        if nowtable.winnings - nowtable.loosing + 0.5 * nowtable.blackjack + 1.5 * nowtable.decks.aces + (len(nowtable.decks.cards)-nowtable.decks.aces)*0.25 < self.maxMoney:
+                        if nowtable.winnings - nowtable.loosing + 0.5 * nowtable.blackjack + 1.5 * nowtable.decks.aces + (len(nowtable.decks.cards)-2 * nowtable.decks.aces)*0.25 < self.maxMoney:
                             nowtable.is_finished = True
                         self.stos.append(struct)
 
@@ -53,14 +53,14 @@ class Idealna:
 
                 else:
                     try:
-                        if nowtable.winnings - nowtable.loosing + 0.5 * nowtable.blackjack + 1.5 * nowtable.decks.aces + (len(nowtable.decks.cards)-nowtable.decks.aces)*0.25  < self.maxMoney:
+                        if nowtable.winnings - nowtable.loosing + 0.5 * nowtable.blackjack + 1.5 * nowtable.decks.aces + (len(nowtable.decks.cards)-2 * nowtable.decks.aces)*0.25 < self.maxMoney:
                             nowtable.is_finished = True
                             continue
                         while not nowtable.player.hand1.playing:
                             nowtable.begin_game()
                         struct = Structure(copy.deepcopy(nowtable), "Stand")
                         nowtable.stand1()
-                        if nowtable.winnings - nowtable.loosing + 0.5 * nowtable.blackjack + 1.5 * nowtable.decks.aces + (len(nowtable.decks.cards)-nowtable.decks.aces)*0.25  < self.maxMoney:
+                        if nowtable.winnings - nowtable.loosing + 0.5 * nowtable.blackjack + 1.5 * nowtable.decks.aces + (len(nowtable.decks.cards)-2 * nowtable.decks.aces)*0.25 < self.maxMoney:
                             nowtable.is_finished = True
                         self.stos.append(struct)
                     except:
@@ -82,9 +82,3 @@ class Structure:
     def __init__(self, table: Table, lastchoose):
         self.lastChoos = lastchoose  # Hit, Stand, None
         self.tab = table  # kopia tablicy
-
-        self.winn = table.winnings
-        self.dra = table.draw
-        self.loos = table.loosing
-        self.black = table.blackjack
-        self.money = table.player.account_balance  # ile pieniążków w danym momencie
