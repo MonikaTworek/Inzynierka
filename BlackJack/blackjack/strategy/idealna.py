@@ -36,6 +36,9 @@ class Idealna:
                     if nowtable.winnings - nowtable.loosing + 0.5 * nowtable.blackjack > self.maxMoney or (nowtable.winnings - nowtable.loosing + 0.5 * nowtable.blackjack == self.maxMoney and nowtable.blackjack > besttable.blackjack):
                         besttable = nowtable
                         bestmove =  self.moving()
+                        f = open("C:\\Users\\Public\\movies.txt", "w+")
+                        f.write(bestmove + "\n")
+                        f.close()
                         self.maxMoney = nowtable.winnings - nowtable.loosing + 0.5 * nowtable.blackjack
                     nowstruct = self.stos.pop()
                     while nowstruct.lastChoos is "Hit":
@@ -68,15 +71,9 @@ class Idealna:
                         self.stos.append(struct)
                     except:
                         nowtable.is_finished = True
-            path = "C:\\Users\\Public\\movies"
-            f = open(path, "w+")
-            f.write(bestmove + "\n")
-            f.close()
+
             return [besttable.winnings, besttable.draw, besttable.loosing, besttable.player.account_balance, besttable.blackjack]
         except:
-            f = open(path, "w+")
-            f.write(bestmove + "\n")
-            f.close()
             return [besttable.winnings, besttable.draw, besttable.loosing, besttable.player.account_balance, besttable.blackjack]
 
     def onlyHit(self):
@@ -88,8 +85,11 @@ class Idealna:
 
     def moving(self):
         string = ""
-        for i in self.stos:
-            string += i.lastChoos
+        lenght = len(self.stos)
+        lol = 0
+        while lol < lenght:
+            string += self.stos[lol].lastChoos + "\n"
+            lol += 1
         return string
 
 
