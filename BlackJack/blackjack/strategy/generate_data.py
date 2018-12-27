@@ -89,7 +89,7 @@ class Generate:
         for _ in range(series):
         # while True:
             table = Table(numberTalii)
-            a = 9
+
             explist = Ekspans(copy.deepcopy(table)).play()
             packing(eksp, explist)
 
@@ -147,7 +147,6 @@ class Generate:
             f.write(str(passing) + "\n")
             f.write(str(idealna) + "\n")
             f.close()
-
 
 
 def packing(score: Score, list: []):
