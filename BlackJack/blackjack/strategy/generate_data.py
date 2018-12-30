@@ -86,8 +86,8 @@ class Generate:
         passing = Score(name="Pasujaca", winnings=0, draw=0, loosing=0, money=0, blackjack=0)
         idealna = Score(name="Idealna", winnings=0, draw=0, loosing=0, money=0, blackjack=0)
 
-        for _ in range(series):
-        # while True:
+        # for _ in range(series):
+        while True:
             table = Table(numberTalii)
 
             explist = Ekspans(copy.deepcopy(table)).play()
@@ -158,5 +158,5 @@ def packing(score: Score, list: []):
 
 
 if __name__ == '__main__':
-    Generate.generate(1, 1, True)
+    Generate.generate(1, 4, False)
 

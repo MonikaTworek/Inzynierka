@@ -52,9 +52,9 @@ class Table:
 
         for player_hand in valid_hands:
             if croupier_hand.has_blackjack and player_hand.has_blackjack:
-                self.draw += 1
+                self.winnings += 1
                 multiplier = 2.5
-                player_hand.winner = "Draw"
+                player_hand.winner = "Player"
                 self.blackjack += 1
             elif croupier_hand.has_blackjack:
                 multiplier = 0

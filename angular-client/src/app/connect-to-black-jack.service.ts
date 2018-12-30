@@ -13,7 +13,6 @@ export class ConnectToBlackJackService {
   lastMessage: any;
   first_blackjack: boolean;
   whoWin: string;
-  bots: any;
   player: any;
 
   constructor(private Client: HttpClient, private  router: Router) {
