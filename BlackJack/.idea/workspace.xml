@@ -2,13 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f20ec02-2cfb-4f1a-87ad-7d3b98b4b95c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blackjack/game/table.py" beforeDir="false" afterPath="$PROJECT_DIR$/blackjack/game/table.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/bez idealnej/Wyniki.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../DOC/wyniki/bez idealnej/Wyniki.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/score_DeckOfCard1_2018-12-22.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/score_DeckOfCard2_2018-12-22.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/score_DeckOfCard3_2018-12-22.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/score_DeckOfCard4_2018-12-22.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/Bobowski-inzynierka.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/Master_s_Thesis___PWr_Style.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/PracaDyplomowa.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../DOC/PracaDyplomowa.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/PracaDyplomowa.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../DOC/PracaDyplomowa.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/Szablon Bobowskiego/bibliography.bib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/Szablon Bobowskiego/chapters/0-abstract.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/Szablon Bobowskiego/chapters/1-introduction.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/Szablon Bobowskiego/chapters/2-preliminaries.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/Szablon Bobowskiego/chapters/3-model.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/Szablon Bobowskiego/chapters/4-technical.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/Szablon Bobowskiego/chapters/5-implementation.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/Szablon Bobowskiego/chapters/6-summary.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/Szablon Bobowskiego/images/CredentialSystemDiagram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/Szablon Bobowskiego/main.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/Szablon Bobowskiego/pwr.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/Szablon Bobowskiego/pwr/pwr-logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/Szablon Bobowskiego/pwr/pwr.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/Szablon Bobowskiego/pwr/pwr2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/Szablon Bobowskiego/pwr/wppt-logo.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../angular-client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../angular-client/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
