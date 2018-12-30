@@ -72,9 +72,6 @@ export class WidokComponent implements OnInit {
   constructor(private table: TableService) { }
 
   ngOnInit() {
-    // this.Row1 = [new Card(3, 'Karo'), new Card(8, 'Karo'), new Card(9, 'Karo'), new Card(10, 'Karo'), new Card(13, 'Karo')];
-    // this.Row2 = [new Card(8, 'Kier'), new Card(13, 'Kier')];
-    // this.Row3 = [new Card(7, 'Pik')];
     this.table.GetRow1().subscribe(x => this.Row1 = x );
     this.table.GetRow2().subscribe( y => this.Row2 = y);
     this.table.GetRow3().subscribe(z => this.Row3 = z);

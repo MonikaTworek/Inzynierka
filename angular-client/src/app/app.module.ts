@@ -15,6 +15,8 @@ import { ReadmeComponent } from './readme/readme.component';
 import { GenerateComponent } from './generate/generate.component';
 import { GenerateBadComponent } from './generate-bad/generate-bad.component';
 import { EkranWynikowComponent } from './ekran-wynikow/ekran-wynikow.component';
+import { NewGameComponent } from './new-game/new-game.component';
+import { OkienkoNowaGRaComponent } from './okienko-nowa-gra/okienko-nowa-gra.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { EkranWynikowComponent } from './ekran-wynikow/ekran-wynikow.component';
     ReadmeComponent,
     GenerateComponent,
     GenerateBadComponent,
-    EkranWynikowComponent
+    EkranWynikowComponent,
+    NewGameComponent,
+    OkienkoNowaGRaComponent
   ],
   imports: [
     BrowserModule,
