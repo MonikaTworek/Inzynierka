@@ -1,7 +1,0 @@
-score(name='Ekspansyjna', winning=22, draw=0, loosing=43, money=-250, blackjack=0)
-score(name='ReagujNaBank', winning=31, draw=4, loosing=35, money=-90, blackjack=0)
-score(name='HiLow', winning=1, draw=0, loosing=7, money=-80, blackjack=0)
-score(name='Intuiocyjna', winning=12, draw=0, loosing=21, money=-90, blackjack=3)
-score(name='Krupierska', winning=36, draw=4, loosing=34, money=-20, blackjack=0)
-score(name='NeverBust', winning=34, draw=8, loosing=50, money=-200, blackjack=0)
-score(name='Prawdopodobna', winning=26, draw=6, loosing=41, money=-230, blackjack=0)

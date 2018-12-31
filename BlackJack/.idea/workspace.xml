@@ -2,26 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f20ec02-2cfb-4f1a-87ad-7d3b98b4b95c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../DOC/Bobowski-inzynierka.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/Master_s_Thesis___PWr_Style.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/PracaDyplomowa.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../DOC/PracaDyplomowa.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/PracaDyplomowa.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../DOC/PracaDyplomowa.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/Szablon Bobowskiego/bibliography.bib" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/Szablon Bobowskiego/chapters/0-abstract.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/Szablon Bobowskiego/chapters/1-introduction.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/Szablon Bobowskiego/chapters/2-preliminaries.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/Szablon Bobowskiego/chapters/3-model.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/Szablon Bobowskiego/chapters/4-technical.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/Szablon Bobowskiego/chapters/5-implementation.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/Szablon Bobowskiego/chapters/6-summary.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/Szablon Bobowskiego/images/CredentialSystemDiagram.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/Szablon Bobowskiego/main.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/Szablon Bobowskiego/pwr.cls" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/Szablon Bobowskiego/pwr/pwr-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/Szablon Bobowskiego/pwr/pwr.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/Szablon Bobowskiego/pwr/pwr2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/Szablon Bobowskiego/pwr/wppt-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular-client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../angular-client/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/WynikizIdealna.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../DOC/wyniki/WynikizIdealna.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/bez idealnej/Wyniki.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../DOC/wyniki/bez idealnej/Wyniki.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/1Talie/#Intuicyjna ma blackjacki.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/1Talie/score_10_2018-12-02 #Krupierska wyszła na plus.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/1Talie/score_series10_DeckOfCard1_2018-12-14.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/1Talie/score_series1_2018-12-11#wszystkie na minus.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/1Talie/score_series1_2018-12-12.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/1Talie/score_series1_2018-12-13#przelam passe = idealna.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/1Talie/score_series1_2018-12-13.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/1Talie/score_series1_DeckOfCard1_2018-12-13.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/1Talie/score_series1_DeckOfCard1_2018-12-14.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/2Talie/score_series10_DeckOfCard2_2018-12-14.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/2Talie/score_series1_DeckOfCard2_2018-12-13.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/2Talie/score_series1_DeckOfCard2_2018-12-15.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/3Talie/1545174713_1_DeckOfCard3_2018-12-19.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/3Talie/1545178412_1_DeckOfCard3_2018-12-19.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/3Talie/1545199566_2_DeckOfCard3_2018-12-19.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/3Talie/1545203493_1_DeckOfCard3_2018-12-19.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/3Talie/1545204616_1_DeckOfCard3_2018-12-19.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/3Talie/1545204622_1_DeckOfCard3_2018-12-19.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/3Talie/score_series1_DeckOfCard3_2018-12-14.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/3Talie/score_series1_DeckOfCard3_2018-12-16.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/3Talie/score_series1_DeckOfCard3_2018-12-17.txt" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,8 +34,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/BlackJack$blackjack.coverage" NAME="blackjack Coverage Results" MODIFIED="1545585425826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/BlackJack$generate_data.coverage" NAME="generate_data Coverage Results" MODIFIED="1546165486885" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blackjack/strategy" />
+    <SUITE FILE_PATH="coverage/BlackJack$blackjack.coverage" NAME="blackjack Coverage Results" MODIFIED="1546254724624" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/BlackJack$generate_data.coverage" NAME="generate_data Coverage Results" MODIFIED="1546247202890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blackjack/strategy" />
     <SUITE FILE_PATH="coverage/Omega_Black_JAck$blackjack.coverage" NAME="blackjack Coverage Results" MODIFIED="1543071883303" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BlackJack$idealna.coverage" NAME="idealna Coverage Results" MODIFIED="1543850929555" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blackjack/strategy" />
   </component>
@@ -88,10 +92,10 @@
     <session id="-1693860771">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="18" />
+          <entry key="project.closed" value="19" />
           <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.15" value="2" />
+          <entry key="project.open.time.15" value="3" />
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.17" value="3" />
           <entry key="project.open.time.18" value="3" />
@@ -101,14 +105,14 @@
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.47" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="21" />
+          <entry key="project.opened" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="8" />
           <entry key="md" value="312" />
-          <entry key="py" value="16522" />
+          <entry key="py" value="16527" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -116,7 +120,7 @@
           <entry key="JavaScript" value="4" />
           <entry key="Markdown" value="308" />
           <entry key="PLAIN_TEXT" value="8" />
-          <entry key="Python" value="16522" />
+          <entry key="Python" value="16527" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -127,13 +131,13 @@
           <entry key="Python/#D:/repository/Inzynierka/BlackJack/blackjack/game" value="5" />
           <entry key="Python/#D:/repository/Inzynierka/BlackJack/blackjack/strategy" value="2" />
           <entry key="md" value="3" />
-          <entry key="py" value="211" />
+          <entry key="py" value="216" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Markdown" value="3" />
-          <entry key="Python" value="209" />
+          <entry key="Python" value="214" />
           <entry key="UML" value="13" />
         </counts>
       </usages-collector>
@@ -141,17 +145,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blackjack/strategy/generate_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
+            <state relative-caret-position="1322">
               <caret line="160" column="26" selection-start-line="160" selection-start-column="26" selection-end-line="160" selection-end-column="26" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
-                <marker date="1546165486763" expanded="true" signature="903:908" ph="..." />
-                <marker date="1546165486763" expanded="true" signature="3776:3782" ph="..." />
-                <marker date="1546165486763" expanded="true" signature="3958:3959" ph="..." />
+                <marker date="1546247202774" expanded="true" signature="903:908" ph="..." />
+                <marker date="1546247202774" expanded="true" signature="3776:3782" ph="..." />
+                <marker date="1546247202774" expanded="true" signature="3958:3959" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blackjack/game/decks.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/random.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="259" column="8" selection-start-line="259" selection-start-column="8" selection-end-line="259" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -231,7 +253,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -260,6 +281,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -279,7 +301,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.generate_data">
+  <component name="RunManager" selected="Python.blackjack">
     <configuration name="blackjack" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Blackjack" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -353,8 +375,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.generate_data" />
         <item itemvalue="Python.blackjack" />
+        <item itemvalue="Python.generate_data" />
         <item itemvalue="Python.idealna" />
       </list>
     </recent_temporary>
@@ -382,15 +404,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11886994" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.119936034" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.35969663" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.35969663" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.531961" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -475,13 +497,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="235">
           <caret line="323" selection-start-line="323" selection-end-line="323" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/random.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="215" column="8" selection-start-line="215" selection-start-column="8" selection-end-line="215" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -876,13 +891,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blackjack/server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/blackjack/game/exceptions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -894,13 +902,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blackjack/game/decks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="39" column="63" selection-start-line="39" selection-start-column="63" selection-end-line="39" selection-end-column="63" />
         </state>
       </provider>
     </entry>
@@ -918,6 +919,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/blackjack/game/table.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-170">
+          <caret line="56" column="44" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blackjack/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-884">
+          <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/blackjack.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -925,23 +940,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blackjack/game/table.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-204">
-          <caret line="56" column="44" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/blackjack/strategy/generate_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
+        <state relative-caret-position="1322">
           <caret line="160" column="26" selection-start-line="160" selection-start-column="26" selection-end-line="160" selection-end-column="26" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <marker date="1546165486763" expanded="true" signature="903:908" ph="..." />
-            <marker date="1546165486763" expanded="true" signature="3776:3782" ph="..." />
-            <marker date="1546165486763" expanded="true" signature="3958:3959" ph="..." />
+            <marker date="1546247202774" expanded="true" signature="903:908" ph="..." />
+            <marker date="1546247202774" expanded="true" signature="3776:3782" ph="..." />
+            <marker date="1546247202774" expanded="true" signature="3958:3959" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blackjack/game/decks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/random.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="259" column="8" selection-start-line="259" selection-start-column="8" selection-end-line="259" selection-end-column="8" />
         </state>
       </provider>
     </entry>

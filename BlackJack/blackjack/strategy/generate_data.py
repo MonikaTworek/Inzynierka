@@ -158,5 +158,5 @@ def packing(score: Score, list: []):
 
 
 if __name__ == '__main__':
-    Generate.generate(1, 4, False)
+    Generate.generate(1, 1, False)
 
