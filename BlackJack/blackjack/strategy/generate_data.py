@@ -86,8 +86,7 @@ class Generate:
         passing = Score(name="Pasujaca", winnings=0, draw=0, loosing=0, money=0, blackjack=0)
         idealna = Score(name="Idealna", winnings=0, draw=0, loosing=0, money=0, blackjack=0)
 
-        # for _ in range(series):
-        while True:
+        for _ in range(series):
             table = Table(numberTalii)
 
             explist = Ekspans(copy.deepcopy(table)).play()
@@ -130,23 +129,23 @@ class Generate:
                 id = Idealna(copy.deepcopy(table)).play()
                 packing(idealna, id)
 
-            path = "C:\\Users\\Public\\score_DeckOfCard" + str(numberTalii) + "_" + str(datetime.date.today()) + ".txt"
+        path = "C:\\Users\\Public\\score_DeckOfCard" + str(numberTalii) + "_series" + str(series) + "_" + str(datetime.date.today()) + ".txt"
 
-            f = open(path, "w+")
-            f.write(str(eksp) + "\n")
-            f.write(str(banks) + "\n")
-            f.write(str(hilows) + "\n")
-            f.write(str(int) + "\n")
-            f.write(str(krupier) + "\n")
-            f.write(str(neverbust) + "\n")
-            f.write(str(prawdopodobna) + "\n")
-            f.write(str(przelampasse) + "\n")
-            f.write(str(przetrzymajpasse) + "\n")
-            f.write(str(zalezna) + "\n")
-            f.write(str(podstaw) + "\n")
-            f.write(str(passing) + "\n")
-            f.write(str(idealna) + "\n")
-            f.close()
+        f = open(path, "w+")
+        f.write(str(eksp) + "\n")
+        f.write(str(banks) + "\n")
+        f.write(str(hilows) + "\n")
+        f.write(str(int) + "\n")
+        f.write(str(krupier) + "\n")
+        f.write(str(neverbust) + "\n")
+        f.write(str(prawdopodobna) + "\n")
+        f.write(str(przelampasse) + "\n")
+        f.write(str(przetrzymajpasse) + "\n")
+        f.write(str(zalezna) + "\n")
+        f.write(str(podstaw) + "\n")
+        f.write(str(passing) + "\n")
+        f.write(str(idealna) + "\n")
+        f.close()
 
 
 def packing(score: Score, list: []):

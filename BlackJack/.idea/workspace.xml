@@ -3,29 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="7f20ec02-2cfb-4f1a-87ad-7d3b98b4b95c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/WynikizIdealna.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../DOC/wyniki/WynikizIdealna.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../DOC/wyniki/bez idealnej/Wyniki.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../DOC/wyniki/bez idealnej/Wyniki.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/1Talie/#Intuicyjna ma blackjacki.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/1Talie/score_10_2018-12-02 #Krupierska wyszła na plus.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/1Talie/score_series10_DeckOfCard1_2018-12-14.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/1Talie/score_series1_2018-12-11#wszystkie na minus.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/1Talie/score_series1_2018-12-12.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/1Talie/score_series1_2018-12-13#przelam passe = idealna.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/1Talie/score_series1_2018-12-13.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/1Talie/score_series1_DeckOfCard1_2018-12-13.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/1Talie/score_series1_DeckOfCard1_2018-12-14.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/2Talie/score_series10_DeckOfCard2_2018-12-14.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/2Talie/score_series1_DeckOfCard2_2018-12-13.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/2Talie/score_series1_DeckOfCard2_2018-12-15.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/3Talie/1545174713_1_DeckOfCard3_2018-12-19.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/3Talie/1545178412_1_DeckOfCard3_2018-12-19.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/3Talie/1545199566_2_DeckOfCard3_2018-12-19.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/3Talie/1545203493_1_DeckOfCard3_2018-12-19.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/3Talie/1545204616_1_DeckOfCard3_2018-12-19.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/3Talie/1545204622_1_DeckOfCard3_2018-12-19.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/3Talie/score_series1_DeckOfCard3_2018-12-14.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/3Talie/score_series1_DeckOfCard3_2018-12-16.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/wykorzystane dane/3Talie/score_series1_DeckOfCard3_2018-12-17.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/bez idealnej/score_DeckOfCard1_2018-12-31.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/bez idealnej/score_DeckOfCard2_2018-12-31.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/bez idealnej/score_DeckOfCard3_2018-12-31.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/bez idealnej/score_DeckOfCard4_2018-12-31.txt" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,7 +17,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/BlackJack$blackjack.coverage" NAME="blackjack Coverage Results" MODIFIED="1546254724624" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/BlackJack$generate_data.coverage" NAME="generate_data Coverage Results" MODIFIED="1546247202890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blackjack/strategy" />
+    <SUITE FILE_PATH="coverage/BlackJack$generate_data.coverage" NAME="generate_data Coverage Results" MODIFIED="1546381851379" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blackjack/strategy" />
     <SUITE FILE_PATH="coverage/Omega_Black_JAck$blackjack.coverage" NAME="blackjack Coverage Results" MODIFIED="1543071883303" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BlackJack$idealna.coverage" NAME="idealna Coverage Results" MODIFIED="1543850929555" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blackjack/strategy" />
   </component>
@@ -92,12 +74,12 @@
     <session id="-1693860771">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="19" />
+          <entry key="project.closed" value="21" />
           <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.15" value="3" />
           <entry key="project.open.time.16" value="1" />
-          <entry key="project.open.time.17" value="3" />
+          <entry key="project.open.time.17" value="4" />
           <entry key="project.open.time.18" value="3" />
           <entry key="project.open.time.19" value="3" />
           <entry key="project.open.time.20" value="2" />
@@ -105,14 +87,14 @@
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.47" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="22" />
+          <entry key="project.opened" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="8" />
           <entry key="md" value="312" />
-          <entry key="py" value="16527" />
+          <entry key="py" value="16559" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -120,7 +102,7 @@
           <entry key="JavaScript" value="4" />
           <entry key="Markdown" value="308" />
           <entry key="PLAIN_TEXT" value="8" />
-          <entry key="Python" value="16527" />
+          <entry key="Python" value="16559" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -145,35 +127,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/blackjack/strategy/generate_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1322">
-              <caret line="160" column="26" selection-start-line="160" selection-start-column="26" selection-end-line="160" selection-end-column="26" />
+            <state relative-caret-position="736">
+              <caret line="159" column="26" selection-start-line="159" selection-start-column="26" selection-end-line="159" selection-end-column="26" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
-                <marker date="1546247202774" expanded="true" signature="903:908" ph="..." />
-                <marker date="1546247202774" expanded="true" signature="3776:3782" ph="..." />
-                <marker date="1546247202774" expanded="true" signature="3958:3959" ph="..." />
+                <marker date="1546381838132" expanded="true" signature="903:908" ph="..." />
+                <marker date="1546381838132" expanded="true" signature="3776:3782" ph="..." />
+                <marker date="1546381838132" expanded="true" signature="3958:3959" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blackjack/game/decks.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/random.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="259" column="8" selection-start-line="259" selection-start-column="8" selection-end-line="259" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -242,7 +206,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
@@ -253,6 +217,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -281,7 +246,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -301,7 +265,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.blackjack">
+  <component name="RunManager" selected="Python.generate_data">
     <configuration name="blackjack" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Blackjack" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -375,8 +339,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.blackjack" />
         <item itemvalue="Python.generate_data" />
+        <item itemvalue="Python.blackjack" />
         <item itemvalue="Python.idealna" />
       </list>
     </recent_temporary>
@@ -405,14 +369,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.119936034" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12100213" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.35969663" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.35969663" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.531961" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -461,13 +424,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/blackjack/strategy/generate_data.py</url>
-          <line>91</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -940,16 +896,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blackjack/strategy/generate_data.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/random.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1322">
-          <caret line="160" column="26" selection-start-line="160" selection-start-column="26" selection-end-line="160" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-            <marker date="1546247202774" expanded="true" signature="903:908" ph="..." />
-            <marker date="1546247202774" expanded="true" signature="3776:3782" ph="..." />
-            <marker date="1546247202774" expanded="true" signature="3958:3959" ph="..." />
-          </folding>
+        <state relative-caret-position="4267">
+          <caret line="259" column="8" selection-start-line="259" selection-start-column="8" selection-end-line="259" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -960,10 +910,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/random.py">
+    <entry file="file://$PROJECT_DIR$/blackjack/strategy/generate_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="259" column="8" selection-start-line="259" selection-start-column="8" selection-end-line="259" selection-end-column="8" />
+        <state relative-caret-position="736">
+          <caret line="159" column="26" selection-start-line="159" selection-start-column="26" selection-end-line="159" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <marker date="1546381838132" expanded="true" signature="903:908" ph="..." />
+            <marker date="1546381838132" expanded="true" signature="3776:3782" ph="..." />
+            <marker date="1546381838132" expanded="true" signature="3958:3959" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
