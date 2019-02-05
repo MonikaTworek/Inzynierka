@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f20ec02-2cfb-4f1a-87ad-7d3b98b4b95c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/bez idealnej/Wyniki.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../DOC/wyniki/bez idealnej/Wyniki.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/bez idealnej/score_DeckOfCard1_2018-12-31.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/bez idealnej/score_DeckOfCard2_2018-12-31.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/bez idealnej/score_DeckOfCard3_2018-12-31.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOC/wyniki/bez idealnej/score_DeckOfCard4_2018-12-31.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blackjack/game/table.py" beforeDir="false" afterPath="$PROJECT_DIR$/blackjack/game/table.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular-client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../angular-client/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -74,10 +70,10 @@
     <session id="-1693860771">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="21" />
+          <entry key="project.closed" value="22" />
           <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.15" value="3" />
+          <entry key="project.open.time.15" value="4" />
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.17" value="4" />
           <entry key="project.open.time.18" value="3" />
@@ -87,7 +83,7 @@
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.47" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="23" />
+          <entry key="project.opened" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -370,7 +366,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12100213" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.122068234" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />

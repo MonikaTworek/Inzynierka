@@ -94,7 +94,6 @@ class Table:
 
     def begin_game(self):
         if self.phase not in ["awaiting", "end_game"]:
-            print("Not in proper phase. You cannot begin!")
             raise InvalidMove("Not in proper phase. You cannot begin game!")
         self.croupier.clear()
         self.player.clear()
@@ -122,10 +121,8 @@ class Table:
 
     def hit1(self):
         if self.phase not in ["in_game", "begin_game"]:
-            print("Not in proper phase. You cannot hit1!")
             raise InvalidMove("Not in proper phase. You cannot hit!")
         if self.player.hands1.playing is False:
-            print("Not have card. You cannot hit1!")
             raise InvalidMove("Not in proper phase")
 
         if len(self.decks.cards) < 1:
@@ -146,10 +143,8 @@ class Table:
 
     def hit2(self):
         if self.phase not in ["in_game", "begin_game"]:
-            print("Not in proper phase. You cannot hit2!")
             raise InvalidMove("Not in proper phase. You cannot hit!")
         if self.player.hands1.playing is False:
-            print("Not have caard. You cannot hit2!")
             raise InvalidMove("Hand is empty")
 
         if len(self.decks.cards) < 1:
@@ -170,7 +165,6 @@ class Table:
 
     def stand1(self):
         if self.phase not in ["in_game", "begin_game"]:
-            print("Not in proper phase. You cannot stand2!")
             raise InvalidMove("Not in proper phase. You cannot stand!")
 
         self.player.hands1.playing = False
@@ -181,7 +175,6 @@ class Table:
 
     def stand2(self):
         if self.phase not in ["in_game", "begin_game"]:
-            print("Not in proper phase. You cannot stand2!")
             raise InvalidMove("Not in proper phase. You cannot stand!")
 
         self.player.hands2.playing = False
@@ -192,7 +185,6 @@ class Table:
 
     def double_down(self):
         if self.phase is not "begin_game":
-            print("Not in proper phase. You cannot double down!")
             raise InvalidMove("Not in proper phase. You cannot double down!")
         if len(self.decks.cards) < 1:
             self.phase = "end_game"
@@ -208,16 +200,13 @@ class Table:
 
     def split(self):
         if self.phase is not "begin_game":
-            print("Not in proper phase. You cannot split!")
             raise InvalidMove("Not in proper phase. You cannot split!")
 
         first_hand, second_hand = self.player.hands
         if not (first_hand.is_empty or second_hand.is_empty):
-            print("Already did split")
             raise InvalidMove("Already did split")
 
         if first_hand.cards[0].rank != first_hand.cards[1].rank:
-            print("Cannot split cards")
             raise InvalidMove("Cannot split cards")
 
         if len(self.decks.cards) < 3:
