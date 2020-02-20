@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f20ec02-2cfb-4f1a-87ad-7d3b98b4b95c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/blackjack/game/table.py" beforeDir="false" afterPath="$PROJECT_DIR$/blackjack/game/table.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../angular-client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../angular-client/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -12,10 +12,10 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/BlackJack$blackjack.coverage" NAME="blackjack Coverage Results" MODIFIED="1546254724624" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/BlackJack$generate_data.coverage" NAME="generate_data Coverage Results" MODIFIED="1546381851379" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blackjack/strategy" />
     <SUITE FILE_PATH="coverage/Omega_Black_JAck$blackjack.coverage" NAME="blackjack Coverage Results" MODIFIED="1543071883303" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BlackJack$idealna.coverage" NAME="idealna Coverage Results" MODIFIED="1543850929555" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blackjack/strategy" />
+    <SUITE FILE_PATH="coverage/BlackJack$blackjack.coverage" NAME="blackjack Coverage Results" MODIFIED="1546254724624" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/BlackJack$generate_data.coverage" NAME="generate_data Coverage Results" MODIFIED="1546381851379" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blackjack/strategy" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -31,108 +31,30 @@
     <expand />
     <select />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="2146908486">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="8" />
-          <entry key="project.open.time.0" value="4" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.18" value="1" />
-          <entry key="project.open.time.19" value="1" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="8" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="md" value="1" />
-          <entry key="py" value="9" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="Markdown" value="1" />
-          <entry key="Python" value="9" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="py" value="54" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="Python" value="54" />
-        </counts>
-      </usages-collector>
-    </session>
-    <session id="-1693860771">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="22" />
-          <entry key="project.open.time.0" value="2" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.15" value="4" />
-          <entry key="project.open.time.16" value="1" />
-          <entry key="project.open.time.17" value="4" />
-          <entry key="project.open.time.18" value="3" />
-          <entry key="project.open.time.19" value="3" />
-          <entry key="project.open.time.20" value="2" />
-          <entry key="project.open.time.31" value="1" />
-          <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.47" value="1" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="24" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="dummy" value="8" />
-          <entry key="md" value="312" />
-          <entry key="py" value="16559" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JavaScript" value="4" />
-          <entry key="Markdown" value="308" />
-          <entry key="PLAIN_TEXT" value="8" />
-          <entry key="Python" value="16559" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="JavaScript-modules-diagram/D:/repository/Inzynierka/BlackJack" value="1" />
-          <entry key="JavaScript-modules-diagram/D:/repository/Inzynierka/BlackJack/blackjack/strategy" value="1" />
-          <entry key="Python/#D:/repository/Inzynierka/BlackJack/blackjack" value="2" />
-          <entry key="Python/#D:/repository/Inzynierka/BlackJack/blackjack/game" value="5" />
-          <entry key="Python/#D:/repository/Inzynierka/BlackJack/blackjack/strategy" value="2" />
-          <entry key="md" value="3" />
-          <entry key="py" value="216" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="Markdown" value="3" />
-          <entry key="Python" value="214" />
-          <entry key="UML" value="13" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/blackjack/strategy/generate_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="736">
-              <caret line="159" column="26" selection-start-line="159" selection-start-column="26" selection-end-line="159" selection-end-column="26" />
+            <state relative-caret-position="-726">
+              <caret line="73" column="60" selection-start-line="73" selection-start-column="48" selection-end-line="73" selection-end-column="60" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
                 <marker date="1546381838132" expanded="true" signature="903:908" ph="..." />
                 <marker date="1546381838132" expanded="true" signature="3776:3782" ph="..." />
                 <marker date="1546381838132" expanded="true" signature="3958:3959" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blackjack/server.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="59" column="17" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -196,12 +118,6 @@
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="width" value="1400" />
@@ -213,7 +129,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -242,6 +157,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -351,8 +267,14 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1541192369320</updated>
+      <workItem from="1557893056849" duration="260000" />
+      <workItem from="1582105424521" duration="7000" />
+      <workItem from="1582106024131" duration="56000" />
     </task>
     <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="323000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -366,7 +288,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.122068234" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13166311" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -414,9 +336,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -878,20 +797,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blackjack/server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-884">
-          <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blackjack.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/random.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4267">
@@ -906,10 +811,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/blackjack.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blackjack/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="59" column="17" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/blackjack/strategy/generate_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
-          <caret line="159" column="26" selection-start-line="159" selection-start-column="26" selection-end-line="159" selection-end-column="26" />
+        <state relative-caret-position="-726">
+          <caret line="73" column="60" selection-start-line="73" selection-start-column="48" selection-end-line="73" selection-end-column="60" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
             <marker date="1546381838132" expanded="true" signature="903:908" ph="..." />
