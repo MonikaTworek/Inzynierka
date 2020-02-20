@@ -1,6 +1,6 @@
 # Inzynierka
 
-![alt text](https://user-images.githubusercontent.com/23744531/74829652-cac9e580-5311-11ea-9d40-ee25ae85d749.jpg)
+![alt text](https://user-images.githubusercontent.com/23744531/74947494-3a67cf80-53fb-11ea-97c9-b9bcfbe805f1.jpg)
 
 Aplikacja desktopowa umożliwiająca grę w BlackJacka przeciw krupierowi. W ramach aplikacji badane są różne strategie gry i pozwala graczowi odnieść do ich wyników uzyskany przez siebie wynik. 
 
